@@ -1,0 +1,20 @@
+{
+  "slug": "clash-verge-rev-merge-script-advanced",
+  "title": {
+    "zh": "Clash Verge Rev 扩展配置脚本（Script/Merge）进阶：自动化规则追加与第三方规则集整合",
+    "en": "Clash Verge Rev Script & Merge Extensibility: Automated Rule Preprocessing & Third-Party Rule-Set Integration"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "Clash Verge 极客调优",
+    "en": "Clash Verge Rev Geek Tuning"
+  },
+  "description": {
+    "zh": "探索 Clash Verge Rev 的扩展配置（Merge 与 JavaScript Script）高级特性。教你如何用代码在机场订阅更新时自动追加自定义分流规则、注入企业级 DNS、重写策略组并无缝集成 Loyalsoldier 等第三方规则集。",
+    "en": "Master advanced profile preprocessing in Clash Verge Rev using YAML Merge and JavaScript extension scripts. Learn how to automatically inject custom proxy groups, DNS servers, and third-party rule providers upon subscription refresh."
+  }
+}

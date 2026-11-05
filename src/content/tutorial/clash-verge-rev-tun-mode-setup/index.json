@@ -1,0 +1,20 @@
+{
+  "slug": "clash-verge-rev-tun-mode-setup",
+  "title": {
+    "zh": "Clash Verge Rev TUN 模式与虚拟网卡深度调优：绕过系统代理实现终端命令与游戏全局接管",
+    "en": "Clash Verge Rev TUN Mode & Virtual NIC Tuning: Bypassing System Proxy for Full CLI & Gaming Capture"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "Clash Verge 极客调优",
+    "en": "Clash Verge Rev Geek Tuning"
+  },
+  "description": {
+    "zh": "深入剖析 Clash Verge Rev 原生 TUN 虚拟网卡接管原理。详解 Windows Wintun 与 macOS utun 驱动安装、Fake-IP 智能解析、终端命令行（Git/SSH/Docker）免配代理与外服游戏联机低延迟优化。",
+    "en": "Comprehensive guide to configuring native TUN virtual network interface mode in Clash Verge Rev. Learn how Wintun and utun drivers capture OSI Layer 3 traffic for terminal tools, Docker, and gaming without manual proxy settings."
+  }
+}

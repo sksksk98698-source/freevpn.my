@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "速界",
+    "en": "SpeedWorld"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/benchmarks/速界-节点测速实测.png",
+  "imageAlt": {
+    "zh": "速界 节点评测与速度图谱",
+    "en": "SpeedWorld speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "智能专线 / Shadowsocks",
+    "en": "Smart Dedicated / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "速界将重心放在了海外主流生态的完整解锁上，无论是 ChatGPT、Claude 还是 Netflix、Disney+ 均能获得原生 IP 的解锁待遇。",
+    "en": "SpeedWorld is a high-performance cross-border proxy provider. Featuring Smart Dedicated / Shadowsocks, Gigabit Global Exit, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥19/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://guangs.speedworldaff.cc/#/register?code=xgXzEfZB",
+  "promoCode": "sss1111",
+  "lowestPrice": "¥19/月",
+  "trafficInfo": "120GB/月",
+  "speedtestImage": "/images/benchmarks/速界-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 19
+}

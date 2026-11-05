@@ -1,67 +1,414 @@
 ---
-/** Artists index with a tab for Estates. */
+/** Artists index: comprehensive Client Hub and Selection Guide. */
 import MainLayout from "@layouts/MainLayout.astro";
 import Navbar from "@sections/Chrome/Navbar.astro";
 import Footer from "@sections/Chrome/Footer.astro";
-import ArtistRow from "@sections/Artists/ArtistRow.astro";
-import { useUI, type Locale } from "@/i18n";
+import ClientCard from "@sections/Artists/ClientCard.astro";
+import type { Locale } from "@/i18n";
 import { getArtists } from "@utils/content";
+import { localizePath } from "@/i18n/config";
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const t = useUI(locale);
 const { living: artists, estates } = await getArtists(locale);
+
+const pillarHref = localizePath(
+  locale,
+  "/exhibitions/thresholds-of-perception",
+);
+const speedHref = localizePath(locale, "/exhibitions/echoes-of-stillness");
+const guangsuHref = localizePath(locale, "/artworks/guangsu-cloud");
 ---
 
 <MainLayout
   locale={locale}
-  title={t.artists.title}
-  description={t.artists.description}
+  title={
+    locale === "en"
+      ? "Proxy Client Ecosystem & Setup Guides"
+      : "主流代理客户端全景指南与生态中心"
+  }
+  description={
+    locale === "en"
+      ? "Comprehensive guide covering Windows, macOS, iOS, Android, and Linux proxy clients including Clash Verge Rev, Shadowrocket, v2rayN, and Sing-box."
+      : "全景收录 Windows / macOS / iOS / Android / Linux 主流代理客户端（Clash Verge Rev、Shadowrocket小火箭、v2rayN、Sing-box等），提供官方下载源、协议对比与保姆级图文教程。"
+  }
 >
   <Navbar locale={locale} />
 
-  <section class="artists">
-    <h1 class="artists-tabs" role="tablist">
-      <button
-        class="artists-tab is-active"
-        role="tab"
-        aria-selected="true"
-        aria-controls="artists-list"
-      >
-        {t.artists.tabArtists}
-      </button>
-      {estates.length > 0 && (
-        <>
-          {" "}
-          <span class="artists-tabs-separator" aria-hidden="true">
-            |
-          </span>{" "}
-          <button
-            class="artists-tab"
-            role="tab"
-            aria-selected="false"
-            aria-controls="estates-list"
-          >
-            {t.artists.tabEstates}
-          </button>
-        </>
-      )}
-    </h1>
+  <section class="client-hub">
+    <!-- Header Hero -->
+    <header class="hub-header">
+      <div class="hub-breadcrumb">
+        <a href={localizePath(locale, "/")}>
+          {locale === "en" ? "Home" : "首页"}
+        </a>
+        <span class="sep">/</span>
+        <span>{locale === "en" ? "Proxy Clients" : "代理客户端中心"}</span>
+      </div>
+      <h1 class="hub-title">
+        {locale === "en"
+          ? "2026 Proxy Client Ecosystem & Setup Guides"
+          : "2026 全平台主流代理客户端官方指南与生态中心"}
+      </h1>
+      <p class="hub-desc">
+        {locale === "en"
+          ? "A carefully vetted directory of open-source and native proxy applications for Windows, macOS, iOS, Android, and Linux. Choose the optimal client for your device, configure smart routing rules, and achieve reliable, system-wide network acceleration."
+          : "严格筛选 Windows、macOS、iOS、Android 与 Linux 平台的主流开源与原生代理软件。从轻量日常出海、海外 AI 生产力工具加速，到外服电竞低延迟联机与终端命令行接管，为您提供最权威的选型参考与保姆级图文配置指南。"}
+      </p>
+
+      <!-- Quick stats bar -->
+      <div class="hub-stats-bar">
+        <div class="hub-stat-item">
+          <span class="hub-stat-num">7 款</span>
+          <span class="hub-stat-label">主流客户端收录</span>
+        </div>
+        <div class="hub-stat-divider"></div>
+        <div class="hub-stat-item">
+          <span class="hub-stat-num">5 大</span>
+          <span class="hub-stat-label">操作系统全覆盖</span>
+        </div>
+        <div class="hub-stat-divider"></div>
+        <div class="hub-stat-item">
+          <span class="hub-stat-num">100%</span>
+          <span class="hub-stat-label">开源安全核验</span>
+        </div>
+        <div class="hub-stat-divider"></div>
+        <div class="hub-stat-item">
+          <span class="hub-stat-num">0 广告</span>
+          <span class="hub-stat-label">纯净分流体验</span>
+        </div>
+      </div>
+    </header>
+
     <hr class="section-rule" />
-    <div class="artists-lists">
-      <ul class="artists-list" id="artists-list" role="tabpanel">
+
+    <!-- Main Client Cards Grid -->
+    <section class="hub-cards-section">
+      <h2 class="sub-heading">
+        {locale === "en" ? "Featured Clients Directory" : "精选主流客户端矩阵"}
+      </h2>
+      <ul class="client-grid">
         {artists.map((artist) => (
-          <ArtistRow artist={artist} />
+          <ClientCard artist={artist} locale={locale} />
         ))}
       </ul>
-      <ul class="artists-list" id="estates-list" role="tabpanel" hidden>
-        {estates.map((artist) => (
-          <ArtistRow artist={artist} />
-        ))}
-      </ul>
+    </section>
+
+    <!-- Lab Testing Group -->
+    {estates.length > 0 && (
+      <section class="hub-lab-section">
+        <h2 class="sub-heading">
+          {locale === "en"
+            ? "Independent Benchmark Lab"
+            : "独立评测与基准实验室"}
+        </h2>
+        <ul class="client-grid client-grid-single">
+          {estates.map((artist) => (
+            <ClientCard artist={artist} locale={locale} />
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Comparison Table Section -->
+    <section class="hub-table-section">
+      <div class="section-header-row">
+        <div>
+          <h2 class="sub-heading">
+            {locale === "en"
+              ? "Client Feature Comparison Matrix"
+              : "全平台主流客户端横向特性对比表"}
+          </h2>
+          <p class="table-sub-desc">
+            {locale === "en"
+              ? "Comprehensive comparison across supported platforms, underlying core engines, TUN interface modes, and recommended use cases."
+              : "深入比对各大客户端在底层内核、TUN 虚拟网卡接管、现代协议（VLESS / Reality / Hysteria 2）兼容性及适用场景的差异。"}
+          </p>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>客户端名称</th>
+              <th>主力适用平台</th>
+              <th>底层核心引擎</th>
+              <th>TUN 虚拟网卡</th>
+              <th>现代协议支持</th>
+              <th>核心适用场景</th>
+              <th>图文配置教程</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong>Clash Verge Rev</strong>
+              </td>
+              <td>Windows / macOS / Linux</td>
+              <td>Mihomo (Clash.Meta)</td>
+              <td>
+                <span class="tag-green">原生一键开启</span>
+              </td>
+              <td>VLESS, Reality, Trojan, Hysteria 2</td>
+              <td>电脑桌面办公、学术科研首选</td>
+              <td>
+                <a
+                  href={localizePath(
+                    locale,
+                    "/workshops/contemporary-painting-techniques",
+                  )}
+                  class="table-link"
+                >
+                  保姆级教程 →
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Shadowrocket 小火箭</strong>
+              </td>
+              <td>iOS / iPadOS</td>
+              <td>自研高性能移动核心</td>
+              <td>
+                <span class="tag-green">系统级 VPN 隧道</span>
+              </td>
+              <td>SS, VMess, VLESS, Trojan, TUIC</td>
+              <td>iPhone / iPad 移动出海第一神器</td>
+              <td>
+                <a
+                  href={localizePath(
+                    locale,
+                    "/workshops/digital-art-and-traditional-media",
+                  )}
+                  class="table-link"
+                >
+                  避坑指南 →
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>v2rayN 7.x</strong>
+              </td>
+              <td>Windows</td>
+              <td>Xray / sing-box 双核心</td>
+              <td>
+                <span class="tag-green">wintun 驱动支持</span>
+              </td>
+              <td>VLESS XTLS-Reality, Trojan</td>
+              <td>开发者、极客及外服电竞低延迟</td>
+              <td>
+                <a
+                  href={localizePath(
+                    locale,
+                    "/workshops/exploring-abstract-art-a-hands-on-workshop",
+                  )}
+                  class="table-link"
+                >
+                  进阶教程 →
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Sing-box</strong>
+              </td>
+              <td>全平台 (Win/Mac/Linux/iOS/Android)</td>
+              <td>sing-box 原生 (Go 零拷贝)</td>
+              <td>
+                <span class="tag-green">全平台极速 TUN</span>
+              </td>
+              <td>Shadowsocks 2022, TUIC v5</td>
+              <td>追求极低内存与全协议极客</td>
+              <td>
+                <a
+                  href={localizePath(
+                    locale,
+                    "/workshops/exploring-abstract-art-a-hands-on-workshop",
+                  )}
+                  class="table-link"
+                >
+                  核心配置 →
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>FlClash</strong>
+              </td>
+              <td>Android / Windows / macOS</td>
+              <td>Clash.Meta 内核</td>
+              <td>
+                <span class="tag-green">支持</span>
+              </td>
+              <td>全主流协议覆盖</td>
+              <td>Material Design 3 现代颜值党</td>
+              <td>
+                <a
+                  href={localizePath(
+                    locale,
+                    "/workshops/contemporary-painting-techniques",
+                  )}
+                  class="table-link"
+                >
+                  快速上手 →
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Hiddify</strong>
+              </td>
+              <td>全平台通用</td>
+              <td>sing-box 驱动</td>
+              <td>
+                <span class="tag-green">自适应 TUN</span>
+              </td>
+              <td>30+ 种协议自适应</td>
+              <td>零门槛小白、一键导入防封锁</td>
+              <td>
+                <a
+                  href={localizePath(
+                    locale,
+                    "/workshops/contemporary-painting-techniques",
+                  )}
+                  class="table-link"
+                >
+                  使用指引 →
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Golden Rules for Client Selection -->
+    <section class="hub-rules-section">
+      <h2 class="sub-heading">
+        {locale === "en"
+          ? "Four Golden Rules for Client Selection"
+          : "客户端选型与配置四大黄金法则"}
+      </h2>
+      <div class="rules-grid">
+        <div class="rule-card">
+          <div class="rule-num">01</div>
+          <h3 class="rule-title">按设备生态对号入座</h3>
+          <p class="rule-desc">
+            电脑桌面端优先选择 <strong>Clash Verge Rev</strong>
+            ，内存占用低且分流直观；iPhone / iPad 优先在美区 App Store 购买{" "}
+            <strong>Shadowrocket（小火箭）</strong>；追求外服游戏加速选{" "}
+            <strong>v2rayN + Sing-box</strong>。
+          </p>
+        </div>
+        <div class="rule-card">
+          <div class="rule-num">02</div>
+          <h3 class="rule-title">严禁长期开启“全局代理”</h3>
+          <p class="rule-desc">
+            务必将代理模式选择为 <strong>“规则（Rule）”</strong>{" "}
+            模式。这样国内网站（微信、百度、淘宝、B站）自动直连，不消耗机场流量且保护隐私，仅国外受阻网站走高速专线。
+          </p>
+        </div>
+        <div class="rule-card">
+          <div class="rule-num">03</div>
+          <h3 class="rule-title">命令行与游戏务必开启 TUN 模式</h3>
+          <p class="rule-desc">
+            普通系统代理只对遵循系统 HTTP 代理的浏览器生效。如果需要加速{" "}
+            <code>git clone</code>、Docker、外服 Steam
+            游戏或终端脚本，必须在客户端中开启 <strong>TUN 虚拟网卡模式</strong>
+            。
+          </p>
+        </div>
+        <div class="rule-card">
+          <div class="rule-num">04</div>
+          <h3 class="rule-title">选配顶级物理专线，杜绝测速虚标</h3>
+          <p class="rule-desc">
+            再好的客户端也需要稳定的物理专线支撑。推荐搭配本站实测第一名{" "}
+            <a href={guangsuHref} class="link-underline">
+              光速云 2.5Gbps IEPL 专线
+            </a>
+            （¥99/年 或 147 永久套餐，优惠码 <code>AMM</code>），享受晚高峰 0
+            丢包体验。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="hub-faq-section">
+      <h2 class="sub-heading">
+        {locale === "en"
+          ? "Frequently Asked Questions"
+          : "客户端常见疑难故障排查 (FAQ)"}
+      </h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-question">
+            Q1：安装客户端时 Windows Defender 或火绒报毒拦截怎么办？
+          </h3>
+          <p class="faq-answer">
+            开源代理客户端通常需要安装 TUN
+            虚拟网卡驱动或注入系统代理钩子，容易触发安全软件的启发式扫描误报。只要确认是从本站提供的官方
+            GitHub 仓库下载的纯净版本，即可在安全软件中添加信任或白名单放行。
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">
+            Q2：开启客户端后，浏览器可以打开
+            Google，但微信/国内网页变卡甚至打不开？
+          </h3>
+          <p class="faq-answer">
+            这是因为错误开启了“全局代理
+            (Global)”模式，导致所有国内数据包绕道海外节点再回国。请立即在客户端面板将运行模式切换为{" "}
+            <strong>“规则 (Rule)”</strong> 模式，并检查 GEOIP / GEOSITE
+            数据库是否已更新为最新版本。
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">
+            Q3：为什么导入订阅后进行节点测速，全部显示“Timeout 超时”？
+          </h3>
+          <p class="faq-answer">
+            默认的测速地址通常为
+            Google，如果本地运营商在握手阶段进行了干扰，会被客户端误判为超时。建议在客户端设置中将测试
+            URL 更改为 <code>https://cp.cloudflare.com/generate_204</code> 或{" "}
+            <code>http://www.gstatic.com/generate_204</code>。
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">
+            Q4：客户端崩溃或异常关机后，电脑彻底断网无法访问任何网页？
+          </h3>
+          <p class="faq-answer">
+            这是因为系统代理注册表未被正常注销。打开 Windows【设置】➔【网络和
+            Internet】➔【代理】➔ 关闭【使用代理服务器】开关，或者重新启动一次
+            Clash Verge Rev 并通过系统托盘正常点击“退出”即可恢复网络。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-links banner -->
+    <div class="hub-banner">
+      <div class="hub-banner-content">
+        <h3>探索更多深度评测与网络安全真相</h3>
+        <p>
+          客户端仅是网络调度的桥梁。深入了解劣质代理的数据贩卖内幕、42
+          家机场晚高峰测速天梯以及 4K 原生解锁矩阵：
+        </p>
+      </div>
+      <div class="hub-banner-actions">
+        <a href={pillarHref} class="btn-banner-primary">
+          旗舰支柱总览指南 →
+        </a>
+        <a href={speedHref} class="btn-banner-secondary">
+          17 家晚高峰测速天梯 →
+        </a>
+      </div>
     </div>
   </section>
 
@@ -69,79 +416,357 @@ const { living: artists, estates } = await getArtists(locale);
 </MainLayout>
 
 <style>
-  .artists {
-    margin-top: calc(120 * var(--unit-fx));
-    margin-bottom: calc(300 * var(--unit-fx));
+  .client-hub {
+    margin-top: calc(100 * var(--unit-fx));
+    margin-bottom: calc(150 * var(--unit-fx));
     padding-inline: var(--gutter);
   }
 
-  .artists-tabs {
-    font-weight: 300;
-    font-size: calc(25 * var(--unit-type));
+  .hub-header {
+    margin-bottom: calc(40 * var(--unit-fx));
+    max-width: calc(1100 * var(--unit-fx));
   }
 
-  .artists-tab {
-    opacity: 0.5;
-    transition: opacity var(--transition-base);
-    font-weight: 300;
+  .hub-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: calc(8 * var(--unit-fx));
+    opacity: 0.75;
+    margin-bottom: calc(15 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
   }
 
-  .artists-tab:hover {
-    opacity: 0.7;
+  .hub-breadcrumb a {
+    transition: color var(--transition-fast);
+    color: inherit;
+    text-decoration: none;
   }
 
-  .artists-tab.is-active {
-    opacity: 1;
+  .hub-breadcrumb a:hover {
+    color: var(--color-text-primary);
   }
 
-  .artists-tabs-separator {
+  .hub-breadcrumb .sep {
     color: var(--color-divider);
   }
 
-  .artists-lists {
-    margin-block: calc(50 * var(--unit-fx));
+  .hub-title {
+    margin-bottom: calc(20 * var(--unit-fx));
+    font-weight: 300;
+    font-size: calc(52 * var(--unit-type));
+    line-height: 1.15;
+    font-family: var(--font-baskervville);
+    letter-spacing: -0.01em;
   }
 
-  .artists-list {
-    position: relative;
+  .hub-desc {
+    opacity: 0.85;
+    margin-bottom: calc(30 * var(--unit-fx));
+    max-width: calc(950 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(16 * var(--unit-type));
+    line-height: 1.7;
+  }
+
+  .hub-stats-bar {
+    display: flex;
+    align-items: center;
+    gap: calc(30 * var(--unit-fx));
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius);
+    background-color: var(--color-bg-overlay);
+    padding: calc(18 * var(--unit-fx)) calc(30 * var(--unit-fx));
+    max-width: fit-content;
+  }
+
+  .hub-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(4 * var(--unit-fx));
+  }
+
+  .hub-stat-num {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(24 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .hub-stat-label {
+    opacity: 0.65;
+    color: var(--color-text-primary);
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .hub-stat-divider {
+    background-color: var(--color-divider);
+    width: 1px;
+    height: calc(30 * var(--unit-fx));
+  }
+
+  .sub-heading {
+    margin-bottom: calc(25 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 300;
+    font-size: calc(32 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .hub-cards-section,
+  .hub-lab-section,
+  .hub-table-section,
+  .hub-rules-section,
+  .hub-faq-section {
+    margin-block: calc(80 * var(--unit-fx));
+  }
+
+  .client-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: calc(30 * var(--unit-fx));
+    margin: 0;
+    padding: 0;
     list-style: none;
   }
 
-  .artists-list :global(.artist-row:last-child) {
-    padding-bottom: calc(150 * var(--unit-fx));
+  .client-grid-single {
+    grid-template-columns: 1fr;
   }
 
-  @media screen and (max-width: 600px) {
-    .artists-lists {
-      margin-block: calc(25 * var(--unit-fx));
+  /* Table styling */
+  .table-container {
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius);
+    background-color: var(--color-bg-primary);
+    overflow-x: auto;
+  }
+
+  .comparison-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: calc(14 * var(--unit-type));
+    text-align: left;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    border-bottom: 1px solid var(--color-divider);
+    padding: calc(16 * var(--unit-fx)) calc(20 * var(--unit-fx));
+  }
+
+  .comparison-table th {
+    background-color: var(--color-bg-overlay);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .comparison-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .tag-green {
+    display: inline-block;
+    border-radius: calc(4 * var(--unit-fx));
+    background-color: rgba(34, 197, 94, 0.1);
+    padding: calc(2 * var(--unit-fx)) calc(8 * var(--unit-fx));
+    color: #16a34a;
+    font-weight: 500;
+    font-size: calc(11 * var(--unit-type));
+  }
+
+  .table-link {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: calc(3 * var(--unit-fx));
+  }
+
+  .table-sub-desc {
+    opacity: 0.75;
+    margin-bottom: calc(20 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(14 * var(--unit-type));
+  }
+
+  /* Golden rules */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: calc(25 * var(--unit-fx));
+  }
+
+  .rule-card {
+    box-shadow: 0 calc(4 * var(--unit-fx)) calc(16 * var(--unit-fx))
+      rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius);
+    background-color: var(--color-bg-primary);
+    padding: calc(25 * var(--unit-fx));
+  }
+
+  .rule-num {
+    opacity: 0.3;
+    margin-bottom: calc(10 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(36 * var(--unit-type));
+    line-height: 1;
+    font-family: var(--font-baskervville);
+  }
+
+  .rule-title {
+    margin-bottom: calc(10 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(18 * var(--unit-type));
+  }
+
+  .rule-desc {
+    opacity: 0.8;
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  /* FAQ */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: calc(20 * var(--unit-fx));
+  }
+
+  .faq-item {
+    box-shadow: 0 calc(4 * var(--unit-fx)) calc(16 * var(--unit-fx))
+      rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius);
+    background-color: var(--color-bg-primary);
+    padding: calc(24 * var(--unit-fx));
+  }
+
+  .faq-question {
+    margin-bottom: calc(10 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(17 * var(--unit-type));
+  }
+
+  .faq-answer {
+    opacity: 0.85;
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: calc(14 * var(--unit-type));
+    line-height: 1.7;
+  }
+
+  /* Banner */
+  .hub-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(40 * var(--unit-fx));
+    margin-top: calc(80 * var(--unit-fx));
+    border-radius: var(--radius);
+    background-color: var(--color-text-primary);
+    padding: calc(40 * var(--unit-fx)) calc(50 * var(--unit-fx));
+    color: var(--color-bg-primary);
+  }
+
+  .hub-banner-content h3 {
+    margin-bottom: calc(8 * var(--unit-fx));
+    font-weight: 300;
+    font-size: calc(24 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .hub-banner-content p {
+    opacity: 0.8;
+    margin: 0;
+    max-width: calc(650 * var(--unit-fx));
+    font-size: calc(14 * var(--unit-type));
+  }
+
+  .hub-banner-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: calc(15 * var(--unit-fx));
+  }
+
+  .btn-banner-primary,
+  .btn-banner-secondary {
+    display: inline-block;
+    transition: opacity var(--transition-fast);
+    border-radius: calc(100 * var(--unit-fx));
+    padding: calc(12 * var(--unit-fx)) calc(24 * var(--unit-fx));
+    font-weight: 500;
+    font-size: calc(13 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .btn-banner-primary {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+  }
+
+  .btn-banner-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: transparent;
+    color: var(--color-bg-primary);
+  }
+
+  .btn-banner-primary:hover,
+  .btn-banner-secondary:hover {
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .client-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .artists-list :global(.artist-row:last-child) {
-      padding-bottom: 0;
+    .rules-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hub-banner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .client-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .rules-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hub-title {
+      font-size: calc(36 * var(--unit-type));
+    }
+
+    .hub-stats-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: calc(15 * var(--unit-fx));
+    }
+
+    .hub-stat-divider {
+      display: none;
+    }
+
+    .hub-banner-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-banner-primary,
+    .btn-banner-secondary {
+      text-align: center;
     }
   }
 </style>
-
-<script>
-  const tabs = document.querySelectorAll<HTMLButtonElement>(".artists-tab");
-  const key = `artists-tab:${location.pathname}`;
-
-  function activate(id: string) {
-    tabs.forEach((tab) => {
-      const active = tab.getAttribute("aria-controls") === id;
-      tab.classList.toggle("is-active", active);
-      tab.setAttribute("aria-selected", String(active));
-      const panel = document.getElementById(tab.getAttribute("aria-controls")!);
-      if (panel) panel.hidden = !active;
-    });
-    sessionStorage.setItem(key, id);
-  }
-
-  tabs.forEach((tab) =>
-    tab.addEventListener("click", () =>
-      activate(tab.getAttribute("aria-controls")!),
-    ),
-  );
-  const saved = sessionStorage.getItem(key);
-  if (saved && document.getElementById(saved)) activate(saved);
-</script>

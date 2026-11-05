@@ -179,39 +179,6 @@ export function articleSchema(
   };
 }
 
-export interface TemplateFacts {
-  name: string;
-  description: string;
-  version: string;
-  repositoryHref: string;
-  imageSrc?: string;
-}
-
-/** The template itself, as a free piece of software built on Astro. */
-export function templateSchema(
-  page: PageContext,
-  facts: TemplateFacts,
-): WithContext<Thing> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "@id": page.url.href,
-    url: page.url.href,
-    name: facts.name,
-    description: facts.description,
-    applicationCategory: "DeveloperApplication",
-    applicationSubCategory: "Website template",
-    operatingSystem: "Any",
-    softwareVersion: facts.version,
-    license: "https://opensource.org/licenses/MIT",
-    isAccessibleForFree: true,
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    sameAs: [facts.repositoryHref],
-    image: facts.imageSrc ? absolute(facts.imageSrc, page.site) : undefined,
-    inLanguage: localeTags[page.locale],
-  };
-}
-
 // ---------------------------------------------------------------- page meta
 
 /**
@@ -292,22 +259,75 @@ export function articleMeta(
   };
 }
 
-export function templateMeta(
-  page: PageContext,
-  title: string,
-  facts: TemplateFacts,
-): PageMeta {
-  return {
-    title,
-    description: facts.description,
-    schema: templateSchema(page, facts),
-  };
-}
-
 /** The About page is described by the first paragraph of its intro, without markup. */
 export function aboutMeta(title: string, introHtml: string): PageMeta {
   return {
     title,
     description: paragraphs(introHtml.replace(/<[^>]+>/g, ""))[0],
+  };
+}
+
+export function homeSchema(
+  page: PageContext,
+  site: Pick<SiteIdentity, "name" | "description">,
+): WithContext<Thing> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": page.site.href,
+    url: page.site.href,
+    name: site.name,
+    description: site.description,
+    inLanguage: localeTags[page.locale],
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: page.site.href,
+      logo: {
+        "@type": "ImageObject",
+        url: absolute("/favicon-96x96.png", page.site),
+      },
+    },
+  };
+}
+
+export function techArticleSchema(
+  page: PageContext,
+  article: {
+    title: string;
+    description: string;
+    pubDate?: string | Date;
+    author?: string;
+  },
+  site: Pick<SiteIdentity, "name">,
+): WithContext<Thing> {
+  const dateStr = article.pubDate
+    ? new Date(article.pubDate).toISOString()
+    : "2026-11-04T00:00:00.000Z";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": page.url.href,
+    headline: article.title,
+    description: article.description,
+    url: page.url.href,
+    inLanguage: localeTags[page.locale],
+    datePublished: dateStr,
+    dateModified: dateStr,
+    author: {
+      "@type": "Organization",
+      name: article.author || site.name,
+      url: page.site.href,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: page.site.href,
+      logo: {
+        "@type": "ImageObject",
+        url: absolute("/favicon-96x96.png", page.site),
+      },
+    },
   };
 }

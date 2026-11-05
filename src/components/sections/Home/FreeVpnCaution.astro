@@ -1,0 +1,246 @@
+---
+import type { Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section class="freevpn-caution" data-reveal>
+  <div class="caution-container">
+    <div class="caution-header">
+      <span class="caution-tag">
+        {locale === "zh" ? "避坑指南 · 深度科普" : "Security Guide"}
+      </span>
+      <h2 class="caution-title">
+        {locale === "zh"
+          ? "搜索「免费VPN」之前，你必须知道的 3 大安全与隐私真相"
+          : "3 Hidden Risks You Must Know Before Searching for 'Free VPN'"}
+      </h2>
+      <p class="caution-lead">
+        {locale === "zh"
+          ? "在跨国光缆租金与高防机房成本高昂的今天，「永久免费且不限流量」往往是最危险的诱饵。"
+          : "With international transit lines and datacenter bandwidth carrying high real costs, '100% permanently free' is often a costly trap."}
+      </p>
+    </div>
+
+    <div class="caution-grid">
+      <div class="caution-card">
+        <div class="card-icon">⚠️</div>
+        <h3 class="card-title">
+          {locale === "zh"
+            ? "1. 隐私倒卖与数据经纪商交易"
+            : "1. Privacy Exploitation & Log Resale"}
+        </h3>
+        <p class="card-desc">
+          {locale === "zh"
+            ? "多数免费 VPN 靠静默收集用户的真实 IP、DNS 请求、搜索记录及访问网站获利，并将这些数据转卖给广告公司或第三方分析机构，带来严重的个人隐私泄露隐患。"
+            : "Free VPNs frequently monetize by harvesting your browsing history, DNS queries, and real IP addresses to broker with advertising platforms."}
+        </p>
+      </div>
+
+      <div class="caution-card">
+        <div class="card-icon">🛑</div>
+        <h3 class="card-title">
+          {locale === "zh"
+            ? "2. 个人设备沦为“僵尸网络跳板”"
+            : "2. Devices Enlisted in Residential Botnets"}
+        </h3>
+        <p class="card-desc">
+          {locale === "zh"
+            ? "多家知名免费 VPN 软件被网络安全实验室曝光，在后台悄悄将用户的电脑与手机变成住宅出口节点，甚至被黑客用于发起 DDoS 攻击或刷单流量，用户毫不知情。"
+            : "Cybersecurity researchers have documented free VPN apps turning users' devices into residential exit nodes for commercial proxy networks and botnet relays."}
+        </p>
+      </div>
+
+      <div class="caution-card">
+        <div class="card-icon">📉</div>
+        <h3 class="card-title">
+          {locale === "zh"
+            ? "3. 晚高峰频繁断流与403封锁"
+            : "3. Severe Peak Throttling & 403 Blocks"}
+        </h3>
+        <p class="card-desc">
+          {locale === "zh"
+            ? "免费节点多为上千人共用的黑名单机房 IP，不仅晚高峰网速被限速至几十 KB/s，而且在登录 ChatGPT、Claude 或播放 Netflix 4K 时会遭遇大面积 Access Denied 报错。"
+            : "Heavily abused datacenter IPs result in constant throttling and immediate 403 Access Denied blocks on ChatGPT, Claude, and streaming services."}
+        </p>
+      </div>
+    </div>
+
+    <div class="conversion-banner">
+      <div class="conversion-text">
+        <h4 class="conversion-heading">
+          {locale === "zh"
+            ? "💡 真正安心的高性价比平替方案：每月仅需两瓶水钱"
+            : "💡 The Safe, High-Performance Alternative: Less Than a Coffee a Month"}
+        </h4>
+        <p class="conversion-desc">
+          {locale === "zh"
+            ? "推荐选用经过本站晚高峰实测检验的正规专线服务。以本站 #1 机皇【光速云】为例：轻量版年付仅需 ¥99（折合约 ¥8/月），或选择一次付费永久不过期的【致敬斯诺克147套餐】（¥147 享 247GB 永久流量）。全线采用 IEPL 企业级专线，单节点最高 2.5Gbps，使用优惠码 AMM 享专属折扣。"
+            : "Opt for verified dedicated lines tested under peak loads. Guangsu Cloud offers entry plans starting at just ¥99/year (approx. ¥8/month) or permanent Snooker 147 lifetime plans (¥147 for 247GB with zero expiry). Dedicated IEPL lines up to 2.5 Gbps."}
+        </p>
+      </div>
+      <div class="conversion-action">
+        <a
+          href="https://sahude.gsyvipaff.com/#/?code=keqgvT5Y"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          class="conversion-cta-btn"
+        >
+          <span>
+            {locale === "zh"
+              ? "获取光速云 ¥8/月 专线方案"
+              : "Get Guangsu Cloud ¥8/mo Deal"}{" "}
+            →
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .freevpn-caution {
+    margin-block: calc(80 * var(--unit-fx));
+    padding-inline: var(--gutter);
+    width: 100%;
+  }
+
+  .caution-container {
+    margin-inline: auto;
+    max-width: 1200px;
+  }
+
+  .caution-header {
+    margin-inline: auto;
+    margin-bottom: calc(48 * var(--unit-fx));
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .caution-tag {
+    display: inline-block;
+    margin-bottom: calc(8 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 700;
+    font-size: calc(12 * var(--unit-type));
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .caution-title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: calc(32 * var(--unit-type));
+    line-height: 1.25;
+    font-family: var(--font-serif);
+  }
+
+  .caution-lead {
+    opacity: 0.75;
+    margin-top: calc(12 * var(--unit-fx));
+    font-size: calc(15 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  .caution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(24 * var(--unit-fx));
+    margin-bottom: calc(48 * var(--unit-fx));
+  }
+
+  .caution-card {
+    display: flex;
+    flex-direction: column;
+    gap: calc(12 * var(--unit-fx));
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius);
+    background: var(--color-bg-overlay);
+    padding: calc(28 * var(--unit-fx));
+  }
+
+  .card-icon {
+    font-size: calc(24 * var(--unit-type));
+  }
+
+  .card-title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-weight: 700;
+    font-size: calc(17 * var(--unit-type));
+  }
+
+  .card-desc {
+    opacity: 0.8;
+    margin: 0;
+    font-size: calc(13 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  .conversion-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(32 * var(--unit-fx));
+    border-radius: var(--radius);
+    background: var(--color-bg-secondary);
+    padding: calc(32 * var(--unit-fx)) calc(40 * var(--unit-fx));
+    color: var(--color-text-secondary);
+  }
+
+  .conversion-text {
+    flex: 1;
+  }
+
+  .conversion-heading {
+    margin: 0 0 calc(8 * var(--unit-fx)) 0;
+    color: #fff;
+    font-size: calc(20 * var(--unit-type));
+    font-family: var(--font-serif);
+  }
+
+  .conversion-desc {
+    opacity: 0.85;
+    margin: 0;
+    font-size: calc(13 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  .conversion-action {
+    flex-shrink: 0;
+  }
+
+  .conversion-cta-btn {
+    display: inline-block;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+    border-radius: var(--radius);
+    background: var(--color-brand);
+    padding: calc(14 * var(--unit-fx)) calc(28 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 700;
+    font-size: calc(14 * var(--unit-type));
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .conversion-cta-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  @media (max-width: 900px) {
+    .caution-grid {
+      grid-template-columns: 1fr;
+    }
+    .conversion-banner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

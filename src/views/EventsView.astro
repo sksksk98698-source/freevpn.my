@@ -28,6 +28,24 @@ const {
   <Navbar locale={locale} />
 
   <section class="events">
+    <header class="events-hero-header">
+      <h1 class="events-main-title">
+        {locale === "en"
+          ? "Independent Benchmark Exhibitions & Technical Workshops"
+          : "网络加速专题实测特展与前沿技术工作坊"}
+      </h1>
+      <p class="events-hero-desc">
+        {locale === "en"
+          ? "Deep technical evaluations comparing cross-border network architectures, evening peak single-thread speed tests, and protocol bypass mechanisms. Explore our ongoing flagship reports, ISP QoS diagnostic labs, and step-by-step workshops."
+          : "汇集 FreeVPN.my 实测实验室关于跨境网络工程学、IEPL/IPLC 物理专线与晚高峰抗封锁特性的全景专题。从免费 VPN 供应链黑客陷阱、42 家机场单线程跑分天梯，到 Clash Verge Rev TUN 模式与 Sing-box 零拷贝进阶实操，为您提供高信息密度的专业参考。"}
+      </p>
+      <div class="events-metrics-tags">
+        <span>✓ 42 家真机测速天梯</span>
+        <span>✓ 2.5Gbps 双向 IEPL 架构</span>
+        <span>✓ 500 次 ICMP 探针采样</span>
+        <span>✓ 全平台客户端配置保姆教程</span>
+      </div>
+    </header>
     {current.length > 0 && (
       <>
         <h2 class="section-heading">{t.events.current}</h2>

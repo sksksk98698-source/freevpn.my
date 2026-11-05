@@ -1,12 +1,10 @@
 {
   "title": {
-    "en": "Privacy Policy",
-    "fr": "Politique de confidentialité",
-    "de": "Datenschutzrichtlinie"
+    "zh": "隐私政策与透明度说明",
+    "en": "Privacy Policy & Transparency"
   },
   "description": {
-    "en": "How Domus Picturae collects and uses personal data.",
-    "fr": "Comment Domus Picturae collecte et utilise les données personnelles.",
-    "de": "Wie Domus Picturae personenbezogene Daten erhebt und verwendet."
+    "zh": "FreeVPN.my 平台隐私声明、推广链接佣金透明度及数据收集规范。",
+    "en": "FreeVPN.my privacy commitments, affiliate disclosure, and data usage policy."
   }
 }

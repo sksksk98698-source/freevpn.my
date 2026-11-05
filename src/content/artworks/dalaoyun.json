@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "大佬云",
+    "en": "Dalao Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2023,
+  "image": "/images/artworks/aurora-syntax/image.jpg",
+  "imageAlt": {
+    "zh": "大佬云 节点评测与速度图谱",
+    "en": "Dalao Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "BGP中转 / Shadowsocks",
+    "en": "BGP Relay / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "大佬云以 5.6 元/月的极低入门价格进入视野，是市场上少有的月付几块钱就能体验跨境加速的服务商。对于偶尔出国查阅技术文档或轻度使用的用户非常实用。",
+    "en": "Dalao Cloud is a high-performance cross-border proxy provider. Featuring BGP Relay / Shadowsocks, 100 Mbps Shared, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥5.6/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://qwerty.dalaoyunaff.com/#/?code=jCPLmoWN",
+  "promoCode": "dly888",
+  "lowestPrice": "¥5.6/月",
+  "trafficInfo": "60GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 5
+}

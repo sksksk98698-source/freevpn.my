@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "宇宙云",
+    "en": "Cosmo Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/benchmarks/宇宙云-节点测速实测.png",
+  "imageAlt": {
+    "zh": "宇宙云 节点评测与速度图谱",
+    "en": "Cosmo Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "IEPL专线 / VLESS / 自研客户端",
+    "en": "IEPL Dedicated / VLESS / Custom App"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "宇宙云主打“小白零门槛与技术硬核并重”，不仅提供自研的全平台一键登录客户端，底层还采用了 IEPL 专线和 VLESS 协议架构。",
+    "en": "Cosmo Cloud is a high-performance cross-border proxy provider. Featuring IEPL Dedicated / VLESS / Custom App, Up to 1 Gbps, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥20/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://wzjc.yuzoucloud.cc/#/?code=yrThwMP1",
+  "promoCode": "YUZHOU553",
+  "lowestPrice": "¥20/月",
+  "trafficInfo": "120GB/月",
+  "speedtestImage": "/images/benchmarks/宇宙云-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 11
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "guangsu-cloud-iepl-benchmark",
+  "title": {
+    "zh": "光速云 2.5Gbps 双向 IEPL 专线晚高峰极限压测报告：780Mbps 单线程跑满与 0% 丢包实录",
+    "en": "Guangsu Cloud 2.5Gbps Dual IEPL Benchmark: 780Mbps Single-Thread & 0% Packet Loss Verification"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "IEPL 双向物理专线评测集群",
+    "en": "IEPL Dedicated Circuit Cluster"
+  },
+  "description": {
+    "zh": "针对光速云 2.5Gbps 双向对称 IEPL 专线展开为期 7 天的晚高峰压力测试，涵盖单线程下载极限、500 次 ICMP 探针抖动、海外 AI 工具住宅 IP 解锁率与【致敬斯诺克 147】永久套餐选购精算。",
+    "en": "A 7-day evening peak stress test of Guangsu Cloud dual 2.5Gbps IEPL dedicated lines, featuring single-thread speedtests, 500-probe ICMP loss analysis, AI unlocking rates, and Snooker 147 plan economics."
+  },
+  "body": true
+}

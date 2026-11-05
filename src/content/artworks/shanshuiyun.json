@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "山水云",
+    "en": "Shanshui Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/benchmarks/test-unlock-photo_2026-08-19_12-13-50.jpg",
+  "imageAlt": {
+    "zh": "山水云 节点评测与速度图谱",
+    "en": "Shanshui Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "双向专线隧道 / Shadowsocks",
+    "en": "Dual Dedicated Tunnel / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "山水云采用双向专线隧道中转技术，大幅降低了跨国传输中的网络抖动与丢包率。",
+    "en": "Shanshui Cloud is a high-performance cross-border proxy provider. Featuring Dual Dedicated Tunnel / Shadowsocks, Gigabit Node Cluster, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥16/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://shanshui.cloud",
+  "promoCode": "SHANSHUI",
+  "lowestPrice": "¥16/月",
+  "trafficInfo": "120GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 37
+}

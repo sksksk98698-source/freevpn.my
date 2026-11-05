@@ -1,0 +1,604 @@
+---
+/** Individual deep SEO/GEO tutorial article view for /tutorial/[slug]. */
+import type { CollectionEntry } from "astro:content";
+import MainLayout from "@layouts/MainLayout.astro";
+import Navbar from "@sections/Chrome/Navbar.astro";
+import Footer from "@sections/Chrome/Footer.astro";
+import type { Locale } from "@/i18n";
+import { getSiteIdentity, renderBody } from "@utils/content";
+import { pageContext, techArticleSchema } from "@utils/seo";
+import { localizePath } from "@/i18n/config";
+
+interface Props {
+  locale: Locale;
+  article: CollectionEntry<"tutorial">;
+}
+
+const { locale, article } = Astro.props;
+const site = await getSiteIdentity(locale);
+const page = pageContext(Astro, locale);
+
+const title =
+  typeof article.data.title === "object"
+    ? article.data.title[locale] || article.data.title.zh
+    : article.data.title;
+
+const description =
+  typeof article.data.description === "object"
+    ? article.data.description[locale] || article.data.description.zh
+    : article.data.description;
+
+const category =
+  typeof article.data.category === "object"
+    ? article.data.category[locale] || article.data.category.zh
+    : article.data.category ||
+      (locale === "en" ? "Desktop Client Tuning" : "桌面客户端调优");
+
+const cluster =
+  typeof article.data.cluster === "object"
+    ? article.data.cluster[locale] || article.data.cluster.zh
+    : article.data.cluster ||
+      (locale === "en"
+        ? "Clash Verge Rev Geek Tuning"
+        : "Clash Verge 极客调优");
+
+const { main } = await renderBody("tutorial", article.id, locale);
+
+const pubDateStr = article.data.pubDate
+  ? new Date(article.data.pubDate).toISOString().split("T")[0]
+  : "2026-11-04";
+
+const articleSchema = techArticleSchema(
+  page,
+  {
+    title,
+    description,
+    pubDate: article.data.pubDate,
+  },
+  site,
+);
+
+const tutorialIndexHref = localizePath(locale, "/tutorial");
+const airportIndexHref = localizePath(locale, "/airport");
+const clientsHref = localizePath(locale, "/artists");
+const guangsuHref = localizePath(locale, "/artworks/guangsu-cloud");
+---
+
+<MainLayout
+  locale={locale}
+  title={`${title} - FreeVPN.my 权威实操`}
+  description={description}
+  schema={articleSchema}
+>
+  <Navbar locale={locale} />
+
+  <article class="tutorial-article">
+    <!-- Breadcrumb navigation -->
+    <nav class="article-breadcrumb" aria-label="Breadcrumb">
+      <a href={localizePath(locale, "/")}>
+        {locale === "en" ? "Home" : "首页"}
+      </a>
+      <span class="sep">/</span>
+      <a href={tutorialIndexHref}>
+        {locale === "en" ? "Client Tutorials" : "客户端教程库"}
+      </a>
+      <span class="sep">/</span>
+      <span class="current">{category}</span>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="article-header">
+      <div class="article-meta-row">
+        <span class="meta-badge-cat">{category}</span>
+        <span class="meta-badge-cluster">{cluster}</span>
+        <time class="meta-date" datetime={pubDateStr}>
+          {pubDateStr}
+        </time>
+        <span class="meta-reading-time">
+          {locale === "en"
+            ? "Deep Technical Handbook (~15 mins)"
+            : "万字实操手册 · 约 15 分钟深度研读"}
+        </span>
+      </div>
+      <h1 class="article-title">{title}</h1>
+      <p class="article-intro">{description}</p>
+    </header>
+
+    <hr class="section-rule" />
+
+    <!-- Article Content Prose -->
+    <div class="article-body-container">
+      <div class="prose-content">
+        <Fragment set:html={main} />
+      </div>
+    </div>
+
+    <!-- Conversion & Recommendation Callout -->
+    <section class="conversion-callout">
+      <div class="callout-content">
+        <span class="callout-tag">
+          {locale === "en"
+            ? "VERIFIED HIGH-PERFORMANCE CIRCUIT"
+            : "实验室认证全客户端原生适配专线"}
+        </span>
+        <h3>
+          {locale === "en"
+            ? "Guangsu Cloud: Dual 2.5Gbps IEPL Dedicated Lines"
+            : "光速云（Guangsu Cloud）：2.5Gbps 双向 IEPL 尊享专线"}
+        </h3>
+        <p>
+          {locale === "en"
+            ? "Universally compatible with Clash Verge Rev, Sing-box, Shadowrocket, and OpenWrt routers. Verified 786.4 Mbps single-thread throughput with zero packet loss during peak hours. Featuring the Snooker 147 permanent 247GB package (pay once, never expires) and lightweight annual plan at ¥99/year. Use exclusive code AMM at checkout."
+            : "原生提供 Clash YAML、Sing-box JSON 与通用 Base64 订阅一键导入，完美兼容 Windows / Mac / iOS / Android / 软路由所有主流客户端。实测单线程 786.4 Mbps 稳定跑满，500 次 ICMP 探针 0 丢包。独创【致敬斯诺克147】247GB 永久不过期套餐（¥147 一次付清终生有效）与轻量版年付 ¥99（月均 ¥8.25）。结账输入专属优惠码 AMM 享立减。"}
+        </p>
+      </div>
+      <div class="callout-actions">
+        <a
+          href="https://sahude.gsyvipaff.com/#/?code=keqgvT5Y"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          class="btn-cta-primary"
+        >
+          {locale === "en"
+            ? "Visit Official Portal (Code: AMM) →"
+            : "直达光速云官网 (优惠码: AMM) →"}
+        </a>
+        <a href={guangsuHref} class="btn-cta-secondary">
+          {locale === "en"
+            ? "Read Independent Lab Report"
+            : "查看光速云独立测评报告"}
+        </a>
+      </div>
+    </section>
+
+    <!-- Honeycomb Matrix Navigation Footer -->
+    <footer class="honeycomb-nav">
+      <h3 class="honeycomb-title">
+        {locale === "en"
+          ? "Honeycomb Knowledge Matrix"
+          : "蜂巢式站内知识图谱导航"}
+      </h3>
+      <div class="honeycomb-grid">
+        <div class="honeycomb-item">
+          <span class="honeycomb-level">
+            {locale === "en" ? "Level 1 Pillar" : "一级支柱回链"}
+          </span>
+          <a href={tutorialIndexHref} class="honeycomb-link">
+            {locale === "en"
+              ? "Client Tutorials Knowledge Hub →"
+              : "客户端教程与内核调优知识库 →"}
+          </a>
+        </div>
+        <div class="honeycomb-item">
+          <span class="honeycomb-level">
+            {locale === "en" ? "Software Hub" : "客户端生态中心"}
+          </span>
+          <a href={clientsHref} class="honeycomb-link">
+            {locale === "en"
+              ? "Proxy Clients Directory & Guides →"
+              : "主流代理客户端全景指南与官方下载 →"}
+          </a>
+        </div>
+        <div class="honeycomb-item">
+          <span class="honeycomb-level">
+            {locale === "en" ? "Speed Ladder" : "专线测评天梯"}
+          </span>
+          <a href={airportIndexHref} class="honeycomb-link">
+            {locale === "en"
+              ? "2026 Peak-Hour Speed Ladder Ranking →"
+              : "2026 晚高峰 42 家机场单线程测速总天梯榜 →"}
+          </a>
+        </div>
+        <div class="honeycomb-item">
+          <span class="honeycomb-level">
+            {locale === "en" ? "Provider Benchmark" : "冠军专线实测"}
+          </span>
+          <a href={guangsuHref} class="honeycomb-link">
+            {locale === "en"
+              ? "Guangsu Cloud 2.5Gbps Dedicated Benchmark →"
+              : "光速云 2.5Gbps 双向 IEPL 晚高峰极限压测报告 →"}
+          </a>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <Footer locale={locale} />
+</MainLayout>
+
+<!-- Schema.org JSON-LD -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: title,
+    description: description,
+    datePublished: pubDateStr,
+    dateModified: pubDateStr,
+    inLanguage: locale === "en" ? "en-US" : "zh-CN",
+    author: {
+      "@type": "Organization",
+      name: "FreeVPN Performance Lab",
+      url: "https://freevpn.my",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "FreeVPN.my",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://freevpn.my/favicon-96x96.png",
+      },
+    },
+  })}
+/>
+<style>
+  .tutorial-article {
+    margin-top: calc(90 * var(--unit-fx));
+    margin-bottom: calc(140 * var(--unit-fx));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    max-width: calc(1080 * var(--unit-fx));
+  }
+
+  .article-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: calc(8 * var(--unit-fx));
+    opacity: 0.75;
+    margin-bottom: calc(25 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .article-breadcrumb a {
+    transition: color var(--transition-fast);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .article-breadcrumb a:hover {
+    opacity: 1;
+    color: var(--color-brand-text);
+  }
+
+  .article-breadcrumb .sep {
+    color: var(--color-divider);
+  }
+
+  .article-breadcrumb .current {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  .article-header {
+    margin-bottom: calc(35 * var(--unit-fx));
+  }
+
+  .article-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(12 * var(--unit-fx));
+    margin-bottom: calc(20 * var(--unit-fx));
+  }
+
+  .meta-badge-cat {
+    border-radius: calc(4 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(3 * var(--unit-fx)) calc(10 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 600;
+    font-size: calc(11 * var(--unit-type));
+    letter-spacing: 0.05em;
+  }
+
+  .meta-badge-cluster {
+    border: 1px solid var(--color-divider);
+    border-radius: calc(4 * var(--unit-fx));
+    background-color: var(--color-bg-overlay);
+    padding: calc(3 * var(--unit-fx)) calc(10 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 500;
+    font-size: calc(11 * var(--unit-type));
+  }
+
+  .meta-date,
+  .meta-reading-time {
+    opacity: 0.7;
+    color: var(--color-text-primary);
+    font-size: calc(12 * var(--unit-type));
+    font-family: monospace;
+  }
+
+  .article-title {
+    margin-bottom: calc(22 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 400;
+    font-size: calc(38 * var(--unit-type));
+    line-height: 1.25;
+    font-family: var(--font-baskervville);
+  }
+
+  .article-intro {
+    opacity: 0.85;
+    max-width: calc(880 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(16 * var(--unit-type));
+    line-height: 1.8;
+  }
+
+  .section-rule {
+    opacity: 0.35;
+    margin-block: calc(40 * var(--unit-fx));
+    border: none;
+    background-color: var(--color-divider);
+    height: 1px;
+  }
+
+  /* Prose Content Styling */
+  .article-body-container {
+    margin-bottom: calc(60 * var(--unit-fx));
+  }
+
+  .prose-content {
+    color: var(--color-text-primary);
+    font-size: calc(16 * var(--unit-type));
+    line-height: 1.85;
+  }
+
+  .prose-content :global(h2) {
+    margin-top: calc(50 * var(--unit-fx));
+    margin-bottom: calc(18 * var(--unit-fx));
+    border-bottom: 1px solid var(--color-divider);
+    padding-bottom: calc(8 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 400;
+    font-size: calc(26 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .prose-content :global(h3) {
+    margin-top: calc(32 * var(--unit-fx));
+    margin-bottom: calc(12 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(19 * var(--unit-type));
+  }
+
+  .prose-content :global(p) {
+    margin-bottom: calc(18 * var(--unit-fx));
+  }
+
+  .prose-content :global(ul),
+  .prose-content :global(ol) {
+    margin-bottom: calc(22 * var(--unit-fx));
+    padding-left: calc(24 * var(--unit-fx));
+  }
+
+  .prose-content :global(li) {
+    margin-bottom: calc(8 * var(--unit-fx));
+  }
+
+  .prose-content :global(blockquote) {
+    opacity: 0.95;
+    margin-block: calc(25 * var(--unit-fx));
+    border-left: 3px solid var(--color-brand);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background-color: var(--color-bg-overlay);
+    padding: calc(18 * var(--unit-fx)) calc(22 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(15 * var(--unit-type));
+  }
+
+  .prose-content :global(pre) {
+    margin-block: calc(24 * var(--unit-fx));
+    border: 1px solid var(--color-divider);
+    border-radius: calc(8 * var(--unit-fx));
+    background-color: var(--color-bg-overlay);
+    padding: calc(18 * var(--unit-fx));
+    overflow-x: auto;
+    font-size: calc(13 * var(--unit-type));
+    line-height: 1.6;
+    font-family: monospace;
+  }
+
+  .prose-content :global(code) {
+    border-radius: calc(3 * var(--unit-fx));
+    background-color: var(--color-bg-overlay);
+    padding: calc(2 * var(--unit-fx)) calc(6 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-size: calc(13 * var(--unit-type));
+    font-family: monospace;
+  }
+
+  .prose-content :global(pre code) {
+    background: none;
+    padding: 0;
+    color: var(--color-text-primary);
+  }
+
+  .prose-content :global(table) {
+    margin-block: calc(30 * var(--unit-fx));
+    border-collapse: collapse;
+    width: 100%;
+    font-size: calc(14 * var(--unit-type));
+  }
+
+  .prose-content :global(th),
+  .prose-content :global(td) {
+    border: 1px solid var(--color-divider);
+    padding: calc(12 * var(--unit-fx)) calc(16 * var(--unit-fx));
+    text-align: left;
+  }
+
+  .prose-content :global(th) {
+    background-color: var(--color-bg-overlay);
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .prose-content :global(a) {
+    color: var(--color-brand-text);
+    text-decoration: underline;
+    text-underline-offset: calc(3 * var(--unit-fx));
+  }
+
+  .prose-content :global(a:hover) {
+    opacity: 0.8;
+  }
+
+  /* Conversion Callout */
+  .conversion-callout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(30 * var(--unit-fx));
+    margin-block: calc(60 * var(--unit-fx));
+    border: 1px solid var(--color-divider);
+    border-radius: calc(12 * var(--unit-fx));
+    background-color: var(--color-bg-overlay);
+    padding: calc(35 * var(--unit-fx));
+  }
+
+  .callout-content {
+    flex: 1;
+    min-width: calc(300 * var(--unit-fx));
+  }
+
+  .callout-tag {
+    display: inline-block;
+    margin-bottom: calc(10 * var(--unit-fx));
+    border-radius: calc(4 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(3 * var(--unit-fx)) calc(8 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 600;
+    font-size: calc(10 * var(--unit-type));
+    letter-spacing: 0.08em;
+  }
+
+  .callout-content h3 {
+    margin: 0 0 calc(10 * var(--unit-fx)) 0;
+    color: var(--color-text-primary);
+    font-weight: 400;
+    font-size: calc(24 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .callout-content p {
+    opacity: 0.85;
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: calc(14 * var(--unit-type));
+    line-height: 1.7;
+  }
+
+  .callout-actions {
+    display: flex;
+    flex-direction: column;
+    gap: calc(12 * var(--unit-fx));
+  }
+
+  .btn-cta-primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity var(--transition-fast);
+    border-radius: calc(6 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(14 * var(--unit-fx)) calc(24 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 600;
+    font-size: calc(13 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .btn-cta-primary:hover {
+    opacity: 0.88;
+  }
+
+  .btn-cta-secondary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color var(--transition-fast);
+    border: 1px solid var(--color-divider);
+    border-radius: calc(6 * var(--unit-fx));
+    background-color: var(--color-bg-primary);
+    padding: calc(12 * var(--unit-fx)) calc(20 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: calc(12 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .btn-cta-secondary:hover {
+    background-color: var(--color-bg-overlay);
+  }
+
+  /* Honeycomb navigation */
+  .honeycomb-nav {
+    margin-top: calc(60 * var(--unit-fx));
+    border-top: 1px solid var(--color-divider);
+    padding-top: calc(40 * var(--unit-fx));
+  }
+
+  .honeycomb-title {
+    margin-bottom: calc(20 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 400;
+    font-size: calc(20 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .honeycomb-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(16 * var(--unit-fx));
+  }
+
+  .honeycomb-item {
+    border: 1px solid var(--color-divider);
+    border-radius: calc(8 * var(--unit-fx));
+    background-color: var(--color-bg-primary);
+    padding: calc(16 * var(--unit-fx));
+  }
+
+  .honeycomb-level {
+    display: block;
+    margin-bottom: calc(6 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 600;
+    font-size: calc(10 * var(--unit-type));
+    letter-spacing: 0.05em;
+  }
+
+  .honeycomb-link {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: calc(14 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .honeycomb-link:hover {
+    color: var(--color-brand-text);
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 800px) {
+    .honeycomb-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .article-title {
+      font-size: calc(28 * var(--unit-type));
+    }
+
+    .conversion-callout {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+</style>

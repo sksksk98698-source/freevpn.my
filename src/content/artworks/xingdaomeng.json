@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "星岛梦",
+    "en": "Island Dream"
+  },
+  "artist": "lab-team",
+  "year": 2020,
+  "image": "/images/benchmarks/星岛梦-节点测速实测.png",
+  "imageAlt": {
+    "zh": "星岛梦 节点评测与速度图谱",
+    "en": "Island Dream speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "优质中转 / Shadowsocks",
+    "en": "Premium Relay / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "星岛梦自 2020 年运营至今，以其独特的不限时不过期套餐和稳定的节点质量积累了大量忠实拥趸。其实测晚高峰节点在线率高，是长期备用的极佳选择。",
+    "en": "Island Dream is a high-performance cross-border proxy provider. Featuring Premium Relay / Shadowsocks, 1 Gbps Redundant, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥15/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://guangs.xingdaomeng.com/#/?code=1TynBYnR",
+  "promoCode": "nmw888",
+  "lowestPrice": "¥15/月",
+  "trafficInfo": "100GB/月 及不过期包",
+  "speedtestImage": "/images/benchmarks/星岛梦-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 6
+}

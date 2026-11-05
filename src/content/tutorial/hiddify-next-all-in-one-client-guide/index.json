@@ -1,0 +1,20 @@
+{
+  "slug": "hiddify-next-all-in-one-client-guide",
+  "title": {
+    "zh": "Hiddify Next 全平台客户端全景实测：基于 Sing-box 核心的多协议一键智能出海",
+    "en": "Hiddify Next Universal Client Review: One-Click Smart Proxying Powered by the Sing-box Core"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "全场景与智能网关",
+    "en": "Smart Gateways & Ecosystem"
+  },
+  "cluster": {
+    "zh": "Hiddify 全协议自动化",
+    "en": "Hiddify Universal Automation"
+  },
+  "description": {
+    "zh": "深度评测与实操体验 Hiddify Next 全平台代理客户端。覆盖 Android、iOS、Windows、macOS 与 Linux 五端一键出海、Sing-box 原生内核驱动、智能协议自适应与小白零配置上手指南。",
+    "en": "Exhaustive review and practical walkthrough of Hiddify Next. Discover its Sing-box native core engine, five-OS multi-device availability, automatic protocol probing, and zero-learning-curve setup for beginners."
+  }
+}

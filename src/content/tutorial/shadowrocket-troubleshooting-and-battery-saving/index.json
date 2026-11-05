@@ -1,0 +1,20 @@
+{
+  "slug": "shadowrocket-troubleshooting-and-battery-saving",
+  "title": {
+    "zh": "Shadowrocket 节点异常排查宝典：连上后无网络、无法访问 App Store 与耗电过快排障",
+    "en": "Shadowrocket Troubleshooting & Battery Optimization: No Internet, App Store Timeouts & Battery Drain"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "移动端出海实践",
+    "en": "Mobile Proxy Practices"
+  },
+  "cluster": {
+    "zh": "Shadowrocket 小火箭进阶",
+    "en": "Shadowrocket Advanced Rules"
+  },
+  "description": {
+    "zh": "全面解决 iOS 平台 Shadowrocket 运行中的疑难杂症。深度修复开启代理后微信与 App Store 无法加载、节点测速全部超时（Timeout）、手机发热耗电严重及跨 Wi-Fi 断流自愈方案。",
+    "en": "Comprehensive failure diagnosis and battery conservation guide for Shadowrocket on iOS. Fixes zero-throughput bugs, App Store timeouts, battery drain, and cellular-to-Wi-Fi network switching dropouts."
+  }
+}

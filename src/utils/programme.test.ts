@@ -98,20 +98,20 @@ describe("sortWorkshops", () => {
 
 describe("presentExhibition", () => {
   const show = fixtures.exhibition("autumn", {
-    title: { en: "Autumn", fr: "Automne" },
-    timeline: { en: "Sept 3 – Oct 31, 2026" },
+    title: { zh: "秋季特展", en: "Autumn" },
+    timeline: { zh: "2026年9月3日 – 10月31日", en: "Sept 3 – Oct 31, 2026" },
     startDate: new Date("2026-09-03"),
     endDate: new Date("2026-10-31"),
-    openingHours: [{ day: { en: "Mon", de: "Mo" }, hours: "10–18" }],
+    openingHours: [{ day: { zh: "周一", en: "Mon" }, hours: "10–18" }],
   });
 
   it("shows the timeline until the show closes, then the year", () => {
-    const during = presentExhibition(show, "fr", new Date("2026-10-01"));
+    const during = presentExhibition(show, "en", new Date("2026-10-01"));
     expect(during).toMatchObject({
       status: "current",
-      title: "Automne",
+      title: "Autumn",
       dateline: "Sept 3 – Oct 31, 2026",
-      href: "/fr/exhibitions/autumn",
+      href: "/en/exhibitions/autumn",
     });
     expect(presentExhibition(show, "en", new Date("2026-08-01")).dateline).toBe(
       "Sept 3 – Oct 31, 2026",
@@ -137,17 +137,17 @@ describe("presentExhibition", () => {
   });
 
   it("localises opening hours, falling back to the default locale", () => {
-    expect(presentExhibition(show, "de").openingHours).toEqual([
-      { day: "Mo", hours: "10–18" },
+    expect(presentExhibition(show, "en").openingHours).toEqual([
+      { day: "Mon", hours: "10–18" },
     ]);
-    expect(presentExhibition(show, "fr").openingHours[0].day).toBe("Mon");
+    expect(presentExhibition(show, "zh").openingHours[0].day).toBe("周一");
   });
 });
 
 describe("presentWorkshop", () => {
   it("resolves the href and leaves the video out when there is none", () => {
-    expect(presentWorkshop(fixtures.workshop("painting"), "de")).toMatchObject({
-      href: "/de/workshops/painting",
+    expect(presentWorkshop(fixtures.workshop("painting"), "en")).toMatchObject({
+      href: "/en/workshops/painting",
       title: "painting (en)",
       video: null,
       image: null,
@@ -159,11 +159,11 @@ describe("presentNews", () => {
   it("carries the date and the date as printed for the locale", () => {
     const p = presentNews(
       fixtures.news("opening", { pubDate: new Date("2025-03-15T09:30:00Z") }),
-      "de",
+      "zh",
     );
     expect(p).toMatchObject({
-      href: "/de/news/opening",
-      dateLabel: "15.03.25",
+      href: "/news/opening",
+      dateLabel: "25.03.15",
     });
     expect(p.date.toISOString()).toBe("2025-03-15T09:30:00.000Z");
   });

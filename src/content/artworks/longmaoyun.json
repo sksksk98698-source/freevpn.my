@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "龙猫云",
+    "en": "Totoro Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/artworks/whispering-pines/image.jpg",
+  "imageAlt": {
+    "zh": "龙猫云 节点评测与速度图谱",
+    "en": "Totoro Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "BGP多线中转 / Shadowsocks",
+    "en": "BGP Multi-relay / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "龙猫云属于性价比突出的中端机场，16 元的定价与良好的日常表现让它具有不错的市场口碑。",
+    "en": "Totoro Cloud is a high-performance cross-border proxy provider. Featuring BGP Multi-relay / Shadowsocks, 100 Mbps Stable, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥16/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://totoro.cloud",
+  "promoCode": "TOTORO",
+  "lowestPrice": "¥16/月",
+  "trafficInfo": "100GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 33
+}

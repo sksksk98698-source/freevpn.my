@@ -1,0 +1,21 @@
+{
+  "slug": "iepl-vs-bgp-bandwidth-economics",
+  "title": {
+    "zh": "IEPL 专线与普通 BGP 隧道中转成本经济学：为什么企业级物理专线能彻底告别晚高峰卡顿？",
+    "en": "Economics of IEPL Dedicated Lines vs BGP Tunnels: Why Physical Circuits Eliminate Peak-Hour Congestion"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "IEPL 双向物理专线评测集群",
+    "en": "IEPL Dedicated Circuit Cluster"
+  },
+  "description": {
+    "zh": "通过精算机房每 Mbps 带宽真实硬成本（专线 ¥180/M vs 公网隧道 ¥15/M），彻底揭秘为什么廉价月付 10 元机场必然通过 30:1 严重超售来维持运转，以及企业级物理专线如何保障高峰期稳定吞吐。",
+    "en": "A rigorous cost breakdown of enterprise bandwidth economics (¥180/Mbps for IEPL vs ¥15/Mbps for public tunnels), revealing why cheap proxies oversubscribe 30:1 and how physical circuits guarantee peak performance."
+  },
+  "body": true
+}

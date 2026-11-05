@@ -1,0 +1,20 @@
+{
+  "slug": "sing-box-ruleset-smart-routing",
+  "title": {
+    "zh": "Sing-box 规则集（Rule-Set）与智能分流实战：配置低内存占用、高性能路由分流引擎",
+    "en": "Sing-box Rule-Set & Intelligent Routing: Deploying High-Performance, Minimal-Footprint Routing Engines"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "Sing-box 极简实践",
+    "en": "Sing-box Minimalist Setup"
+  },
+  "description": {
+    "zh": "详解 Sing-box 独创的二进制规则集（.srs Rule-Set）编译与智能分流配置方案。手把手教你编写轻量化路由规则，实现国内 IP 毫秒级直连、海外 AI/流媒体精准出海与零内存开销。",
+    "en": "Master Sing-box binary rule-sets (.srs) for blazingly fast routing decisions with near-zero RAM footprint. Configure split-tunneling policies for domestic bypass, AI tooling, and streaming services."
+  }
+}

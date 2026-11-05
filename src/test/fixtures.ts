@@ -40,8 +40,8 @@ export const artist = (id: string, data: Data<"artists"> = {}) =>
     {
       name: id,
       isEstate: false,
-      shortBio: { en: `${id} short bio` },
-      biography: { en: `${id} biography` },
+      shortBio: { zh: `${id} 简介`, en: `${id} short bio` },
+      biography: { zh: `${id} 传记`, en: `${id} biography` },
       hasCv: false,
     },
     data,
@@ -58,8 +58,8 @@ export const artwork = (
     {
       availability: "available",
       artist: { collection: "artists", id: artistId },
-      title: { en: `${id} (en)`, fr: `${id} (fr)` },
-      medium: { en: "Oil on canvas" },
+      title: { zh: `${id} (zh)`, en: `${id} (en)` },
+      medium: { zh: "IEPL专线", en: "IEPL Line" },
       dimensions: { width: 100, height: 80, unit: "cm" },
     },
     rest,
@@ -71,26 +71,31 @@ export const exhibition = (id: string, data: Data<"exhibitions"> = {}) =>
     "exhibitions",
     id,
     {
-      title: { en: `${id} (en)` },
+      title: { zh: `${id} (zh)`, en: `${id} (en)` },
       startDate: new Date("2026-01-01"),
       endDate: new Date("2026-02-01"),
-      timeline: { en: `${id} timeline` },
+      timeline: { zh: `${id} 时间线`, en: `${id} timeline` },
       openingHours: [],
     },
     data,
   );
 
 export const workshop = (id: string, data: Data<"workshops"> = {}) =>
-  entry("workshops", id, { title: { en: `${id} (en)` } }, data);
+  entry(
+    "workshops",
+    id,
+    { title: { zh: `${id} (zh)`, en: `${id} (en)` } },
+    data,
+  );
 
 export const news = (id: string, data: Data<"news"> = {}) =>
   entry(
     "news",
     id,
     {
-      title: { en: `${id} (en)` },
+      title: { zh: `${id} (zh)`, en: `${id} (en)` },
       pubDate: new Date("2026-01-01"),
-      description: { en: `${id} description` },
+      description: { zh: `${id} 描述`, en: `${id} description` },
       slides: [],
     },
     data,
@@ -101,9 +106,9 @@ export const site = (data: Data<"site"> = {}) =>
     "site",
     "index",
     {
-      name: "Domus Picturae",
-      description: { en: "A gallery" },
-      tagline: { en: "Tagline" },
+      name: "FreeVPN Lab",
+      description: { zh: "全球网络评测实验室", en: "A global benchmark lab" },
+      tagline: { zh: "专业评测与专线推荐", en: "Tagline" },
       address: "1 Street\nCity",
       social: {},
     },
@@ -115,15 +120,18 @@ export const homepage = (data: Data<"homepage"> = {}) =>
     "homepage",
     "index",
     {
-      intro: { subheading: { en: "Intro" }, content: { en: "Intro content" } },
+      intro: {
+        subheading: { zh: "简介", en: "Intro" },
+        content: { zh: "简介内容", en: "Intro content" },
+      },
       events: {
-        subheading: { en: "Events" },
-        content: { en: "Events content" },
-        buttonText: { en: "All events" },
+        subheading: { zh: "专题", en: "Events" },
+        content: { zh: "专题内容", en: "Events content" },
+        buttonText: { zh: "全部专题", en: "All events" },
       },
       about: {
-        content: { en: "About" },
-        buttonText: { en: "About us" },
+        content: { zh: "关于", en: "About" },
+        buttonText: { zh: "关于我们", en: "About us" },
         galleryItems: [],
       },
       collection: [],

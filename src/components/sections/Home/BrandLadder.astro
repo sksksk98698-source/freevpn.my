@@ -1,0 +1,546 @@
+---
+import type { Locale } from "@/i18n";
+import { getCatalogue } from "@utils/content";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const catalogue = await getCatalogue(locale);
+const topPick = catalogue.find((item) => item.isTopPick) || catalogue[0];
+const otherBrands = catalogue;
+---
+
+<section class="brand-ladder" id="ladder" data-reveal>
+  <div class="ladder-header">
+    <div class="ladder-title-group">
+      <span class="ladder-tag">
+        {locale === "zh" ? "权威实测 · 科学选型" : "Benchmark Directory"}
+      </span>
+      <h2 class="ladder-heading">
+        {locale === "zh"
+          ? "2026 主流机场速度与稳定性天梯榜"
+          : "2026 Proxy Speed & Stability Ladder"}
+      </h2>
+      <p class="ladder-subheading">
+        {locale === "zh"
+          ? "涵盖 42 家主流品牌晚高峰测速、IEPL/IPLC 专线架构与 ChatGPT / Claude / 4K 流媒体解锁综合评分。"
+          : "Covering peak-hour throughput, dedicated line architectures, and AI/streaming unlocks across 42 providers."}
+      </p>
+    </div>
+  </div>
+
+  {topPick && (
+    <div class="hero-pick-card">
+      <div class="hero-pick-badge">
+        <span>
+          👑 {locale === "zh" ? "年度机皇 · 综合首选" : "Top Flagship Pick"}
+        </span>
+      </div>
+      <div class="hero-pick-content">
+        <div class="hero-pick-left">
+          <div class="hero-pick-meta">
+            <span class="hero-pick-rank">#1</span>
+            <h3 class="hero-pick-title">{topPick.title}</h3>
+            <span class="hero-pick-line">{topPick.medium}</span>
+          </div>
+          <div class="hero-pick-highlights">
+            <div class="highlight-item">
+              <strong>致敬斯诺克147永久套餐</strong>
+              <span>一次付费 ¥147 · 247GB 专线流量永不过期</span>
+            </div>
+            <div class="highlight-item">
+              <strong>轻量入门版</strong>
+              <span>年付仅 ¥99 · 折合约 ¥8/月 (69GB/月)</span>
+            </div>
+            <div class="highlight-item">
+              <strong>性能与解锁</strong>
+              <span>单节点最高 2.5Gbps · 完美解锁 ChatGPT / Claude / 4K</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-pick-right">
+          <div class="hero-pick-pricing">
+            <span class="price-prefix">
+              {locale === "zh" ? "低至" : "From"}
+            </span>
+            <span class="price-val">{topPick.lowestPrice || "¥8/月"}</span>
+          </div>
+          {topPick.promoCode && (
+            <div class="hero-promo">
+              <span class="promo-label">
+                {locale === "zh" ? "结账优惠码" : "Code"}:
+              </span>
+              <code class="promo-code">{topPick.promoCode}</code>
+            </div>
+          )}
+          <div class="hero-pick-actions">
+            <a
+              href={topPick.affiliateUrl || topPick.href}
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="hero-cta-btn"
+            >
+              <span>
+                {locale === "zh" ? "前往光速云官网选购" : "Visit Guangsu Cloud"}{" "}
+                →
+              </span>
+            </a>
+            <a href={topPick.href} class="hero-review-link">
+              <span>
+                {locale === "zh" ? "查看完整实测报告" : "Read Benchmark"}
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  <div class="ladder-table-wrapper">
+    <table class="ladder-table">
+      <thead>
+        <tr>
+          <th class="col-rank">#</th>
+          <th class="col-name">{locale === "zh" ? "品牌名称" : "Brand"}</th>
+          <th class="col-line">
+            {locale === "zh" ? "线路与架构" : "Architecture"}
+          </th>
+          <th class="col-price">{locale === "zh" ? "起步资费" : "Price"}</th>
+          <th class="col-traffic">
+            {locale === "zh" ? "流量配置" : "Traffic"}
+          </th>
+          <th class="col-code">{locale === "zh" ? "优惠码" : "Promo"}</th>
+          <th class="col-actions">{locale === "zh" ? "快速通道" : "Access"}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {otherBrands.map((brand, idx) => (
+          <tr class:list={{ "is-gold-row": brand.isTopPick }}>
+            <td class="col-rank">
+              <span
+                class="rank-number"
+                class:list={{ "is-top-one": brand.rank === 1 }}
+              >
+                #{brand.rank || idx + 1}
+              </span>
+            </td>
+            <td class="col-name">
+              <a href={brand.href} class="brand-link">
+                <strong>{brand.title}</strong>
+              </a>
+              {brand.badge && <span class="row-badge">{brand.badge}</span>}
+            </td>
+            <td class="col-line">
+              <span class="line-text">{brand.medium}</span>
+            </td>
+            <td class="col-price">
+              <span class="price-text">{brand.lowestPrice || "详见官网"}</span>
+            </td>
+            <td class="col-traffic">
+              <span class="traffic-text">
+                {brand.trafficInfo || "多档可选"}
+              </span>
+            </td>
+            <td class="col-code">
+              {brand.promoCode ? (
+                <code class="table-code">{brand.promoCode}</code>
+              ) : (
+                <span class="empty-code">-</span>
+              )}
+            </td>
+            <td class="col-actions">
+              <div class="action-buttons">
+                {brand.affiliateUrl ? (
+                  <a
+                    href={brand.affiliateUrl}
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    class="table-btn-cta"
+                  >
+                    <span>{locale === "zh" ? "直达" : "Visit"}</span>
+                  </a>
+                ) : (
+                  <a href={brand.href} class="table-btn-cta">
+                    <span>{locale === "zh" ? "详情" : "Info"}</span>
+                  </a>
+                )}
+                <a href={brand.href} class="table-btn-review">
+                  <span>{locale === "zh" ? "评测" : "Review"}</span>
+                </a>
+              </div>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ladder-footer">
+    <p class="disclosure-text">
+      {locale === "zh"
+        ? "⚖️ 透明度与合规提示：本站包含推广链接，通过链接购买可能为评测实验室带来维护佣金，不影响您的最终支付价格。评测数据为特定时间节点晚高峰快照，网络受国际海缆与上游运营商波动影响，建议优先选择小额月付验证本地连通性。"
+        : "⚖️ Disclosure & Compliance: Contains affiliate links that help maintain our testing lab at zero extra cost to you. Speed snapshots reflect peak-hour measurements; testing small monthly plans first is recommended."}
+    </p>
+  </div>
+</section>
+
+<style>
+  .brand-ladder {
+    margin-block: calc(80 * var(--unit-fx));
+    padding-inline: var(--gutter);
+    width: 100%;
+  }
+
+  .ladder-header {
+    margin-bottom: calc(40 * var(--unit-fx));
+  }
+
+  .ladder-tag {
+    display: inline-block;
+    margin-bottom: calc(8 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 700;
+    font-size: calc(12 * var(--unit-type));
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .ladder-heading {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: calc(36 * var(--unit-type));
+    line-height: 1.2;
+    font-family: var(--font-serif);
+  }
+
+  .ladder-subheading {
+    opacity: 0.75;
+    margin-top: calc(8 * var(--unit-fx));
+    max-width: 65ch;
+    font-size: calc(15 * var(--unit-type));
+  }
+
+  /* Hero Pick Card for 光速云 */
+  .hero-pick-card {
+    position: relative;
+    margin-bottom: calc(48 * var(--unit-fx));
+    box-shadow: 0 calc(10 * var(--unit-fx)) calc(30 * var(--unit-fx))
+      rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: var(--radius);
+    background: linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.08),
+      rgba(212, 175, 55, 0.02)
+    );
+    padding: calc(32 * var(--unit-fx));
+  }
+
+  .hero-pick-badge {
+    display: inline-block;
+    margin-bottom: calc(16 * var(--unit-fx));
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #d4af37, #f3e5ab);
+    padding: calc(4 * var(--unit-fx)) calc(14 * var(--unit-fx));
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: calc(12 * var(--unit-type));
+    letter-spacing: 0.05em;
+  }
+
+  .hero-pick-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: calc(40 * var(--unit-fx));
+  }
+
+  .hero-pick-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: calc(14 * var(--unit-fx));
+    margin-bottom: calc(16 * var(--unit-fx));
+  }
+
+  .hero-pick-rank {
+    color: #d4af37;
+    font-weight: 800;
+    font-size: calc(28 * var(--unit-type));
+  }
+
+  .hero-pick-title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: calc(28 * var(--unit-type));
+    font-family: var(--font-serif);
+  }
+
+  .hero-pick-line {
+    opacity: 0.8;
+    border-radius: var(--radius);
+    background: var(--color-bg-overlay);
+    padding: calc(3 * var(--unit-fx)) calc(10 * var(--unit-fx));
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .hero-pick-highlights {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc(180 * var(--unit-fx)), 1fr)
+    );
+    gap: calc(14 * var(--unit-fx));
+  }
+
+  .highlight-item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(4 * var(--unit-fx));
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.5);
+    padding: calc(12 * var(--unit-fx));
+  }
+
+  .highlight-item strong {
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .highlight-item span {
+    opacity: 0.75;
+    font-size: calc(11 * var(--unit-type));
+  }
+
+  .hero-pick-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: calc(12 * var(--unit-fx));
+  }
+
+  .hero-pick-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: calc(6 * var(--unit-fx));
+  }
+
+  .price-prefix {
+    opacity: 0.7;
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .price-val {
+    color: var(--color-brand-text);
+    font-weight: 800;
+    font-size: calc(28 * var(--unit-type));
+  }
+
+  .hero-promo {
+    display: flex;
+    align-items: center;
+    gap: calc(6 * var(--unit-fx));
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .hero-promo code {
+    border-radius: var(--radius);
+    background: #1a1a1a;
+    padding: calc(2 * var(--unit-fx)) calc(10 * var(--unit-fx));
+    color: #f3e5ab;
+    font-weight: 700;
+  }
+
+  .hero-pick-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: calc(8 * var(--unit-fx));
+    width: 100%;
+  }
+
+  .hero-cta-btn {
+    display: inline-block;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+    border-radius: var(--radius);
+    background: #1a1a1a;
+    padding: calc(12 * var(--unit-fx)) calc(24 * var(--unit-fx));
+    color: #fff;
+    font-weight: 600;
+    font-size: calc(14 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .hero-cta-btn:hover {
+    transform: translateY(-1px);
+    background: var(--color-brand-text);
+  }
+
+  .hero-review-link {
+    opacity: 0.75;
+    color: inherit;
+    font-size: calc(12 * var(--unit-type));
+    text-decoration: underline;
+  }
+
+  /* Table styling */
+  .ladder-table-wrapper {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius);
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .ladder-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: calc(13 * var(--unit-type));
+    text-align: left;
+  }
+
+  .ladder-table th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: var(--color-bg-overlay);
+    padding: calc(14 * var(--unit-fx)) calc(16 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .ladder-table td {
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: calc(14 * var(--unit-fx)) calc(16 * var(--unit-fx));
+  }
+
+  .ladder-table tr:hover td {
+    background: rgba(0, 0, 0, 0.015);
+  }
+
+  .is-gold-row td {
+    background: rgba(212, 175, 55, 0.04);
+  }
+
+  .rank-number {
+    opacity: 0.65;
+    font-weight: 700;
+  }
+
+  .rank-number.is-top-one {
+    opacity: 1;
+    color: #d4af37;
+    font-weight: 800;
+    font-size: calc(15 * var(--unit-type));
+  }
+
+  .brand-link {
+    color: inherit;
+    font-size: calc(14 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .brand-link:hover {
+    color: var(--color-brand-text);
+  }
+
+  .row-badge {
+    display: inline-block;
+    opacity: 0.8;
+    margin-left: calc(8 * var(--unit-fx));
+    border-radius: var(--radius);
+    background: var(--color-bg-overlay);
+    padding: calc(2 * var(--unit-fx)) calc(6 * var(--unit-fx));
+    font-size: calc(10 * var(--unit-type));
+  }
+
+  .line-text {
+    opacity: 0.8;
+    white-space: nowrap;
+  }
+
+  .price-text {
+    color: var(--color-brand-text);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .traffic-text {
+    opacity: 0.8;
+    white-space: nowrap;
+  }
+
+  .table-code {
+    border-radius: calc(3 * var(--unit-fx));
+    background: var(--color-bg-overlay);
+    padding: calc(2 * var(--unit-fx)) calc(6 * var(--unit-fx));
+    font-weight: 600;
+    font-size: calc(11 * var(--unit-type));
+  }
+
+  .empty-code {
+    opacity: 0.3;
+  }
+
+  .action-buttons {
+    display: flex;
+    align-items: center;
+    gap: calc(6 * var(--unit-fx));
+  }
+
+  .table-btn-cta,
+  .table-btn-review {
+    display: inline-block;
+    border-radius: var(--radius);
+    padding: calc(4 * var(--unit-fx)) calc(10 * var(--unit-fx));
+    font-size: calc(12 * var(--unit-type));
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .table-btn-cta {
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  .table-btn-cta:hover {
+    background: var(--color-brand-text);
+  }
+
+  .table-btn-review {
+    background: var(--color-bg-overlay);
+    color: inherit;
+  }
+
+  .table-btn-review:hover {
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  .ladder-footer {
+    margin-top: calc(24 * var(--unit-fx));
+  }
+
+  .disclosure-text {
+    opacity: 0.65;
+    margin: 0;
+    font-size: calc(11 * var(--unit-type));
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .hero-pick-content {
+      grid-template-columns: 1fr;
+    }
+    .hero-pick-right {
+      align-items: flex-start;
+    }
+    .hero-pick-actions {
+      align-items: flex-start;
+    }
+  }
+</style>

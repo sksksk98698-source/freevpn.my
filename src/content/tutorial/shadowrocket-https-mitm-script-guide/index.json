@@ -1,0 +1,20 @@
+{
+  "slug": "shadowrocket-https-mitm-script-guide",
+  "title": {
+    "zh": "Shadowrocket HTTPS 解密与脚本（Script）扩展：证书安装与去视频广告实战",
+    "en": "Shadowrocket HTTPS Decryption & Scripting: CA Certificate Trust & In-App Ad Elimination"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "移动端出海实践",
+    "en": "Mobile Proxy Practices"
+  },
+  "cluster": {
+    "zh": "Shadowrocket 小火箭进阶",
+    "en": "Shadowrocket Advanced Rules"
+  },
+  "description": {
+    "zh": "详解 iOS Shadowrocket 的中间人攻击（MitM）解密与 JavaScript 脚本重写功能。教你如何安全生成本地 CA 根证书、在 iOS 系统设置中完成完全信任、拦截视频开屏广告并实现自动化任务签到。",
+    "en": "Master HTTPS decryption (MitM) and JavaScript script rewrites in iOS Shadowrocket. Step-by-step instructions for generating local CA root certificates, enabling full SSL trust in iOS settings, and stripping telemetry trackers."
+  }
+}

@@ -65,7 +65,26 @@ export function bodyMarkdown(
   return pick(perLocale, locale) ?? "";
 }
 
-/** Markdown → HTML. */
+/** Markdown → HTML with strict SEO compliance: external links get nofollow sponsored noopener. */
+marked.use({
+  renderer: {
+    link(token) {
+      const href = token.href || "";
+      const isExternal =
+        href.startsWith("http://") || href.startsWith("https://");
+      const isInternalSite =
+        href.startsWith("https://freevpn.my") ||
+        href.startsWith("http://127.0.0.1:4321");
+      const titleAttr = token.title ? ` title="${token.title}"` : "";
+
+      if (isExternal && !isInternalSite) {
+        return `<a href="${href}" target="_blank" rel="nofollow sponsored noopener"${titleAttr}>${token.text}</a>`;
+      }
+      return `<a href="${href}"${titleAttr}>${token.text}</a>`;
+    },
+  },
+});
+
 export async function renderMarkdown(source: string): Promise<string> {
   return marked.parse(source);
 }

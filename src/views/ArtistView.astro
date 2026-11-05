@@ -1,5 +1,5 @@
 ---
-/** Artist detail: biography, quote and every work of theirs the gallery holds. */
+/** Artist detail: biography, quote, specs, tutorial callout and paired proxy lines. */
 import { Image } from "astro:assets";
 import MainLayout from "@layouts/MainLayout.astro";
 import Navbar from "@sections/Chrome/Navbar.astro";
@@ -7,8 +7,9 @@ import Footer from "@sections/Chrome/Footer.astro";
 import ArtworkCard from "@sections/Catalogue/ArtworkCard.astro";
 import { useUI, type Locale } from "@/i18n";
 import { presentArtist, type Artist } from "@utils/artists";
-import { getArtistWorks } from "@utils/content";
+import { getArtistWorks, getCatalogue } from "@utils/content";
 import { artistMeta, pageContext } from "@utils/seo";
+import { localizePath } from "@/i18n/config";
 
 interface Props {
   locale: Locale;
@@ -21,25 +22,192 @@ const artist = presentArtist(Astro.props.artist, locale);
 const { portrait, biography, quote } = artist;
 const works = await getArtistWorks(Astro.props.artist, locale);
 const meta = artistMeta(pageContext(Astro, locale), artist);
+
+// If client has no direct works attached (e.g. Clash Verge Rev), fetch top recommended proxy lines
+const topProxies =
+  works.length === 0 ? (await getCatalogue(locale)).slice(0, 4) : [];
+
+interface ClientDetailMeta {
+  platforms: string;
+  kernel: string;
+  tunMode: string;
+  protocols: string;
+  ramUsage: string;
+  license: string;
+  tutorialUrl: string;
+  tutorialTitle: { zh: string; en: string };
+  officialUrl: string;
+}
+
+const clientDetails: Record<string, ClientDetailMeta> = {
+  "clash-verge-rev": {
+    platforms: "Windows 10/11 (x64/arm64), macOS (Intel/Apple Silicon), Linux",
+    kernel: "Mihomo (Clash.Meta) 开源核心",
+    tunMode: "支持 (内置虚拟网卡驱动一键接管系统全流量)",
+    protocols:
+      "VLESS, XTLS-Reality, Trojan, Shadowsocks 2022, Hysteria 2, TUIC v5",
+    ramUsage: "30MB – 60MB (Rust + Tauri 极轻量)",
+    license: "GPL-3.0 完全开源免费",
+    tutorialUrl: "/workshops/contemporary-painting-techniques",
+    tutorialTitle: {
+      zh: "Clash Verge Rev 跨平台客户端 5 分钟上手与极致分流配置",
+      en: "Clash Verge Rev 5-Minute Setup & Advanced Smart Routing Guide",
+    },
+    officialUrl: "https://github.com/clash-verge-rev/clash-verge-rev/releases",
+  },
+  shadowrocket: {
+    platforms: "iOS 12.0+, iPadOS, visionOS, macOS (M系列芯片)",
+    kernel: "Shadow Launch 自研高性能网络引擎",
+    tunMode: "支持 (iOS NetworkExtension 虚拟网卡隧道)",
+    protocols: "Shadowsocks, VMess, VLESS, Trojan, Snell, Hysteria 2, TUIC",
+    ramUsage: "15MB – 35MB (极致省电常驻)",
+    license: "App Store 商业买断 ($2.99 终生免费升级)",
+    tutorialUrl: "/workshops/digital-art-and-traditional-media",
+    tutorialTitle: {
+      zh: "Shadowrocket 小火箭 iOS 客户端节点导入与证书避坑指南",
+      en: "Shadowrocket iOS Setup & Certificate Troubleshooting Guide",
+    },
+    officialUrl: "https://apps.apple.com/us/app/shadowrocket/id932747118",
+  },
+  v2rayn: {
+    platforms: "Windows 10 / 11 (需要 .NET 8.0 运行时环境)",
+    kernel: "Xray-core / sing-box-core 自由切换",
+    tunMode: "支持 (集成 wintun.dll 虚拟网卡驱动)",
+    protocols: "VLESS XTLS-Reality, VMess, Trojan, Shadowsocks, Socks5",
+    ramUsage: "50MB – 120MB (WPF 框架)",
+    license: "GPL-3.0 完全开源免费",
+    tutorialUrl: "/workshops/exploring-abstract-art-a-hands-on-workshop",
+    tutorialTitle: {
+      zh: "v2rayN 与 Sing-box 核心进阶教程：开启 TUN 模式与游戏低延迟加速",
+      en: "v2rayN & Sing-box Advanced Guide: TUN Mode & Low Latency Gaming",
+    },
+    officialUrl: "https://github.com/2dust/v2rayN/releases",
+  },
+  "sing-box": {
+    platforms: "Windows, macOS, Linux, Android, iOS 全平台",
+    kernel: "sing-box 原生 Go 零拷贝高性能内核",
+    tunMode: "原生高性能系统级 TUN 模式",
+    protocols: "Shadowsocks 2022, TUIC v5, Hysteria 2, VLESS, WireGuard",
+    ramUsage: "20MB – 45MB (极简底层架构)",
+    license: "GPL-3.0 开源免费",
+    tutorialUrl: "/workshops/exploring-abstract-art-a-hands-on-workshop",
+    tutorialTitle: {
+      zh: "v2rayN 与 Sing-box 核心进阶教程：开启 TUN 模式与游戏低延迟加速",
+      en: "v2rayN & Sing-box Advanced Guide: TUN Mode & Low Latency Gaming",
+    },
+    officialUrl: "https://github.com/SagerNet/sing-box/releases",
+  },
+  flclash: {
+    platforms: "Android, Windows, macOS, Linux",
+    kernel: "Clash.Meta (Mihomo) 内核",
+    tunMode: "支持",
+    protocols: "VLESS, Trojan, Shadowsocks, Hysteria 2",
+    ramUsage: "40MB – 80MB (Flutter 现代渲染)",
+    license: "GPL-3.0 开源免费",
+    tutorialUrl: "/workshops/contemporary-painting-techniques",
+    tutorialTitle: {
+      zh: "Clash Verge Rev 跨平台客户端 5 分钟上手与极致分流配置",
+      en: "Clash Verge Rev 5-Minute Setup & Advanced Smart Routing Guide",
+    },
+    officialUrl: "https://github.com/chen08209/FlClash/releases",
+  },
+  hiddify: {
+    platforms: "Windows, macOS, Linux, Android, iOS 全平台通用",
+    kernel: "sing-box 内核自适应驱动",
+    tunMode: "支持 (智能自动激活)",
+    protocols: "30+ 种主流与小众代理协议自适应",
+    ramUsage: "35MB – 75MB",
+    license: "GPL-3.0 开源免费",
+    tutorialUrl: "/workshops/contemporary-painting-techniques",
+    tutorialTitle: {
+      zh: "Clash Verge Rev 跨平台客户端 5 分钟上手与极致分流配置",
+      en: "Clash Verge Rev 5-Minute Setup & Advanced Smart Routing Guide",
+    },
+    officialUrl: "https://github.com/hiddify/hiddify-next/releases",
+  },
+  "lab-team": {
+    platforms: "上海电信 / 广州联通 / 成都移动三地自动化评测集群",
+    kernel: "iperf3 / curl / mtr / Speedtest-CLI 综合遥测探针",
+    tunMode: "7×24 小时全网链路压力巡检",
+    protocols: "全网 42 家主流机场全协议全面实机校验",
+    ramUsage: "云端分布式节点阵列",
+    license: "FreeVPN.my 实验室公开评测准则",
+    tutorialUrl: "/exhibitions/thresholds-of-perception",
+    tutorialTitle: {
+      zh: "2026 免费VPN安全陷阱深度剖析与42家高速机场晚高峰测速天梯终极指南",
+      en: "2026 Free VPN Security Traps & 42-Brand Peak Hour Speed Benchmark",
+    },
+    officialUrl: "https://freevpn.my",
+  },
+};
+
+const detail = clientDetails[artist.id] || {
+  platforms: "通用操作系统",
+  kernel: "通用代理引擎",
+  tunMode: "支持",
+  protocols: "全主流代理协议",
+  ramUsage: "轻量",
+  license: "开源免费",
+  tutorialUrl: "/workshops/contemporary-painting-techniques",
+  tutorialTitle: { zh: "查看图文配置教程", en: "View Setup Guide" },
+  officialUrl: "https://github.com",
+};
+
+const tutorialLink = localizePath(locale, detail.tutorialUrl);
 ---
 
-<MainLayout locale={locale} {...meta}>
+<MainLayout
+  locale={locale}
+  {...meta}
+  title={
+    locale === "en"
+      ? `${artist.name} Setup Guide & Downloads (2026)`
+      : `${artist.name} 客户端官方配置指南与下载`
+  }
+>
   <Navbar locale={locale} />
 
   <div class="artist">
+    <!-- Breadcrumb -->
+    <div class="artist-breadcrumb">
+      <a href={localizePath(locale, "/")}>
+        {locale === "en" ? "Home" : "首页"}
+      </a>
+      <span class="sep">/</span>
+      <a href={localizePath(locale, "/artists")}>
+        {locale === "en" ? "Proxy Clients" : "代理客户端"}
+      </a>
+      <span class="sep">/</span>
+      <span>{artist.name}</span>
+    </div>
+
+    <!-- Hero Section -->
     <section class="artist-hero">
       <div>
         <h1 class="artist-name">{artist.name}</h1>
-        {artist.cvHref && (
+        <div class="artist-actions">
           <a
-            href={artist.cvHref}
+            href={detail.officialUrl}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="button-outline artist-cv"
           >
-            <span>{t.artists.viewCv}</span>
+            <span>
+              🚀{" "}
+              {locale === "en"
+                ? "Official GitHub / Release"
+                : "官方发布与下载页"}
+            </span>
           </a>
-        )}
+          <a href={tutorialLink} class="button-solid artist-tutorial-btn">
+            <span>
+              📖{" "}
+              {locale === "en"
+                ? "Step-by-step Setup Guide"
+                : "查看保姆级图文教程"}
+            </span>
+          </a>
+        </div>
       </div>
       <div class="artist-biography">
         {biography.map((para) => (
@@ -48,8 +216,76 @@ const meta = artistMeta(pageContext(Astro, locale), artist);
       </div>
     </section>
 
+    <!-- Dedicated Tutorial Callout Banner -->
+    <section class="tutorial-callout">
+      <div class="tutorial-callout-inner">
+        <div class="tutorial-callout-text">
+          <span class="tutorial-tag">
+            {locale === "en" ? "RECOMMENDED TUTORIAL" : "官方推荐教程"}
+          </span>
+          <h2 class="tutorial-callout-title">
+            <a href={tutorialLink}>
+              {detail.tutorialTitle[locale === "en" ? "en" : "zh"]}
+            </a>
+          </h2>
+          <p class="tutorial-callout-desc">
+            {locale === "en"
+              ? "Comprehensive step-by-step configuration walkthrough covering installation, subscription import, TUN interface mode, and DNS leak prevention."
+              : "本站实测实验室配套编写的图文深度指南，涵盖从安装环境准备、订阅 URL 导入、TUN 虚拟网卡全接管，到 Nameserver 防 DNS 污染高级规则编写。"}
+          </p>
+        </div>
+        <a href={tutorialLink} class="tutorial-callout-action">
+          {locale === "en" ? "Start Setup →" : "立即阅读教程 →"}
+        </a>
+      </div>
+    </section>
+
     <hr class="artist-rule" />
 
+    <!-- Technical Specs Table -->
+    <section class="artist-specs-section">
+      <h2 class="section-heading">
+        {locale === "en"
+          ? "Technical Specifications"
+          : "客户端核心技术规格参数"}
+      </h2>
+      <div class="specs-table-container">
+        <table class="specs-table">
+          <tbody>
+            <tr>
+              <th>
+                {locale === "en" ? "Supported Platforms" : "支持操作系统"}
+              </th>
+              <td>{detail.platforms}</td>
+            </tr>
+            <tr>
+              <th>{locale === "en" ? "Underlying Core" : "底层核心引擎"}</th>
+              <td>{detail.kernel}</td>
+            </tr>
+            <tr>
+              <th>{locale === "en" ? "TUN Interface" : "TUN 虚拟网卡"}</th>
+              <td>
+                <span class="badge-tun">{detail.tunMode}</span>
+              </td>
+            </tr>
+            <tr>
+              <th>{locale === "en" ? "Modern Protocols" : "现代协议支持"}</th>
+              <td>{detail.protocols}</td>
+            </tr>
+            <tr>
+              <th>{locale === "en" ? "Memory Footprint" : "闲置内存占用"}</th>
+              <td>{detail.ramUsage}</td>
+            </tr>
+            <tr>
+              <th>{locale === "en" ? "Software License" : "开源开源协议"}</th>
+              <td>{detail.license}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Quote & Portrait -->
     <section class="artist-quote">
       {portrait && (
         <Image
@@ -63,7 +299,8 @@ const meta = artistMeta(pageContext(Astro, locale), artist);
       {quote && <blockquote>“{quote}”</blockquote>}
     </section>
 
-    {works.length > 0 && (
+    <!-- Featured Artworks / Recommended Proxies -->
+    {works.length > 0 ? (
       <section class="artist-works">
         <h2 class="section-heading">{t.artists.featuredWorks}</h2>
         <hr class="section-rule" />
@@ -73,7 +310,28 @@ const meta = artistMeta(pageContext(Astro, locale), artist);
           ))}
         </ul>
       </section>
-    )}
+    ) : topProxies.length > 0 ? (
+      <section class="artist-works">
+        <div class="section-header-wrap">
+          <h2 class="section-heading">
+            {locale === "en"
+              ? "Recommended High-Speed Proxy Networks"
+              : "推荐搭配使用的旗舰专线机场"}
+          </h2>
+          <p class="section-sub-desc">
+            {locale === "en"
+              ? "These top-rated proxy networks feature dedicated IEPL/IPLC lines and native residential IPs, fully compatible with this client."
+              : "优秀的客户端需要稳定的物理专线作为基座。以下精选机场全线支持本客户端订阅导入，具备晚高峰 0 丢包与 4K / AI 原生解锁能力："}
+          </p>
+        </div>
+        <hr class="section-rule" />
+        <ul class="artist-works-grid">
+          {topProxies.map((presentation) => (
+            <ArtworkCard presentation={presentation} />
+          ))}
+        </ul>
+      </section>
+    ) : null}
   </div>
 
   <Footer locale={locale} />
@@ -81,8 +339,32 @@ const meta = artistMeta(pageContext(Astro, locale), artist);
 
 <style>
   .artist {
-    margin-block: calc(120 * var(--unit-fx));
+    margin-block: calc(100 * var(--unit-fx));
     padding-inline: var(--gutter);
+  }
+
+  .artist-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: calc(8 * var(--unit-fx));
+    opacity: 0.75;
+    margin-bottom: calc(25 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .artist-breadcrumb a {
+    transition: color var(--transition-fast);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .artist-breadcrumb a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .artist-breadcrumb .sep {
+    color: var(--color-divider);
   }
 
   .artist-hero {
@@ -90,124 +372,261 @@ const meta = artistMeta(pageContext(Astro, locale), artist);
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
     gap: calc(40 * var(--unit-fx));
+    margin-bottom: calc(40 * var(--unit-fx));
   }
 
   .artist-name {
-    margin-bottom: calc(30 * var(--unit-fx));
+    margin-bottom: calc(25 * var(--unit-fx));
     font-weight: 300;
-    font-size: calc(75 * var(--unit-type));
+    font-size: calc(65 * var(--unit-type));
+    line-height: 1.1;
     font-family: var(--font-baskervville);
   }
 
+  .artist-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(12 * var(--unit-fx));
+  }
+
+  .artist-cv,
+  .artist-tutorial-btn {
+    display: inline-block;
+    transition: opacity var(--transition-fast);
+    border-radius: calc(100 * var(--unit-fx));
+    padding: calc(10 * var(--unit-fx)) calc(20 * var(--unit-fx));
+    font-weight: 500;
+    font-size: calc(13 * var(--unit-type));
+    text-decoration: none;
+  }
+
   .artist-cv {
-    font-size: calc(12 * var(--unit-type));
+    border: 1px solid var(--color-divider);
+    background-color: var(--color-bg-overlay);
+    color: var(--color-text-primary);
+  }
+
+  .artist-tutorial-btn {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+  }
+
+  .artist-cv:hover,
+  .artist-tutorial-btn:hover {
+    opacity: 0.8;
   }
 
   .artist-biography p {
+    opacity: 0.85;
     margin-block: calc(15 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(15 * var(--unit-type));
+    line-height: 1.7;
+  }
+
+  /* Tutorial Callout Banner */
+  .tutorial-callout {
+    margin-block: calc(40 * var(--unit-fx));
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius);
+    background-color: var(--color-bg-overlay);
+    padding: calc(30 * var(--unit-fx)) calc(35 * var(--unit-fx));
+  }
+
+  .tutorial-callout-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(30 * var(--unit-fx));
+  }
+
+  .tutorial-tag {
+    display: inline-block;
+    margin-bottom: calc(8 * var(--unit-fx));
+    border-radius: calc(4 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(2 * var(--unit-fx)) calc(8 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 600;
+    font-size: calc(10 * var(--unit-type));
+    letter-spacing: 0.05em;
+  }
+
+  .tutorial-callout-title {
+    margin: 0 0 calc(8 * var(--unit-fx)) 0;
+    color: var(--color-text-primary);
+    font-size: calc(22 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .tutorial-callout-title a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: calc(4 * var(--unit-fx));
+  }
+
+  .tutorial-callout-desc {
+    opacity: 0.85;
+    margin: 0;
+    color: var(--color-text-primary);
     font-size: calc(14 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  .tutorial-callout-action {
+    display: inline-block;
+    flex-shrink: 0;
+    transition: opacity var(--transition-fast);
+    border-radius: calc(100 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(12 * var(--unit-fx)) calc(24 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 500;
+    font-size: calc(13 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .tutorial-callout-action:hover {
+    opacity: 0.85;
   }
 
   .artist-rule {
-    margin-block: calc(100 * var(--unit-fx));
+    margin-block: calc(70 * var(--unit-fx));
     border: none;
     background-color: var(--color-divider);
     height: calc(0.5 * var(--unit-fx));
   }
 
+  /* Specs table */
+  .artist-specs-section {
+    margin-block: calc(60 * var(--unit-fx));
+  }
+
+  .specs-table-container {
+    margin-top: calc(20 * var(--unit-fx));
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .specs-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: calc(14 * var(--unit-type));
+  }
+
+  .specs-table th,
+  .specs-table td {
+    border-bottom: 1px solid var(--color-divider);
+    padding: calc(14 * var(--unit-fx)) calc(20 * var(--unit-fx));
+    text-align: left;
+  }
+
+  .specs-table th {
+    background-color: var(--color-bg-overlay);
+    width: 25%;
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .specs-table tr:last-child th,
+  .specs-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .badge-tun {
+    display: inline-block;
+    border-radius: calc(4 * var(--unit-fx));
+    background-color: rgba(34, 197, 94, 0.1);
+    padding: calc(2 * var(--unit-fx)) calc(8 * var(--unit-fx));
+    color: #16a34a;
+    font-weight: 500;
+    font-size: calc(12 * var(--unit-type));
+  }
+
   .artist-quote {
     display: flex;
     justify-content: space-between;
-    gap: calc(100 * var(--unit-fx));
+    align-items: center;
+    gap: calc(80 * var(--unit-fx));
+    margin-block: calc(60 * var(--unit-fx));
   }
 
   .artist-portrait {
     flex-shrink: 0;
     border-radius: var(--radius);
     width: calc(200 * var(--unit-fx));
-    height: 20vw;
+    height: calc(200 * var(--unit-fx));
     object-fit: cover;
   }
 
   .artist-quote blockquote {
-    font-size: calc(40 * var(--unit-type));
+    color: var(--color-text-primary);
+    font-size: calc(32 * var(--unit-type));
+    line-height: 1.3;
     font-family: var(--font-baskervville);
   }
 
   .artist-works {
-    margin-block: calc(120 * var(--unit-fx));
+    margin-block: calc(80 * var(--unit-fx));
+  }
+
+  .section-header-wrap {
+    margin-bottom: calc(20 * var(--unit-fx));
+  }
+
+  .section-sub-desc {
+    opacity: 0.8;
+    margin-top: calc(8 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(14 * var(--unit-type));
   }
 
   .artist-works-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: calc(50 * var(--unit-fx));
+    column-gap: calc(40 * var(--unit-fx));
     row-gap: calc(50 * var(--unit-fx));
-    padding-block: calc(50 * var(--unit-fx));
+    padding-block: calc(40 * var(--unit-fx));
     list-style: none;
   }
 
-  /* Tablets: a single column at readable sizes; the works grid goes 3-up. */
   @media screen and (max-width: 1024px) {
     .artist-hero {
       grid-template-columns: 1fr;
     }
 
-    .artist-cv {
-      font-size: calc(14 * var(--unit-type));
-    }
-
-    .artist-biography p {
-      font-size: calc(16 * var(--unit-type));
-    }
-
-    .artist-quote {
-      gap: calc(50 * var(--unit-fx));
-    }
-
-    .artist-portrait {
-      height: 30vw;
-    }
-
-    .artist-quote blockquote {
-      font-size: calc(30 * var(--unit-type));
-    }
-
-    .artist-works-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      column-gap: calc(30 * var(--unit-fx));
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    .artist-name {
-      font-size: calc(40 * var(--unit-type));
-    }
-
-    .artist-rule {
-      margin-block: calc(50 * var(--unit-fx));
-    }
-
-    .artist-quote {
-      flex-direction: column-reverse;
-      gap: calc(50 * var(--unit-fx));
-    }
-
-    .artist-portrait {
-      height: 75vw;
-    }
-
-    .artist-quote blockquote {
-      font-size: calc(20 * var(--unit-type));
-    }
-
-    .artist-works {
-      margin-block: calc(60 * var(--unit-fx));
+    .tutorial-callout-inner {
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .artist-works-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: calc(20 * var(--unit-fx));
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .artist-name {
+      font-size: calc(42 * var(--unit-type));
+    }
+
+    .artist-quote {
+      flex-direction: column-reverse;
+      gap: calc(30 * var(--unit-fx));
+    }
+
+    .artist-portrait {
+      width: 100%;
+      height: 60vw;
+    }
+
+    .artist-quote blockquote {
+      font-size: calc(22 * var(--unit-type));
+    }
+
+    .artist-works-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

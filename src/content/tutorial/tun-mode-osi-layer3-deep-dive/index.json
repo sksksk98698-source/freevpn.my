@@ -1,0 +1,20 @@
+{
+  "slug": "tun-mode-osi-layer3-deep-dive",
+  "title": {
+    "zh": "TUN 虚拟网卡模式原理深度解析：从 OSI 第三层网络包拦截看系统代理与 TUN 的本质区别",
+    "en": "TUN Virtual Interface & OSI Layer 3 Architecture: Deep Dive into Packet Interception vs System Proxy"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "网络底层与分流",
+    "en": "Network Architecture & Routing"
+  },
+  "cluster": {
+    "zh": "TUN 虚拟网卡深度分流",
+    "en": "TUN Virtual Interface & Routing"
+  },
+  "description": {
+    "zh": "技术深度硬核剖析：操作系统网络协议栈中 TUN 虚拟网卡（Layer 3 IP Packet）的工作机制。对比 TAP（Layer 2 Ethernet）与应用层系统代理的本质差异，解析路由表重定向与 Fake-IP 封包流转全景路径。",
+    "en": "Hardcore technical breakdown of TUN (Layer 3) network packet interception within OS networking stacks. Analyze the architectural differences between TUN, TAP, and L7 proxies, packet redirection mechanics, and Fake-IP translation lifecycles."
+  }
+}

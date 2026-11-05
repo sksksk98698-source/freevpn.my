@@ -1,13 +1,65 @@
-We are thrilled to announce the grand opening of **Domus Picturae**, a new contemporary art gallery in the heart of Rome. Located at Via dei Pittori 7, the gallery opens its doors with a mission to showcase exceptional contemporary artworks and support emerging and established artists from around the world.
+# FreeVPN.my 实测实验室正式上线：首期发布42家机场品牌库与晚高峰图谱白皮书
 
-The inaugural exhibition, _"Thresholds of Perception"_, brings together works by eight distinguished artists: Emma Thompson, Isabella Rodriguez, James Park, Luca Moretti, Marcus Weber, Sarah Chen, Sophie Laurent and Yuki Tanaka. Each artist contributes a unique perspective to the exhibition's central theme — exploring the boundaries between the visible and the invisible, the material and the immaterial, the conscious and the subconscious.
+> **内容定位与摘要**：本篇为 **FreeVPN 实测实验室** 的平台使命声明与技术评测方法论白皮书（Platform Whitepaper）。旨在向全球出海中文用户阐释我们为什么建立 FreeVPN.my：全面打破黑心评测网站“收取机场高额保护费后肆意造假推荐”的行业潜规则。公布 42 家机场收录标准、晚高峰压力测试体系、四层站内知识图谱，并承诺所有测评数据 100% 源于真实物理机器跑测。
 
-The gallery's name, Domus Picturae — Latin for "House of Pictures" — reflects our commitment to creating a space where art is not merely displayed but truly lives. The 450-square-metre space has been carefully designed to facilitate intimate encounters with artworks, with natural light filtering through large windows and flexible exhibition walls that adapt to each show's specific needs.
+---
 
-Director and founder Elena Marchetti explains the gallery's philosophy: "We believe that art has the power to transform how we see the world and ourselves. Domus Picturae is conceived as a place where this transformation can occur — where visitors can slow down, engage deeply with works, and leave with new perspectives."
+## 目录（Table of Contents）
 
-The opening exhibition runs through May 15, 2025, and includes paintings, sculptures and mixed-media installations that challenge conventional modes of perception. Emma Thompson's large-scale abstract canvases create immersive colour fields that invite contemplation, while Sophie Laurent's intimate portraits explore the psychological depth of human expression. James Park's sculptural works investigate the relationship between form and space, and Yuki Tanaka's installations incorporate digital and traditional media to question our relationship with technology.
+1. [内容角色与全站链接拓扑声明](#内容角色与全站链接拓扑声明)
+2. [行业现状：为什么市面上的“机场推荐”几乎全不可信？](#行业现状为什么市面上的机场推荐几乎全不可信)
+3. [FreeVPN.my 的三大核心独立评测原则](#freevpnmy-的三大核心独立评测原则)
+4. [首期发布：42 家机场品牌库与晚高峰图谱白皮书概要](#首期发布42-家机场品牌库与晚高峰图谱白皮书概要)
+5. [如何读懂本站的技术评测数据？](#如何读懂本站的技术评测数据)
+6. [四层站内内容矩阵与延伸阅读](#四层站内内容矩阵与延伸阅读)
+7. [关于我们与实测实验室团队](#关于我们与实测实验室团队)
 
-In addition to exhibitions, Domus Picturae will host a series of public programmes including artist talks, curator-led tours and educational workshops. The gallery also maintains a private viewing room for collectors and a research library focused on contemporary art practices.
+---
 
-Domus Picturae represents a new vision for contemporary art presentation — one that prioritises dialogue, discovery and the transformative power of visual expression. Visit us at Via dei Pittori 7, Rome, and become part of a community dedicated to supporting artists and celebrating the vital role of art in our cultural landscape.
+## 内容角色与全站链接拓扑声明
+
+作为实验室的立项纲领与白皮书，本页面承担 **Platform Mission & Methodology（平台白皮书）** 角色：
+
+- **向上链接**：直接回链全站主脑 [2026 免费VPN安全陷阱深度剖析与42家高速机场晚高峰测速天梯终极指南](/exhibitions/thresholds-of-perception)；
+- **横向协同**：为两大实测集群 [17家晚高峰测速横评](/exhibitions/echoes-of-stillness) 与 [AI/4K原生解锁矩阵](/exhibitions/luminous-ground) 提供测试伦理与数据背书；
+- **团队档案**：直达 [FreeVPN 实测实验室核心专家组档案](/artists/lab-team)；
+- **品牌矩阵**：全面覆盖以 [光速云 2.5Gbps IEPL 专线](/artworks/guangsu-cloud) 为首的全站 42 家独立评测实体。
+
+---
+
+## 行业现状：为什么市面上的“机场推荐”几乎全不可信？
+
+当你在搜索引擎中检索“科学上网推荐”、“高速机场评测”或“免费VPN”时，映入眼帘的几乎是高度同质化的所谓“十大机场推荐博客”。这些网站存在三大行业顽疾：
+
+1. **利益绑定与竞价排名**：谁给的佣金返利高，谁就被排在第一名，完全无视真实的线路质量与用户投诉；
+2. **清晨空闲虚假测速**：在凌晨 4 点网络无人的状态下跑 Speedtest 多线程，截图宣称“节点全线破千兆”，误导用户在晚高峰遭遇严重卡顿；
+3. **跑路机场依然挂榜**：不少低端廉价机场早已失联跑路，但推广博主由于懒于维护，仍长期放置推广链接吸纳不明真相的新手资金。
+
+---
+
+## FreeVPN.my 的三大核心独立评测原则
+
+为了终结虚假评测，FreeVPN 实测实验室确立了不可动摇的评测底线：
+
+1. **坚持晚高峰极压实测**：所有关键数据采集全部锁定在北京时间 **20:30–22:30 CST** 国际出口拥堵最剧烈时段；
+2. **多指标立体遥测**：单线程有效吞吐量、TLS 握手首包延迟、连续 500 次 ICMP 探针丢包率三位一体，拒绝单一多线程数字造假；
+3. **商业赞助透明公开**：所有推荐的商业平替产品（如榜首 [光速云 IEPL 专线](/artworks/guangsu-cloud)）均经过长达半年的真实机房巡检，且所有推广链接严格打上 `rel="nofollow sponsored"` 规范标签，保障编辑独立性。
+
+---
+
+## 首期发布：42 家机场品牌库与晚高峰图谱白皮书概要
+
+本期上线，实验室完成了首批 **42 家主流机场的独立实体建档** 与 **17 家晚高峰深测图谱**：
+
+- **第一名旗舰标杆**：[光速云 (Guangsu Cloud)](/artworks/guangsu-cloud)，以 2.5Gbps 双向 IEPL、晚高峰 786.4 Mbps 稳定单线程、0 丢包以及独家 147 永久套餐拔得头筹；
+- **梯队分明**：暮光加速、飞猫云、极客云、SpeedCAT 等 16 家各具特色的中转与 IPLC 专线全面完成客观数据归档；
+- **全平台客户端教程覆盖**：针对 Windows/Mac、iOS、Android 及游戏极客，同步推出 [Clash Verge Rev 教程](/workshops/contemporary-painting-techniques)、[Shadowrocket 小火箭教程](/workshops/digital-art-and-traditional-media) 与 [v2rayN / Sing-box 教程](/workshops/exploring-abstract-art-a-hands-on-workshop)。
+
+---
+
+## 四层站内内容矩阵与延伸阅读
+
+- **研读旗舰总览**：[2026 免费VPN安全陷阱深度剖析与42家高速机场晚高峰测速天梯终极指南](/exhibitions/thresholds-of-perception)；
+- **查阅晚高峰天梯**：[2026 17家主流机场晚高峰测速天梯实测大横评](/exhibitions/echoes-of-stillness)；
+- **查阅流媒体矩阵**：[4K流媒体与ChatGPT / Claude / Gemini AI原生解锁矩阵](/exhibitions/luminous-ground)；
+- **获取专属优惠**：[2026 最新各大机场优惠码汇总](/news/sophie-laurent-portrait-series)（优惠码 `AMM` 专属直连）。

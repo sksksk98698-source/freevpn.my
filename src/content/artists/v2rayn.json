@@ -1,0 +1,22 @@
+{
+  "name": "v2rayN",
+  "isEstate": false,
+  "image": "/images/artists/james-park/image.jpg",
+  "imageAlt": {
+    "zh": "v2rayN",
+    "en": "v2rayN"
+  },
+  "shortBio": {
+    "zh": "Windows 平台历史最悠久、兼容协议最全的经典代理客户端，支持 Xray 与 sing-box 双核心自由切换。",
+    "en": "The benchmark Windows proxy client supporting seamless switching between Xray-core and sing-box-core engines."
+  },
+  "biography": {
+    "zh": "v2rayN 是 Windows 平台上资历最深厚、稳定性最高的开源代理客户端。由 2dust 团队主导维护，进入 7.x 时代后基于微软最新 .NET 8.0 运行时重构，执行效率大幅提升。\n\nv2rayN 的核心优势在于“极致的自由度与双核心切换能力”。用户可以在 Xray-core 与 sing-box-core 之间随时一键切换，既可体验 Xray 纯正的 XTLS-Reality 抗封锁特性，也能利用 sing-box 高效的 TUN 虚拟网卡接管外服竞技游戏流量。\n\n软件支持全锥型 NAT (FullCone NAT) 与高级 UDP 转发调优，外服对战联机抖动可低至 3ms 以内，是广大软件工程师、网络管理员及外服电竞极客不可替代的日常利器。",
+    "en": "v2rayN is the time-tested, powerhouse proxy client for Windows environments. Maintained by the 2dust team and built on .NET 8.0, it delivers rock-solid reliability for developers and network engineers.\n\nIts signature feature is dual-core flexibility: users can switch between Xray-core and sing-box-core with a single click. This enables native VLESS XTLS-Reality resistance alongside high-throughput TUN interface routing for gaming traffic.\n\nSupporting FullCone NAT and fine-tuned UDP forwarding, v2rayN reduces online gaming jitter below 3ms, making it the preferred setup for hardcore gamers and enterprise IT professionals."
+  },
+  "quote": {
+    "zh": "Windows 平台最可靠的双核心极客利器。",
+    "en": "The battle-tested dual-core powerhouse for Windows network professionals."
+  },
+  "hasCv": false
+}

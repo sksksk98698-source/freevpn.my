@@ -1,5 +1,155 @@
-The boundary between digital and traditional art continues to blur as artists embrace technology while honouring classical techniques. This workshop examines how modern creators integrate digital tools with traditional media to produce compelling contemporary artworks.
+# Shadowrocket 小火箭 iOS 客户端节点导入与证书避坑指南：美区ID获取、订阅自动更新与分流规则调优
 
-We'll explore various approaches, from digital sketching that informs traditional paintings to mixed-media works that combine screen printing, digital manipulation and hand-painted elements. Participants will gain practical experience in both digital and traditional methods.
+> **内容定位与摘要**：本指南为 **FreeVPN 实测实验室** 出品的 iOS 生态主流客户端权威配置指南（Deep Tutorial）。**Shadowrocket（俗称小火箭）** 是 iOS 平台上最为普及、性价比最高的网络代理工具。由于国内 App Store 政策调整，很多新手用户在海外 Apple ID 注册获取、订阅链接解析、证书安装及日常分流规则配置上面临诸多安全陷阱。本教程系统讲解海外 ID 零成本安全下载、节点一键同步、自动健康检查与 HTTPS 解密避坑全流程。
 
-Through demonstrations and hands-on exercises, you'll learn how to seamlessly blend these approaches, creating works that reflect contemporary artistic sensibilities while maintaining the tactile quality of traditional media.
+---
+
+## 目录（Table of Contents）
+
+1. [内容角色与全站链接拓扑声明](#内容角色与全站链接拓扑声明)
+2. [iOS 代理软件选型对比：为什么小火箭是首选？](#ios-代理软件选型对比为什么小火箭是首选)
+3. [如何安全获取海外 Apple ID 并下载官方正版小火箭？](#如何安全获取海外-apple-id-并下载官方正版小火箭)
+   - 3.1 警惕“设置登录他人 ID 导致 iPhone 锁死成砖”陷阱
+   - 3.2 官方正版核验：开发者与售价核对
+4. [三步极速导入机场订阅（以光速云为例）](#三步极速导入机场订阅以光速云为例)
+5. [路由模式深度解析：配置（Rule）vs 代理（Proxy）vs 直连（Direct）](#路由模式深度解析配置rule-vs-代理proxy-vs-直连direct)
+6. [分流规则进阶：精准调度 AI 与 4K 流媒体](#分流规则进阶精准调度-ai-与-4k-流媒体)
+7. [HTTPS 解密与 MitM 证书避坑指南](#https-解密与-mitm-证书避坑指南)
+8. [iOS 常见疑难故障排查（Troubleshooting）](#ios-常见疑难故障排查troubleshooting)
+9. [四层站内内容矩阵与延伸阅读](#四层站内内容矩阵与延伸阅读)
+10. [高频核心问答（FAQ）](#高频核心问答faq)
+
+---
+
+## 内容角色与全站链接拓扑声明
+
+作为 iOS 移动生态核心教程，本页面承担 **Deep Tutorial（深度教程页）** 职责：
+
+- **向上链接**：回链全站主脑 [2026 免费VPN安全陷阱深度剖析与42家高速机场晚高峰测速天梯终极指南](/exhibitions/thresholds-of-perception)；
+- **横向联动**：与桌面端教程 [Clash Verge Rev 跨平台客户端指南](/workshops/contemporary-painting-techniques) 和 [v2rayN / Sing-box 进阶指南](/workshops/exploring-abstract-art-a-hands-on-workshop) 共同构筑三端合围教程矩阵；
+- **场景互补**：紧密衔接 [4K流媒体与AI原生解锁矩阵](/exhibitions/luminous-ground)，保障 iPhone/iPad 在移动网络下安全使用 ChatGPT APP 与 Claude；
+- **实体推荐**：[光速云 2.5Gbps IEPL 专线独立评测](/artworks/guangsu-cloud)（年付 ¥99 / 永久 247GB 套餐）。
+
+---
+
+## iOS 代理软件选型对比：为什么小火箭是首选？
+
+在苹果 iOS 平台上，主流代理工具包括 **Shadowrocket（小火箭）**、**Quantumult X（圈叉）**、**Loon** 和 **Stash**：
+
+- **Shadowrocket**：售价 $2.99，性价比极高，支持协议最全面（SS/SSR/VMess/VLESS/Trojan/Hysteria 2/TUIC），上手门槛最低，适合 95% 以上的普通与进阶用户；
+- **Quantumult X / Loon**：脚本扩展性强，但规则编写复杂，学习曲线陡峭；
+- **Stash**：Clash 的 iOS 移植版，售价较高（$3.99），对资源消耗相对小火箭略大。
+
+综合易用性、抗封锁协议支持及价格，**Shadowrocket 是目前 iOS 用户出海的首选必备工具**。
+
+---
+
+## 如何安全获取海外 Apple ID 并下载官方正版小火箭？
+
+> [!CAUTION]
+> **绝对生死红线**：严禁在 iPhone 的【系统设置 ➔ Apple ID / iCloud】中直接登录他人共享账号！一旦登录，他人可通过“查找我的 iPhone”直接远程抹掉并锁死你的设备进行勒索！
+
+### 1. 正确的账号登录流程（仅在 App Store 登录）
+
+1. 打开 iPhone 自带的 **【App Store】** 软件；
+2. 点击右上角个人头像，滑动到最底部，点击 **【退出登录（Sign Out）】**；
+3. 在弹出的登录框中，输入已准备好的美区或海外 Apple ID 与密码；
+4. 提示“双重认证”时输入验证码，进入美区商店后即可搜索并购买下载。
+
+### 2. 官方正版核验指标
+
+- **应用全称**：Shadowrocket
+- **开发者名称**：Shadow Launch Technology Limited
+- **官方售价**：$2.99 USD（约合 ¥22 元人民币，一次购买终身免费升级）
+- **图标标识**：白底蓝色小火箭经典图标（_切勿下载名字带有“Shadowrocket VPN”等后缀的山寨吸费软件_）。
+
+---
+
+## 三步极速导入机场订阅（以光速云为例）
+
+购买了 [光速云 2.5Gbps IEPL 专线](/artworks/guangsu-cloud) 后，iOS 导入订阅仅需三步：
+
+1. **复制小火箭专属订阅**：
+   - 在 Safari 浏览器中登录光速云官网后台；
+   - 点击【一键导入】➔ 选择【导入到 Shadowrocket】或直接点击【复制订阅链接】；
+2. **在小火箭中添加节点**：
+   - 打开 Shadowrocket 客户端；
+   - 点击右上角的 **“+”号**；
+   - 在【类型】栏选择 **【Subscribe（订阅）】**；
+   - 在【URL】栏粘贴刚才复制的订阅链接，【备注】填写 `光速云 IEPL 专线`；
+   - 点击右上角【完成（Save）】，客户端会自动拉取几十条全球专线节点；
+3. **开启连接与系统授权**：
+   - 选择一个低延迟节点（如“香港01”或“新加坡AI专线”）；
+   - 打开顶部的【未连接】主开关；
+   - 首次连接时，iOS 系统会弹出“Shadowrocket 想添加 VPN 配置”，点击 **【允许（Allow）】** 并输入 iPhone 锁屏密码即可。
+
+---
+
+## 路由模式深度解析：配置（Rule）vs 代理（Proxy）vs 直连（Direct）
+
+在小火箭底部菜单栏的【全局路由】选项中，包含四种核心模式：
+
+- **配置（Config / Rule）- 【强烈推荐】**：根据内置分流规则智能判断。访问国内应用直连不走代理，访问海外受限服务自动走代理专线，最省电、最省流量；
+- **代理（Proxy）**：全局代理模式。所有网络数据包无脑通过境外节点转发，会导致国内 App 变慢并暴露国内访问痕迹；
+- **直连（Direct）**：所有流量不走代理，相当于关闭软件；
+- **场景（Scene）**：可根据当前连接的 WiFi 名称自动切换不同策略。
+
+---
+
+## 分流规则进阶：精准调度 AI 与 4K 流媒体
+
+为保障 OpenAI ChatGPT APP 与 Claude 不触发风控封号，建议在小火箭中设置专属规则：
+
+1. 点击底部菜单栏 **【配置】** ➔ 点击当前使用的 `default.conf` 规则文件 ➔ 选择 **【编辑配置】**；
+2. 点击 **【添加规则】**；
+3. 类型选择 **`DOMAIN-KEYWORD`**，内容填入 `openai`，策略选择 **【光速云-美西原生专线】**；
+4. 再次添加规则，内容填入 `anthropic`，策略选择 **【光速云-新加坡原生专线】**；
+5. 点击右上角保存。从此手机打开官方 ChatGPT APP 时，将始终固定走最高纯净度的双 ISP 住宅专线。
+
+---
+
+## HTTPS 解密与 MitM 证书避坑指南
+
+部分高级用户需要对流媒体进行重定向或去广告，需要安装根证书。**如果操作不当，会导致 Safari 提示“您的连接不是私密连接”**：
+
+1. 若无脚本去广告需求，**切勿随意开启 MitM 和安装未知证书**；
+2. 若确实需要开启，在小火箭【配置】➔【证书】中点击【生成新的 CA 证书】➔【安装证书】；
+3. 安装后必须打开 iOS【设置】➔【通用】➔【关于本机】➔ 滑动到底部【证书信任设置】➔ 手动开启该证书的完全信任开关。
+
+---
+
+## iOS 常见疑难故障排查（Troubleshooting）
+
+| 故障现象                          | 潜在诱因                           | 快速解决对策                                                                       |
+| :-------------------------------- | :--------------------------------- | :--------------------------------------------------------------------------------- |
+| **小火箭后台经常被系统杀掉**      | iOS 内存管理机制将耗电应用静默回收 | 在 iOS【设置】➔【通用】➔【后台 App 刷新】中，确保 Shadowrocket 处于开启状态        |
+| **WiFi 切换到 5G 移动蜂窝后断网** | iOS 路由表未及时刷新网络接口       | 在小火箭设置中开启【按需连接（On Demand）】，并在通知栏快速开关一次飞行模式        |
+| **测速显示全是毫秒超时**          | 小火箭默认使用 ICMP 测速被国内阻断 | 在小火箭【设置】➔【延迟测试方法】中，将测试方式由 ICMP 改为 **【HTTP (CONNECT)】** |
+| **微信接收消息有延迟**            | 微信服务器被错误划入了代理规则     | 检查分流规则，确保【白名单 / Direct】列表中包含所有微信与腾讯域域名                |
+
+---
+
+## 四层站内内容矩阵与延伸阅读
+
+- **返回全站主脑**：[2026 免费VPN安全陷阱深度剖析与42家高速机场晚高峰测速天梯终极指南](/exhibitions/thresholds-of-perception)；
+- **横向性能实测**：查看节点晚高峰速度表现，参阅 [2026 17家主流机场晚高峰测速天梯实测大横评](/exhibitions/echoes-of-stillness)；
+- **流媒体与 AI 风控**：[4K流媒体与ChatGPT / Claude / Gemini AI原生解锁矩阵](/exhibitions/luminous-ground)；
+- **桌面端教程配合**：[Clash Verge Rev 跨平台客户端指南](/workshops/contemporary-painting-techniques)；
+- **极客工具指南**：[v2rayN 与 Sing-box 核心进阶教程](/workshops/exploring-abstract-art-a-hands-on-workshop)；
+- **高品质专线推荐**：[光速云 2.5Gbps IEPL 专线独立评测报告](/artworks/guangsu-cloud)（立减优惠码 `AMM`）。
+
+---
+
+## 高频核心问答（FAQ）
+
+### Q1：淘宝上花几块钱买的小火箭共享账号安全吗？
+
+**答**：只能用于在 App Store 下载软件，下载完成后**必须立即在 App Store 退出该账号**！切勿将该账号用于购买内购或登录 iCloud。若条件允许，建议自行使用美区虚拟信用卡注册独立海外 Apple ID。
+
+### Q2：为什么我的小火箭测速延迟很低，但看视频很卡？
+
+**答**：小火箭默认的“测试延迟”只是测量本地手机到代理入口服务器的握手耗时（通常只要十几毫秒），不代表海外落地服务器到视频服务商的带宽。真实晚高峰吞吐需参考 [17家晚高峰测速横评](/exhibitions/echoes-of-stillness)。
+
+### Q3：小火箭可以与光速云的 147 永久套餐搭配使用吗？
+
+**答**：完美契合。光速云提供的订阅链接原生支持 Shadowrocket 自动拉取，147 元 247GB 永久不限期流量非常适合在手机上作为备用和移动出海主力，配合优惠码 `AMM` 极为划算。

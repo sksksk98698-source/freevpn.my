@@ -21,9 +21,6 @@ const links = getMainNavigation(locale);
 const homeUrl = routes.home(locale);
 const currentPath = stripLocale(Astro.url.pathname);
 const isActive = (href: string) => stripLocale(href) === currentPath;
-// The link lives as long as its route: deleting the page removes it.
-const hasTemplatePage =
-  Object.keys(import.meta.glob("/src/pages/template.astro")).length > 0;
 const isTranslated = pageContext(Astro, locale).alternates.length > 1;
 ---
 
@@ -32,18 +29,6 @@ const isTranslated = pageContext(Astro, locale).alternates.length > 1;
     <a href={homeUrl}>{site.name}</a>
   </div>
   <div class="navbar-actions">
-    {hasTemplatePage && (
-      <a
-        href={routes.template()}
-        hreflang="en"
-        class:list={[
-          "navbar-template",
-          { "is-active": isActive(routes.template()) },
-        ]}
-      >
-        {t.menu.template}
-      </a>
-    )}
     <button
       class="navbar-open"
       aria-controls="menu-overlay"
@@ -174,7 +159,6 @@ const isTranslated = pageContext(Astro, locale).alternates.length > 1;
    */
   .navbar-logo a,
   .menu-logo a,
-  .navbar-template,
   .navbar-open,
   .menu-close {
     --hit-pad: 4px;
@@ -188,7 +172,6 @@ const isTranslated = pageContext(Astro, locale).alternates.length > 1;
     gap: calc(40 * var(--unit-fx));
   }
 
-  .navbar-template,
   .navbar-open,
   .menu-close {
     position: relative;
@@ -210,8 +193,6 @@ const isTranslated = pageContext(Astro, locale).alternates.length > 1;
     content: "";
   }
 
-  .navbar-template:hover::before,
-  .navbar-template.is-active::before,
   .navbar-open:hover::before,
   .menu-close:hover::before {
     transform: scaleX(1);

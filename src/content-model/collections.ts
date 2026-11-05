@@ -89,6 +89,13 @@ export const collections = {
         "available",
         "Available and sold works appear in the catalogue; works that are not for sale appear in the private collection.",
       ),
+      affiliateUrl: field.url("Affiliate Link"),
+      promoCode: field.plain("Promo Code"),
+      lowestPrice: field.plain("Lowest Price"),
+      trafficInfo: field.plain("Traffic Info"),
+      speedtestImage: field.plain("Speedtest Image"),
+      isTopPick: field.checkbox("Top Pick"),
+      rank: field.integer("Rank"),
     },
   }),
 
@@ -106,6 +113,40 @@ export const collections = {
       featuredImage: field.image("Featured image", "news", { required: true }),
       featuredImageAlt: imageAlt("Featured image alt text"),
       slides: slides("news"),
+      body: field.body(),
+    },
+  }),
+
+  airport: collection({
+    label: "Airport Articles",
+    layout: "directory",
+    fields: {
+      slug: field.slug(),
+      title: field.text("Title", { required: true }),
+      pubDate: field.date("Publication date"),
+      category: field.text("Category"),
+      cluster: field.text("Cluster"),
+      description: field.text("Description", {
+        multiline: true,
+        required: true,
+      }),
+      body: field.body(),
+    },
+  }),
+
+  tutorial: collection({
+    label: "Tutorial Articles",
+    layout: "directory",
+    fields: {
+      slug: field.slug(),
+      title: field.text("Title", { required: true }),
+      pubDate: field.date("Publication date"),
+      category: field.text("Category"),
+      cluster: field.text("Cluster"),
+      description: field.text("Description", {
+        multiline: true,
+        required: true,
+      }),
       body: field.body(),
     },
   }),

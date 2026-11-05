@@ -1,0 +1,21 @@
+{
+  "slug": "home-broadband-mtu-mss-optimization",
+  "title": {
+    "zh": "千兆家宽接入 BGP 中转链路调优：本地 MTU、MSS 协商与分片丢包排障",
+    "en": "Gigabit Home Broadband BGP Optimization: Local MTU/MSS Clamping & Fragmentation Troubleshooting"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "多线 BGP 智能中转与入口调度集群",
+    "en": "Multi-ISP BGP Relay Cluster"
+  },
+  "description": {
+    "zh": "彻底解决千兆光纤下打开代理“网页加载停在 99%”、“大图片持续转圈”与“SSH/Git 会话假死”的技术元凶：PPPoE MTU 1492 与代理隧道报头冲突导致的 IP 数据包分片排障实战。",
+    "en": "Troubleshooting stealth stalls where web pages hang at 99% and SSH sessions freeze, resolving MTU/MSS mismatches between PPPoE (1492) and proxy encapsulation tunnels via MSS clamping."
+  },
+  "body": true
+}

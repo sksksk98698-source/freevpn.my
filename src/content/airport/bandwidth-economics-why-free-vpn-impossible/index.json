@@ -1,0 +1,21 @@
+{
+  "slug": "bandwidth-economics-why-free-vpn-impossible",
+  "title": {
+    "zh": "带宽成本经济学：为什么“永久免费、不限速不限量”在物理网络规律上绝不可能存在？",
+    "en": "Bandwidth Economics: Why 'Unlimited Free High-Speed VPNs' Break the Laws of Physics"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "免费 VPN 风险雷达与供应链剖析",
+    "en": "Free VPN Risk Radar Cluster"
+  },
+  "description": {
+    "zh": "从全球海底光缆铺设投资、IDC 机房电力制冷能耗到 Tier-1 运营商中继带宽结算的真实经济账本，彻底揭穿“永久免费高速代理”在物理学与商业世界中的荒谬谎言。",
+    "en": "Analyzing submarine cable capital expenditures, datacenter cooling/power overhead, and transit settlement math to demonstrate why free unlimited high-speed proxies are an economic impossibility."
+  },
+  "body": true
+}

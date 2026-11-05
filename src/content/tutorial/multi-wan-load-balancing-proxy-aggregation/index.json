@@ -1,0 +1,20 @@
+{
+  "slug": "multi-wan-load-balancing-proxy-aggregation",
+  "title": {
+    "zh": "企业团队与家庭办公多拨负载均衡：基于 iStoreOS / OpenWrt 的多机场带宽聚合与高可用容灾",
+    "en": "Multi-WAN Load Balancing & Proxy Aggregation: High-Availability Failover via iStoreOS & OpenWrt"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "全场景与智能网关",
+    "en": "Smart Gateways & Ecosystem"
+  },
+  "cluster": {
+    "zh": "路由器固件与家庭网关",
+    "en": "Router Firmware & Gateways"
+  },
+  "description": {
+    "zh": "针对跨境电商团队、外贸工作室与重度极客家庭的高可用网络方案。详解双宽带多拨物理接入、iStoreOS 旁路由部署、基于 MWAN3 的多机场订阅负载均衡与全自动主备秒级故障转移实战。",
+    "en": "Enterprise-grade high-availability networking manual for cross-border teams and home labs. Deploy multi-WAN broadband aggregation, MWAN3 multi-path routing, and multi-provider subscription load balancing on iStoreOS/OpenWrt."
+  }
+}

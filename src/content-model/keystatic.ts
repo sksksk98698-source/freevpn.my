@@ -11,9 +11,8 @@ import type {
 } from "./fields";
 
 const localeNames: Record<Locale, string> = {
+  zh: "中文",
   en: "English",
-  fr: "Français",
-  de: "Deutsch",
 };
 
 /** Column spans (out of 12) that lay the per-locale inputs side by side. */

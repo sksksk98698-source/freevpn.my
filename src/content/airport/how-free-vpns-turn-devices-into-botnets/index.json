@@ -1,0 +1,21 @@
+{
+  "slug": "how-free-vpns-turn-devices-into-botnets",
+  "title": {
+    "zh": "静默沦为黑客肉鸡：免费 VPN 如何将用户家用宽带与手机转化为住宅代理出口并转售黑产",
+    "en": "Silently Weaponized: How Free VPNs Turn Phones and Home Networks into Residential Botnets"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "免费 VPN 风险雷达与供应链剖析",
+    "en": "Free VPN Risk Radar Cluster"
+  },
+  "description": {
+    "zh": "深度曝光 Hola VPN、Luminati/Bright Data 式的住宅代理供应链黑幕，揭示免费代理软件如何在用户后台植入 P2P 共享 SDK，将家庭宽带 IP 沦为黑产刷单、撞库与网络攻击跳板的完整过程。",
+    "en": "Exposing the mechanics of residential proxy harvesting akin to Hola/Luminati models, explaining how free VPNs inject background SDKs to turn residential IPs into botnet relays for cybercrime."
+  },
+  "body": true
+}

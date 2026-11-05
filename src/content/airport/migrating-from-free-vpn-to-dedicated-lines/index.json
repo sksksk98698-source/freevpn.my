@@ -1,0 +1,21 @@
+{
+  "slug": "migrating-from-free-vpn-to-dedicated-lines",
+  "title": {
+    "zh": "从免费代理到正规物理专线平替迁移指南：零成本安全出海与合规网络配置",
+    "en": "Migration Guide: Transitioning from Dangerous Free VPNs to Enterprise Dedicated Circuits Safely"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "免费 VPN 风险雷达与供应链剖析",
+    "en": "Free VPN Risk Radar Cluster"
+  },
+  "description": {
+    "zh": "为迷茫的初级用户量身定制的无痛安全平替迁移手册，涵盖流氓免费软件的彻底卸载、系统证书与代理注册表清理，以及如何用极低成本（如百元年付或永久包）平滑过渡到企业级 IEPL 专线。",
+    "en": "A step-by-step migration guide for safely uninstalling free VPN malware, purging rogue root certificates, and transitioning affordably to enterprise IEPL dedicated circuits."
+  },
+  "body": true
+}

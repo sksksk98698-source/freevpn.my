@@ -30,7 +30,7 @@ function artwork(
     data: {
       availability,
       artist: { collection: "artists", id: artistId },
-      title: { en: `${id} (en)`, fr: `${id} (fr)` },
+      title: { zh: `${id} (zh)`, en: `${id} (en)` },
       dimensions: { width: 100, height: 80, unit: "cm" },
       ...extra,
     },
@@ -39,15 +39,15 @@ function artwork(
 
 describe("presentArtwork", () => {
   it("puts available and sold works in the catalogue on the light theme", () => {
-    const p = presentArtwork(artwork("a", "available"), [artist], "fr");
+    const p = presentArtwork(artwork("a", "available"), [artist], "en");
     expect(p).toMatchObject({
       section: "artworks",
       theme: "light",
       badge: null,
       canInquire: true,
-      href: "/fr/artworks/a",
+      href: "/en/artworks/a",
     });
-    expect(presentArtwork(artwork("b", "sold"), [artist], "en")).toMatchObject({
+    expect(presentArtwork(artwork("b", "sold"), [artist], "zh")).toMatchObject({
       section: "artworks",
       badge: "sold",
       canInquire: false,
@@ -57,20 +57,20 @@ describe("presentArtwork", () => {
 
   it("puts not-for-sale works in the private collection on the dark theme", () => {
     expect(
-      presentArtwork(artwork("c", "not-for-sale"), [artist], "de"),
+      presentArtwork(artwork("c", "not-for-sale"), [artist], "en"),
     ).toMatchObject({
       section: "private-collection",
       theme: "dark",
       badge: "notForSale",
       canInquire: false,
-      href: "/de/private-collection/c",
+      href: "/en/private-collection/c",
     });
   });
 
   it("carries the localised title, year, image and shape", () => {
-    const p = presentArtwork(artwork("a", "available"), [artist], "fr");
+    const p = presentArtwork(artwork("a", "available"), [artist], "en");
     expect(p).toMatchObject({
-      title: "a (fr)",
+      title: "a (en)",
       year: undefined,
       image: null,
       isSquare: false,
@@ -79,8 +79,8 @@ describe("presentArtwork", () => {
       year: 2024,
       dimensions: { width: 50, height: 50, unit: "cm" },
     });
-    expect(presentArtwork(square, [artist], "de")).toMatchObject({
-      title: "b (en)",
+    expect(presentArtwork(square, [artist], "zh")).toMatchObject({
+      title: "b (zh)",
       year: 2024,
       isSquare: true,
     });
@@ -88,10 +88,10 @@ describe("presentArtwork", () => {
 
   it("resolves the artist and fails on a dangling reference", () => {
     expect(
-      presentArtwork(artwork("a", "available"), [other, artist], "en").artist,
+      presentArtwork(artwork("a", "available"), [other, artist], "zh").artist,
     ).toMatchObject({ id: "sarah-chen", name: "Sarah Chen" });
     expect(() =>
-      presentArtwork(artwork("a", "available", "nobody"), [artist], "en"),
+      presentArtwork(artwork("a", "available", "nobody"), [artist], "zh"),
     ).toThrow(/nobody/);
   });
 });
@@ -105,7 +105,7 @@ describe("relatedArtworks", () => {
   ];
 
   it("keeps the same artist across sections, excluding the work itself", () => {
-    const p = presentArtwork(pool[0], [artist, other], "en");
+    const p = presentArtwork(pool[0], [artist, other], "zh");
     expect(relatedArtworks(p, pool, [artist, other]).map((r) => r.id)).toEqual([
       "same-artist",
       "same-artist-private",
@@ -113,7 +113,7 @@ describe("relatedArtworks", () => {
   });
 
   it("relates a private work to the artist's catalogue works", () => {
-    const p = presentArtwork(pool[2], [artist, other], "en");
+    const p = presentArtwork(pool[2], [artist, other], "zh");
     expect(relatedArtworks(p, pool, [artist, other]).map((r) => r.id)).toEqual([
       "self",
       "same-artist",
@@ -138,7 +138,7 @@ describe("section predicates", () => {
     expect(isCatalogueWork(a)).toBe(true);
     expect(isPrivateCollectionWork(b)).toBe(true);
     expect(
-      presentArtworks([a, b], [artist], "en").map((p) => p.section),
+      presentArtworks([a, b], [artist], "zh").map((p) => p.section),
     ).toEqual(["artworks", "private-collection"]);
   });
 });

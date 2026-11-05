@@ -225,3 +225,65 @@ export async function workshopPaths() {
     props: { workshop },
   }));
 }
+
+export async function airportPaths() {
+  return (await getCollection("airport")).map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+export async function getAirportArticles(locale: Locale) {
+  return (await getCollection("airport")).map((article) => ({
+    id: article.id,
+    slug: article.id,
+    title:
+      typeof article.data.title === "object"
+        ? article.data.title[locale] || article.data.title.zh
+        : article.data.title,
+    description:
+      typeof article.data.description === "object"
+        ? article.data.description[locale] || article.data.description.zh
+        : article.data.description,
+    pubDate: article.data.pubDate,
+    category:
+      typeof article.data.category === "object"
+        ? article.data.category[locale] || article.data.category.zh
+        : article.data.category || "",
+    cluster:
+      typeof article.data.cluster === "object"
+        ? article.data.cluster[locale] || article.data.cluster.zh
+        : article.data.cluster || "",
+  }));
+}
+
+export async function tutorialArticlePaths() {
+  return (await getCollection("tutorial")).map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+export async function getTutorialArticles(locale: Locale) {
+  return (await getCollection("tutorial")).map((article) => ({
+    id: article.id,
+    slug: article.id,
+    title:
+      typeof article.data.title === "object"
+        ? article.data.title[locale] || article.data.title.zh
+        : article.data.title,
+    description:
+      typeof article.data.description === "object"
+        ? article.data.description[locale] || article.data.description.zh
+        : article.data.description,
+    pubDate: article.data.pubDate,
+    category:
+      typeof article.data.category === "object"
+        ? article.data.category[locale] || article.data.category.zh
+        : article.data.category || "",
+    cluster:
+      typeof article.data.cluster === "object"
+        ? article.data.cluster[locale] || article.data.cluster.zh
+        : article.data.cluster || "",
+  }));
+}

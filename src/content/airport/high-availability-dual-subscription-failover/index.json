@@ -1,0 +1,21 @@
+{
+  "slug": "high-availability-dual-subscription-failover",
+  "title": {
+    "zh": "多机场冷备与热备灾备体系搭建：关键出海业务如何配置双订阅高可用自动分流",
+    "en": "High-Availability Dual-Subscription Failover: Structuring Cold and Hot Standby Proxy Pipelines"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "机场跑路前兆与稳定性监测集群",
+    "en": "Exit Scam Radar & SLA Cluster"
+  },
+  "description": {
+    "zh": "面向跨境电商卖家、外贸团队与海外代码构建等关键业务，系统讲解如何利用双订阅架构、Clash 自动化 Fallback 回退策略组与永久不过期流量包打造“永不断线”的工业级网络保障。",
+    "en": "A strategic engineering guide for cross-border e-commerce, global teams, and CI/CD pipelines, demonstrating how to configure dual-subscription Fallback groups in Clash for zero-downtime operations."
+  },
+  "body": true
+}

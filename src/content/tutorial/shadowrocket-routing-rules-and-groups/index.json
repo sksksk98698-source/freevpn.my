@@ -1,0 +1,20 @@
+{
+  "slug": "shadowrocket-routing-rules-and-groups",
+  "title": {
+    "zh": "Shadowrocket 进阶配置：分流规则模式（Config）、代理分组与分应用按需代理实战",
+    "en": "Advanced Shadowrocket: Config Routing Rules, Proxy Policy Groups & Per-App On-Demand Routing"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "移动端出海实践",
+    "en": "Mobile Proxy Practices"
+  },
+  "cluster": {
+    "zh": "Shadowrocket 小火箭进阶",
+    "en": "Shadowrocket Advanced Rules"
+  },
+  "description": {
+    "zh": "掌握 iOS 小火箭高级路由分流与策略组配置。教你如何导入 ACL4SSR 等第三方远程规则集、配置按需代理（On Demand）、为特定境外应用绑定专属专线节点及实现海量国内 App 零耗流量直连。",
+    "en": "Master advanced Shadowrocket routing configurations. Learn to import remote rule-sets like ACL4SSR, configure On Demand cellular triggers, assign dedicated proxy groups to AI/streaming apps, and optimize domestic direct routes."
+  }
+}

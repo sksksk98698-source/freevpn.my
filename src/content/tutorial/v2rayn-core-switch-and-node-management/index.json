@@ -1,0 +1,20 @@
+{
+  "slug": "v2rayn-core-switch-and-node-management",
+  "title": {
+    "zh": "v2rayN Windows 最新版从零精通：核心引擎切换（Xray / sing-box）与基础节点管理",
+    "en": "Mastering v2rayN on Windows: Core Switching (Xray / sing-box) & Advanced Node Management"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "v2rayN 现代协议实战",
+    "en": "v2rayN Modern Protocols"
+  },
+  "description": {
+    "zh": "面向 Windows 用户的 2026 v2rayN 深度使用指南。详解 Xray-core 与 sing-box 核心自由切换、订阅解析、批量真机延迟与下载速度测速、自定义快捷键与系统托盘常驻调优。",
+    "en": "In-depth guide to v2rayN for Windows. Learn how to switch between Xray-core and sing-box engines, manage encrypted subscription pools, execute batch true-latency speedtests, and configure system tray behaviors."
+  }
+}

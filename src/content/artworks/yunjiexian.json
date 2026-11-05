@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "云界线",
+    "en": "Cloud Horizon"
+  },
+  "artist": "lab-team",
+  "year": 2023,
+  "image": "/images/artworks/horizon-pulse/image.png",
+  "imageAlt": {
+    "zh": "云界线 节点评测与速度图谱",
+    "en": "Cloud Horizon speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "轻量中转 / Shadowsocks",
+    "en": "Light Relay / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "云界线是平价轻量加速服务商，5.6 元月付的设定适合预算有限且仅需简单外网浏览的用户。",
+    "en": "Cloud Horizon is a high-performance cross-border proxy provider. Featuring Light Relay / Shadowsocks, 100 Mbps Light, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥5.6/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://qwerty.yunjiexianaff.com/?code=HBaZ91c6",
+  "promoCode": "yjx888",
+  "lowestPrice": "¥5.6/月",
+  "trafficInfo": "60GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 23
+}

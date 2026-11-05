@@ -1,0 +1,21 @@
+{
+  "slug": "youtube-4k-8k-video-streaming-test",
+  "title": {
+    "zh": "4K/8K 60fps HDR 视频流极限压测：稳定连接速度（Connection Speed）与缓冲健康全景横评",
+    "en": "4K/8K 60fps HDR Video Streaming Stress Test: Connection Speed & Buffer Health Benchmark"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "晚高峰单线程测速天梯集群",
+    "en": "Peak-Hour Speed Ladder Cluster"
+  },
+  "description": {
+    "zh": "以 YouTube 原生 Stats for nerds（专业统计信息）为硬核指标，在 21:00 晚高峰极限压测 42 家机场播放 4K/8K 60fps AV1/VP9 视频流的 Connection Speed、Buffer Health 秒数与丢帧率。",
+    "en": "A rigorous stress test evaluating 42 proxy services streaming 4K/8K 60fps AV1/VP9 content at 21:00 peak hours, measuring Connection Speed, Buffer Health, and dropped frames."
+  },
+  "body": true
+}

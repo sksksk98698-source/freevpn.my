@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "可信云",
+    "en": "Kosing Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/benchmarks/可信云-节点测速实测.png",
+  "imageAlt": {
+    "zh": "可信云 节点评测与速度图谱",
+    "en": "Kosing Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "透明中转专线 / Shadowsocks",
+    "en": "Transparent Relay / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "可信云在品牌资料中公开诚实标注各项参数，杜绝虚标，展现了良好的运营态度。实测晚高峰中表现稳定，适合注重务实的用户。",
+    "en": "Kosing Cloud is a high-performance cross-border proxy provider. Featuring Transparent Relay / Shadowsocks, Gigabit Multi-Access, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥18/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://guangs.kosingaff.com/#/register?code=UYDtNlCY",
+  "promoCode": "kkk333",
+  "lowestPrice": "¥18/月",
+  "trafficInfo": "120GB/月",
+  "speedtestImage": "/images/benchmarks/可信云-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 18
+}

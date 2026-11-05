@@ -6,18 +6,18 @@ const existing = "/images/artworks/the-blue-interval/image.jpg";
 describe("picture", () => {
   it("resolves a stored path to the imported image with the localised alt", () => {
     const result = picture(
-      { image: existing, imageAlt: { en: "Blue", fr: "Bleu" } },
-      "fr",
+      { image: existing, imageAlt: { en: "Blue", zh: "蓝色" } },
+      "zh",
     );
     expect(result?.src.width).toBeGreaterThan(0);
-    expect(result?.alt).toBe("Bleu");
+    expect(result?.alt).toBe("蓝色");
   });
 
   it("falls back to the default locale, then to fallbackAlt", () => {
     expect(
-      picture({ image: existing, imageAlt: { en: "Blue" } }, "de")?.alt,
+      picture({ image: existing, imageAlt: { zh: "Blue" } }, "en")?.alt,
     ).toBe("Blue");
-    expect(picture({ image: existing }, "de", "Title")?.alt).toBe("Title");
+    expect(picture({ image: existing }, "en", "Title")?.alt).toBe("Title");
   });
 
   it("accepts paths without a leading slash", () => {

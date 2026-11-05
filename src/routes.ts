@@ -24,6 +24,7 @@ const withId = (entry: { id: string } | string) =>
 
 export const routes = {
   home: (locale: Locale) => localizePath(locale, "/"),
+  airport: (locale: Locale) => localizePath(locale, "/airport"),
   artworks: (locale: Locale) => localizePath(locale, "/artworks"),
   viewingRoom: (locale: Locale) => localizePath(locale, "/viewing-room"),
   privateCollection: (locale: Locale) =>
@@ -49,18 +50,22 @@ export const routes = {
     localizePath(locale, `/workshops/${withId(workshop)}`),
   article: (locale: Locale, article: Article | string) =>
     localizePath(locale, `/news/${withId(article)}`),
+  airportIndex: (locale: Locale) => localizePath(locale, "/airport"),
+  airportArticle: (
+    locale: Locale,
+    article: CollectionEntry<"airport"> | string,
+  ) => localizePath(locale, `/airport/${withId(article)}`),
+  tutorial: (locale: Locale) => localizePath(locale, "/tutorial"),
+  tutorialArticle: (
+    locale: Locale,
+    article: CollectionEntry<"tutorial"> | string,
+  ) => localizePath(locale, `/tutorial/${withId(article)}`),
   /** An artist's CV, served straight from `public/cv/`. Not localised. */
   cv: (artist: Artist | string) => `/cv/${withId(artist)}.pdf`,
-  /**
-   * The page presenting the codebase to developers. English only on purpose:
-   * it describes the template, not the gallery, so it sits outside the
-   * per-locale route folders.
-   */
-  template: () => "/template",
 };
 
 /** Pages published in the default locale only: no hreflang alternates, no language switch. */
-export const untranslatedPaths: readonly string[] = [routes.template()];
+export const untranslatedPaths: readonly string[] = [];
 
 // ---------------------------------------------------------------- navigation
 
@@ -72,6 +77,8 @@ export interface NavLink {
 /** Ordered entries of the menu; labels come from `ui.nav`. */
 const mainNavigation = [
   "home",
+  "airport",
+  "tutorial",
   "artworks",
   "artists",
   "events",

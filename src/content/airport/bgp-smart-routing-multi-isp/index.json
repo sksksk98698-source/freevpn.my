@@ -1,0 +1,21 @@
+{
+  "slug": "bgp-smart-routing-multi-isp",
+  "title": {
+    "zh": "BGP 智能多线接入技术剖析：电信 163、联通 4837 与移动 CMI 本地就近接入逻辑",
+    "en": "BGP Multi-ISP Smart Routing Explained: Local Ingress Scheduling for AS4134, AS4837, and AS58453"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "多线 BGP 智能中转与入口调度集群",
+    "en": "Multi-ISP BGP Relay Cluster"
+  },
+  "description": {
+    "zh": "深度解析边界网关协议（BGP）在多运营商入口调度中的核心算法，阐明跨网互联损耗对延迟的影响，以及如何通过智能 DNS 与 Anycast 实现三网用户的国内毫秒级直连。",
+    "en": "A technical dissection of Border Gateway Protocol (BGP) ingress scheduling across China Telecom, Unicom, and Mobile backbones, explaining cross-carrier loss mitigation and GeoDNS Anycast routing."
+  },
+  "body": true
+}

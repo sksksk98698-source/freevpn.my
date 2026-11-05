@@ -1,0 +1,21 @@
+{
+  "slug": "transparent-proxy-dns-hijacking-risks",
+  "title": {
+    "zh": "免费 VPN 透明代理与 DNS 劫持实录：个人凭证、Cookie 与信用卡信息被窃取的技术链条",
+    "en": "Transparent Proxy & DNS Hijacking in Free VPNs: How Cookies, Credentials, and Cards Are Stolen"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "免费 VPN 风险雷达与供应链剖析",
+    "en": "Free VPN Risk Radar Cluster"
+  },
+  "description": {
+    "zh": "通过抓包实录深度拆解恶意免费代理软件如何通过伪造根证书（CA Certificate Injection）、强制 DNS 污染与透明代理中间人劫持，窃取用户明文登录凭据与金融会话 Cookie。",
+    "en": "Packet-level analysis of rogue free VPNs using root CA injection, DNS poison redirection, and transparent MITM proxies to harvest cleartext credentials, cookies, and payment information."
+  },
+  "body": true
+}

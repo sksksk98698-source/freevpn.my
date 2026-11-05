@@ -45,6 +45,13 @@ export interface ArtworkPresentation {
   image: Picture | null;
   /** Square works are shown contained rather than cropped. */
   isSquare: boolean;
+  affiliateUrl?: string | null;
+  promoCode?: string | null;
+  lowestPrice?: string | null;
+  trafficInfo?: string | null;
+  speedtestImage?: string | null;
+  isTopPick?: boolean;
+  rank?: number | null;
 }
 
 /**
@@ -83,6 +90,13 @@ export function presentArtwork(
     dimensions,
     image: picture(artwork.data, locale, title),
     isSquare: dimensions.width === dimensions.height,
+    affiliateUrl: artwork.data.affiliateUrl ?? null,
+    promoCode: artwork.data.promoCode ?? null,
+    lowestPrice: artwork.data.lowestPrice ?? null,
+    trafficInfo: artwork.data.trafficInfo ?? null,
+    speedtestImage: artwork.data.speedtestImage ?? null,
+    isTopPick: artwork.data.isTopPick ?? false,
+    rank: artwork.data.rank ?? null,
   };
 }
 
@@ -91,7 +105,9 @@ export function presentArtworks(
   artists: Artist[],
   locale: Locale,
 ): ArtworkPresentation[] {
-  return artworks.map((artwork) => presentArtwork(artwork, artists, locale));
+  return artworks
+    .map((artwork) => presentArtwork(artwork, artists, locale))
+    .sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
 }
 
 /** Every work by an artist, whichever section it is in. */

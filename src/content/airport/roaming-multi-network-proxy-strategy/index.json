@@ -1,0 +1,21 @@
+{
+  "slug": "roaming-multi-network-proxy-strategy",
+  "title": {
+    "zh": "多地多网漫游出海选线策略：出差党与跨境团队如何配置全自动就近接入路由？",
+    "en": "Multi-Network Roaming Proxy Strategy: Automated Local Ingress Routing for Mobile Teams"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "三网运营商专属线路选型集群",
+    "en": "Tri-Carrier Route Selection Cluster"
+  },
+  "description": {
+    "zh": "针对商旅人士在公司专线、酒店 WiFi 与手机 5G 蜂窝网络之间频繁切换的网络痛点，详解如何利用客户端智能策略组与自动测速 URL-Test 实现跨运营商无感自适应就近接入。",
+    "en": "A strategic networking guide for business travelers and distributed teams switching across office fiber, hotel WiFi, and 5G cellular networks, utilizing smart URL-Test policy groups for automated ingress routing."
+  },
+  "body": true
+}

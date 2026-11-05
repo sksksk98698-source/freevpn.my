@@ -1,0 +1,21 @@
+{
+  "slug": "peak-hour-single-thread-ladder-ranking",
+  "title": {
+    "zh": "2026 晚高峰 20:30–22:30 CST 国际出口大拥堵 42 家机场单线程下载速率总天梯榜",
+    "en": "2026 Peak-Hour (20:30–22:30 CST) 42-Proxy Single-Thread Download Speed Ladder"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "晚高峰单线程测速天梯集群",
+    "en": "Peak-Hour Speed Ladder Cluster"
+  },
+  "description": {
+    "zh": "拒绝多线程虚标！本实验室在晚高峰骨干网极限拥堵时段对全网 42 家主流机场展开单线程真机压测，发布 2026 最具权威性的单线程速率天梯与丢包率总排行榜。",
+    "en": "Benchmarking 42 proxy providers during evening peak hours (20:30–22:30 CST) using single-thread curl streams to eliminate multi-thread inflation and rank true throughput."
+  },
+  "body": true
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "early-warning-signs-of-proxy-exit-scams",
+  "title": {
+    "zh": "机场跑路前的五大核心技术预警信号：节点大面积红线、频繁改群、非正常大促与管理失联",
+    "en": "Five Technical Red Flags Preceding a Proxy Exit Scam: Mass Timeouts, Muted Channels & Flash Sales"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "机场跑路前兆与稳定性监测集群",
+    "en": "Exit Scam Radar & SLA Cluster"
+  },
+  "description": {
+    "zh": "基于对行业数十家跑路机场的技术样本复盘，系统梳理跑路发生前 14 天的 5 大技术特征：入口母机长期红线、群内全员禁言、非理性低价三年大促、商户号频繁变动与官方管理彻底失联。",
+    "en": "A systematic retrospective of proxy exit scam signatures, detailing the 5 technical warning signs that manifest 14 days prior to collapse: continuous red-line latency, muted Telegram groups, and fire sales."
+  },
+  "body": true
+}

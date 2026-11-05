@@ -31,16 +31,16 @@ describe("presentHomepage: Featured Artworks", () => {
       entries({
         homepage: f.homepage({
           collection: [
-            feature("sold", { en: "A sold work", fr: "Une œuvre vendue" }),
+            feature("sold", { zh: "已售出作品", en: "A sold work" }),
             feature("available"),
           ],
         }),
       }),
-      "fr",
+      "en",
     );
     expect(featured.map((item) => item.caption)).toEqual([
-      "Une œuvre vendue",
-      "available (fr)",
+      "A sold work",
+      "available (en)",
     ]);
     expect(featured[0].presentation.artist.name).toBe("Artist");
   });
@@ -100,14 +100,14 @@ describe("presentHomepage: listings", () => {
       entries({
         homepage: f.homepage({
           intro: {
-            subheading: { en: "Welcome", de: "Willkommen" },
-            content: { en: "Intro" },
+            subheading: { zh: "欢迎", en: "Welcome" },
+            content: { zh: "介绍", en: "Intro" },
           },
         }),
       }),
-      "de",
+      "en",
     );
-    expect(home.intro).toEqual({ title: "Willkommen", content: "Intro" });
+    expect(home.intro).toEqual({ title: "Welcome", content: "Intro" });
     expect(home.events.buttonText).toBe("All events");
   });
 });

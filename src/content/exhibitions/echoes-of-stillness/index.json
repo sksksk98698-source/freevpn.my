@@ -1,53 +1,45 @@
 {
   "title": {
-    "en": "Echoes of Stillness",
-    "fr": "Échos du silence",
-    "de": "Echos der Stille"
+    "zh": "2026 17家主流机场晚高峰测速天梯实测大横评",
+    "en": "2026 Peak-Hour Speed Benchmark for 17 Leading Proxy Providers"
   },
   "description": {
-    "en": "A group exhibition of paintings and works on paper that treat silence as a living presence — from Emma Thompson's colour fields to Isabella Rodriguez's near-empty surfaces.",
-    "fr": "Une exposition collective de peintures et d'œuvres sur papier qui traitent le silence comme une présence vivante — des champs de couleur d'Emma Thompson aux surfaces presque vides d'Isabella Rodriguez.",
-    "de": "Eine Gruppenausstellung mit Gemälden und Arbeiten auf Papier, die Stille als lebendige Gegenwart behandeln – von Emma Thompsons Farbfeldern bis zu Isabella Rodriguez' beinahe leeren Flächen."
+    "zh": "在晚高峰 20:30 网络大拥堵时段，对光速云、暮光加速、飞猫云等 17 家机场进行单节点下载速率、TLS 握手延迟与丢包率全景横评。",
+    "en": "A rigorous peak-hour test evaluating download throughput, TLS latency, and packet loss across 17 top proxy providers including Guangsu Cloud."
   },
-  "startDate": "2026-09-03",
-  "endDate": "2026-10-31",
+  "startDate": "2026-08-01",
+  "endDate": "2026-12-31",
   "timeline": {
-    "en": "September 3 – October 31, 2026",
-    "fr": "3 septembre – 31 octobre 2026",
-    "de": "3. September – 31. Oktober 2026"
+    "zh": "2026年8月 – 12月 全球连线",
+    "en": "August – December 2026 Global Sync"
   },
-  "image": "/images/exhibitions/echoes-of-stillness/image.jpg",
+  "image": "/images/benchmarks/光速云-节点测速实测.png",
   "imageAlt": {
-    "en": "Abstract landscape with a golden horizon",
-    "fr": "Paysage abstrait à l'horizon doré",
-    "de": "Abstrakte Landschaft mit goldenem Horizont"
+    "zh": "17家机场晚高峰测速分析图谱",
+    "en": "17-brand peak hour benchmark chart"
   },
   "location": {
-    "en": "Domus Picturae, Via dei Pittori 7, Rome",
-    "fr": "Domus Picturae, Via dei Pittori 7, Rome",
-    "de": "Domus Picturae, Via dei Pittori 7, Rom"
+    "zh": "FreeVPN 性能评测中心 · 全球节点集群",
+    "en": "FreeVPN Performance Lab · Global Cluster"
   },
   "admission": {
-    "en": "Free",
-    "fr": "Gratuit",
-    "de": "Frei"
+    "zh": "完全公开",
+    "en": "Open Access"
   },
   "openingHours": [
     {
       "day": {
-        "en": "Tuesday – Friday",
-        "fr": "Mardi – vendredi",
-        "de": "Dienstag – Freitag"
+        "zh": "数据采集时段",
+        "en": "Measurement Window"
       },
-      "hours": "11:00 – 19:00"
+      "hours": "20:00 – 23:00 CST"
     },
     {
       "day": {
-        "en": "Saturday",
-        "fr": "Samedi",
-        "de": "Samstag"
+        "zh": "数据更新频率",
+        "en": "Update Cadence"
       },
-      "hours": "11:00 – 18:00"
+      "hours": "每周滚动测试"
     }
   ]
 }

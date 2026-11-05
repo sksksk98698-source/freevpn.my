@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "白月光",
+    "en": "Moonlight Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2021,
+  "image": "/images/artworks/the-blue-interval/image.jpg",
+  "imageAlt": {
+    "zh": "白月光 节点评测与速度图谱",
+    "en": "Moonlight Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "中转专线 / Shadowsocks",
+    "en": "Relay Express / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "白月光以其稳扎稳打的运营风格赢得了不少老用户的信任，各节点在日常使用中表现平稳。",
+    "en": "Moonlight Cloud is a high-performance cross-border proxy provider. Featuring Relay Express / Shadowsocks, High Concurrency Links, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥15/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://bygcloud.com",
+  "promoCode": "BYG888",
+  "lowestPrice": "¥15/月",
+  "trafficInfo": "100GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 30
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "developer-terminal-proxy-git-docker-npm",
+  "title": {
+    "zh": "终端命令行与开发者环境出海代理设置：Git、Docker、NPM 与 Python pip 终极分流指南",
+    "en": "Developer Terminal & CLI Proxy Handbook: Optimizing Git, Docker, NPM & Python Pip Routing"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "网络底层与分流",
+    "en": "Network Architecture & Routing"
+  },
+  "cluster": {
+    "zh": "TUN 虚拟网卡深度分流",
+    "en": "TUN Virtual Interface & Routing"
+  },
+  "description": {
+    "zh": "专为程序员与技术研发团队定制的终端出海提速指南。一网打尽 PowerShell / Bash 环境变量注入、Git SSH 与 HTTPS 独立代理设置、Docker 镜像加速代理配置及 NPM / Pip 依赖极速拉取方案。",
+    "en": "The definitive developer terminal networking handbook. Master environment variable injections for PowerShell and Bash, isolate Git HTTPS/SSH proxies, configure Docker daemon egress, and accelerate NPM and Pip package management."
+  }
+}

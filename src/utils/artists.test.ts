@@ -45,16 +45,16 @@ describe("presentArtist", () => {
         hasCv: true,
         image: portrait,
       }),
-      "fr",
+      "en",
     );
     expect(p).toMatchObject({
       id: "sarah-chen",
       name: "Sarah Chen",
-      href: "/fr/artists/sarah-chen",
+      href: "/en/artists/sarah-chen",
       cvHref: "/cv/sarah-chen.pdf",
     });
     expect(p.portrait?.alt).toBe("Sarah Chen");
-    const bare = presentArtist(fixture("james-park"), "en");
+    const bare = presentArtist(fixture("james-park"), "zh");
     expect(bare.cvHref).toBeNull();
     expect(bare.portrait).toBeNull();
   });
@@ -62,19 +62,19 @@ describe("presentArtist", () => {
   it("falls back to the default locale, never to a third one", () => {
     const p = presentArtist(
       fixture("a", {
-        shortBio: { en: "English", de: "Deutsch" },
+        shortBio: { zh: "Chinese", de: "Deutsch" },
         quote: { de: "Nur Deutsch" },
       }),
-      "fr",
+      "en",
     );
-    expect(p.shortBio).toBe("English");
+    expect(p.shortBio).toBe("Chinese");
     expect(p.quote).toBe("");
   });
 
   it("splits the biography into paragraphs", () => {
     const p = presentArtist(
-      fixture("a", { biography: { en: "First.\n\nSecond.\n\n" } }),
-      "en",
+      fixture("a", { biography: { zh: "First.\n\nSecond.\n\n" } }),
+      "zh",
     );
     expect(p.biography).toEqual(["First.", "Second."]);
   });
@@ -87,9 +87,9 @@ describe("presentArtistListing", () => {
         fixture("b", { name: "B" }),
         fixture("a", { name: "A", isEstate: true }),
       ],
-      "de",
+      "en",
     );
-    expect(living.map((a) => a.href)).toEqual(["/de/artists/b"]);
+    expect(living.map((a) => a.href)).toEqual(["/en/artists/b"]);
     expect(estates.map((a) => a.name)).toEqual(["A"]);
   });
 });

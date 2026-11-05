@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "EdgeNova",
+    "en": "EdgeNova"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/benchmarks/test-unlock-photo_2026-08-19_12-20-10.jpg",
+  "imageAlt": {
+    "zh": "EdgeNova 节点评测与速度图谱",
+    "en": "EdgeNova speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "边缘计算直连专线 / VLESS",
+    "en": "Edge Direct Dedicated / VLESS"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "EdgeNova 依托边缘计算节点，将物理传输延迟压缩到极致，尤其适合高频海外 API 调用与交互式云端操作。",
+    "en": "EdgeNova is a high-performance cross-border proxy provider. Featuring Edge Direct Dedicated / VLESS, Ultra-low Physical Latency, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥25/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://edgenova.io",
+  "promoCode": "NOVA888",
+  "lowestPrice": "¥25/月",
+  "trafficInfo": "150GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 40
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "clash-verge-rev-troubleshooting-handbook",
+  "title": {
+    "zh": "Clash Verge Rev 常见报错全景排障：Service 安装失败、订阅更新 0 节点与网络死锁恢复",
+    "en": "Clash Verge Rev Comprehensive Troubleshooting Handbook: Service Mode Failure, 0 Nodes Import & Deadlock Recovery"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "Clash Verge 极客调优",
+    "en": "Clash Verge Rev Geek Tuning"
+  },
+  "description": {
+    "zh": "汇总 Clash Verge Rev 实际运行中的高频疑难杂症与技术排错方案。深入解决 Service Mode 服务安装失败、订阅更新提示 Fetch error 或 0 节点、关闭客户端后系统无法上网（网络死锁）以及虚拟网卡驱动冲突恢复。",
+    "en": "The definitive troubleshooting handbook for Clash Verge Rev. Step-by-step technical solutions for Service Mode installation failures, subscription fetch errors, zero-node parsing bugs, and system-wide internet lockouts after client shutdown."
+  }
+}

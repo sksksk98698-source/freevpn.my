@@ -1,0 +1,61 @@
+import fs from "fs";
+import path from "path";
+
+const aboutFile = path.join(process.cwd(), "src/content/about/index.json");
+const current = JSON.parse(fs.readFileSync(aboutFile, "utf8"));
+
+current.title = {
+  zh: "独立、透明、用晚高峰数据检验每一条专线",
+  en: "Independent, Transparent, and Peak-Data Driven Benchmark",
+};
+
+current.intro = {
+  zh: "<span>FreeVPN 实测实验室</span> 创立于 2021 年。面对网络上铺天盖地的“永久免费VPN”诱饵软件与劣质中转节点，我们致力于建立一套透明、可复现、基于晚高峰网络拥堵环境的第三方测速标准。我们不接受任何虚假好评操控，只通过机器实测图谱与真实节点延迟说话。",
+  en: "<span>FreeVPN Benchmark Lab</span> was established in 2021. In an internet saturated with suspicious 'free VPN' claims, we build reproducible, real-world peak-congestion benchmark standards. No sponsored bias—only verifiable bandwidth charts and TLS round-trip latencies.",
+};
+
+current.contentRight = {
+  zh: "我们的使命是帮助每一个需要跨境查阅学术资料、远程办公、TikTok 跨境电商直播和海外 AI 创作的用户，彻底避开“限速套路”、“日志滥用”和“跑路风险”。每一份评测均覆盖香港、日本、新加坡、美国等核心节点，并对 4K 流媒体与 ChatGPT/Claude 原生解锁能力进行交叉验证。",
+  en: "Our mission is to help developers, creators, cross-border e-commerce sellers, and researchers bypass deceptive bandwidth throttling and privacy leaks. We test connections across Hong Kong, Japan, Singapore, and US nodes, verifying 4K streaming and native AI unlocks.",
+};
+
+current.contentLast = {
+  zh: "<span>技术与中立性</span> 是我们坚守的核心原则。我们所有的数据采集流程均保持透明，对 42 家机场品牌资料中缺少独立测试支撑的部分均严格标记为【品牌资料提供 / 待核实】。我们坚信，只有真实可靠的信息增量，才能赢得用户的长久信任。",
+  en: "<span>Integrity and Neutrality</span> define our principles. Any unverified marketing claim is transparently flagged as vendor-provided. We believe that long-term user trust is earned exclusively through uncompromising technical honesty.",
+};
+
+current.animationContent = {
+  zh: "探索 42 家主流机场科学测速天梯图，寻找专属于你的超高速跨境加速方案。",
+  en: "Explore our 42-brand speed ladder and find the high-speed line tailored to your workflow.",
+};
+
+current.buttonText = {
+  zh: "浏览品牌天梯榜",
+  en: "Explore Brand Ladder",
+};
+
+current.images = current.images.map((item, i) => ({
+  ...item,
+  caption: {
+    zh: i === 0 ? "实验室千兆测试节点机房" : "42家机场测速分析矩阵",
+    en: i === 0 ? "Lab Gigabit Measurement Node" : "42-Brand Speed Matrix",
+  },
+  imageAlt: {
+    zh: i === 0 ? "FreeVPN 实验室服务器机房" : "网络测速数据分析图",
+    en:
+      i === 0
+        ? "FreeVPN Testing Lab Server Infrastructure"
+        : "Network Speed Benchmark Visualization",
+  },
+}));
+
+current.animatedImages = current.animatedImages.map((item, i) => ({
+  ...item,
+  imageAlt: {
+    zh: `专线性能实测图谱 ${i + 1}`,
+    en: `Dedicated Line Benchmark Metric ${i + 1}`,
+  },
+}));
+
+fs.writeFileSync(aboutFile, JSON.stringify(current, null, 2), "utf8");
+console.log("About index.json updated successfully.");

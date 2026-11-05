@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "环球梯",
+    "en": "Global Ladder"
+  },
+  "artist": "lab-team",
+  "year": 2023,
+  "image": "/images/artworks/lunar-fragments/image.jpg",
+  "imageAlt": {
+    "zh": "环球梯 节点评测与速度图谱",
+    "en": "Global Ladder speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "中转网络 / Shadowsocks",
+    "en": "Relay / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "环球梯提供 5.6 元的实惠月付套餐，是追求极致低价用户的备选方案之一。",
+    "en": "Global Ladder is a high-performance cross-border proxy provider. Featuring Relay / Shadowsocks, Standard 100 Mbps, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥5.6/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://qwerty.huanqiutiaff.com/?code=9I4KRNPH",
+  "promoCode": "HQ66",
+  "lowestPrice": "¥5.6/月",
+  "trafficInfo": "60GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 26
+}

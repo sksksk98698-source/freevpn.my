@@ -1,0 +1,20 @@
+{
+  "slug": "v2rayn-connection-error-troubleshooting",
+  "title": {
+    "zh": "v2rayN 常见连接失败排障清单：端口冲突、系统代理未生效与 PAC 模式失效排查",
+    "en": "v2rayN Troubleshooting Checklist: Port Conflicts, Stale System Proxies & PAC Failures"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "v2rayN 现代协议实战",
+    "en": "v2rayN Modern Protocols"
+  },
+  "description": {
+    "zh": "汇总 v2rayN 日常运行中的高频报错与终极排障方案。解决 10808/10809 端口被占用无法启动、开启系统代理依然无法打开网页、PAC 模式失效及核心引擎崩溃恢复实战。",
+    "en": "Comprehensive v2rayN failure diagnostic handbook. Practical fixes for 10808/10809 port collisions, unresponsive system proxy settings, PAC file desynchronization, and underlying core engine crashes."
+  }
+}

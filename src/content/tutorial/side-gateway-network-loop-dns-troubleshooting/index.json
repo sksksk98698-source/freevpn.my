@@ -1,0 +1,20 @@
+{
+  "slug": "side-gateway-network-loop-dns-troubleshooting",
+  "title": {
+    "zh": "旁路由网络回路与 DNS 劫持避坑宝典：主路由 DHCP 下发旁路由网关导致断网的根因分析",
+    "en": "Side-Gateway Network Loop & DNS Hijacking Handbook: Diagnosing DHCP Gateway Loop Failures"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "全场景与智能网关",
+    "en": "Smart Gateways & Ecosystem"
+  },
+  "cluster": {
+    "zh": "路由器固件与家庭网关",
+    "en": "Router Firmware & Gateways"
+  },
+  "description": {
+    "zh": "深入攻克 OpenWrt 旁路由部署中最顽固的网络故障。详解主路由 DHCP Option 3/6 强推旁路由导致的局域网广播风暴、DNS 递归解析死锁、国内网页白屏及防火墙 SYN-flood 丢包排查。",
+    "en": "Comprehensive technical diagnosis for persistent OpenWrt side-gateway failures. Troubleshoot DHCP Option 3/6 gateway loops, recursive DNS deadlocks, domestic website timeouts, and firewall SYN-flood packet drops."
+  }
+}

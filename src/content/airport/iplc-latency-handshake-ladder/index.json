@@ -1,0 +1,21 @@
+{
+  "slug": "iplc-latency-handshake-ladder",
+  "title": {
+    "zh": "2026 主流 IPLC 机场晚高峰 TLS 握手延迟天梯：香港/日本/新加坡专线首包响应评测",
+    "en": "2026 IPLC Peak-Hour TLS Handshake Latency Ladder: HK, Japan & SG First-Packet TTFB Benchmark"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "IPLC 纯专线与全球节点集群",
+    "en": "IPLC Point-to-Point Cluster"
+  },
+  "description": {
+    "zh": "突破传统带宽测速盲区，以亚太核心 POP（香港、东京、新加坡）晚高峰 TLS 1.3 握手时间与 TTFB 首字节响应为核心指标，全面梳理 2026 主流 IPLC 专线延迟天梯与 TCP 优化配置。",
+    "en": "Benchmarking evening peak TLS 1.3 handshake latency and TTFB across Hong Kong, Tokyo, and Singapore IPLC circuits, offering a technical speed ladder and TCP kernel optimization guide."
+  },
+  "body": true
+}

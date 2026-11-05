@@ -1,0 +1,22 @@
+{
+  "name": "Hiddify",
+  "isEstate": false,
+  "image": "/images/artists/sarah-chen/image.jpg",
+  "imageAlt": {
+    "zh": "Hiddify",
+    "en": "Hiddify"
+  },
+  "shortBio": {
+    "zh": "基于 Sing-box 内核的多平台全功能客户端，支持 30+ 种代理协议与自适应伪装，上手极简。",
+    "en": "Sing-box powered multi-platform universal client supporting 30+ protocols with smart auto-tuning."
+  },
+  "biography": {
+    "zh": "Hiddify 是一款专为全球受限网络地区用户打造的全功能开源代理客户端。支持 Windows、macOS、Linux、Android 及 iOS 全端运行，在全球 GitHub 开源榜单上广受赞誉。\n\nHiddify 深度集成了 sing-box 核心，能够自动识别超过 30 种代理链路协议。其设计理念强调“零门槛傻瓜式接入”：用户只需粘贴任意格式的订阅链接，软件即可自动完成协议适配与最佳路由计算。\n\n它在抗封锁、防流量指纹特征方面表现尤为突出，自带智能路由切换与自动测速筛选机制，是跨平台统一使用习惯的绝佳选择。",
+    "en": "Hiddify is a globally acclaimed, multi-platform proxy client designed for unrestricted internet access. Operating across Windows, macOS, Linux, Android, and iOS, it is powered by sing-box.\n\nHiddify automatically recognizes over 30 proxy protocols. Its user experience philosophy prioritizes zero-configuration simplicity: paste any subscription link, and the app auto-calibrates routing parameters.\n\nRenowned for anti-censorship resilience and automatic optimal endpoint selection, Hiddify provides a unified experience across all user devices."
+  },
+  "quote": {
+    "zh": "全平台自适应、零学习门槛的抗封锁多协议客户端。",
+    "en": "Universal, auto-tuning proxy simplicity with hardened anti-censorship resilience."
+  },
+  "hasCv": false
+}

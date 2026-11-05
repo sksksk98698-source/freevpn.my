@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "暮光加速",
+    "en": "Twilight Speed"
+  },
+  "artist": "lab-team",
+  "year": 2023,
+  "image": "/images/benchmarks/幕光加速-节点测速实测.png",
+  "imageAlt": {
+    "zh": "暮光加速 节点评测与速度图谱",
+    "en": "Twilight Speed speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "专线级出口 / Shadowsocks / BGP智能调度",
+    "en": "Dedicated Exit / Shadowsocks / Smart BGP"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "暮光加速（Twilight Speed）自 2023 年开业以来，以其全自研 BGP 智能调度算法与专线级出口迅速赢得了良好口碑。其主要优势在于对不同宽带运营商（电信、联通、移动）的精准匹配，有效规避骨干网晚高峰丢包。",
+    "en": "Twilight Speed is a high-performance cross-border proxy provider. Featuring Dedicated Exit / Shadowsocks / Smart BGP, Gigabit Redundant / 40ms Latency, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥20/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://varnexa.twilightaff.com/#/?code=D1LHglg3",
+  "promoCode": "muguang5555",
+  "lowestPrice": "¥20/月",
+  "trafficInfo": "120GB/月",
+  "speedtestImage": "/images/benchmarks/幕光加速-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 2
+}

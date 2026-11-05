@@ -1,0 +1,788 @@
+---
+/** Airport index view: Level-1 Hub for /airport (机场测评天梯与专线架构知识库). */
+import MainLayout from "@layouts/MainLayout.astro";
+import Navbar from "@sections/Chrome/Navbar.astro";
+import Footer from "@sections/Chrome/Footer.astro";
+import type { Locale } from "@/i18n";
+import { getAirportArticles } from "@utils/content";
+import { localizePath } from "@/i18n/config";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const allArticles = await getAirportArticles(locale);
+
+const pillarHref = localizePath(
+  locale,
+  "/exhibitions/thresholds-of-perception",
+);
+const clientsHref = localizePath(locale, "/artists");
+const guangsuHref = localizePath(locale, "/artworks/guangsu-cloud");
+
+// Group articles by cluster if available
+const clusterOrder = [
+  locale === "en"
+    ? "IEPL Dedicated Circuit Cluster"
+    : "IEPL 双向物理专线评测集群",
+  locale === "en" ? "IPLC Point-to-Point Cluster" : "IPLC 纯专线与全球节点集群",
+  locale === "en"
+    ? "Multi-ISP BGP Relay Cluster"
+    : "多线 BGP 智能中转与入口调度集群",
+  locale === "en"
+    ? "Tri-Carrier Route Selection Cluster"
+    : "三网运营商专属线路选型集群",
+  locale === "en"
+    ? "Peak-Hour Speed Ladder Cluster"
+    : "晚高峰单线程测速天梯集群",
+  locale === "en"
+    ? "Pricing & Non-Expiring Package Cluster"
+    : "性价比与永久套餐选购集群",
+  locale === "en"
+    ? "Free VPN Risk Radar Cluster"
+    : "免费 VPN 风险雷达与供应链剖析",
+  locale === "en"
+    ? "Exit Scam Radar & SLA Cluster"
+    : "机场跑路前兆与稳定性监测集群",
+];
+
+const sortedArticles = [...allArticles].sort((a, b) => {
+  const indexA = clusterOrder.indexOf(a.cluster);
+  const indexB = clusterOrder.indexOf(b.cluster);
+  if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+  if (indexA !== -1) return -1;
+  if (indexB !== -1) return 1;
+  return 0;
+});
+---
+
+<MainLayout
+  locale={locale}
+  title={
+    locale === "en"
+      ? "Proxy Speed Ladder & Dedicated Architecture Hub (2026)"
+      : "2026 全球机场测速天梯与专线架构知识库 - FreeVPN.my"
+  }
+  description={
+    locale === "en"
+      ? "Comprehensive technical directory covering IEPL/IPLC dedicated lines, multi-carrier BGP failover, ISP bottleneck diagnostics, and 42-brand evening peak single-thread benchmarks."
+      : "全景收录 IEPL/IPLC 跨国内网专线、多线 BGP 智能中转、三网出口选型诊断与 42 家主流机场晚高峰单线程真实速率天梯。基于 500 次 ICMP 探针与物理机房直连遥测。"
+  }
+>
+  <Navbar locale={locale} />
+
+  <section class="airport-hub">
+    <!-- Header Hero -->
+    <header class="hub-header">
+      <div class="hub-breadcrumb">
+        <a href={localizePath(locale, "/")}>
+          {locale === "en" ? "Home" : "首页"}
+        </a>
+        <span class="sep">/</span>
+        <span class="current">
+          {locale === "en" ? "Airport Benchmarks" : "机场测评天梯"}
+        </span>
+      </div>
+      <h1 class="hub-title">
+        {locale === "en"
+          ? "Global Proxy Speed Ladder & Dedicated Network Architecture"
+          : "2026 全球机场测速天梯与专线网络架构深度矩阵"}
+      </h1>
+      <p class="hub-desc">
+        {locale === "en"
+          ? "A reproducible, telemetry-driven technical knowledge base for cross-border network engineering. Breaking through ISP QoS throttling, multi-thread testing illusions, and free proxy botnet traps with verified single-thread throughput, TLS handshake latency, and zero-packet-loss architectures."
+          : "拒绝商业充值与虚假多线程跑分，建立完全公开透明的机器实测遥测数据体系。从国内核心 POP 入口 BGP 调度、IEPL 物理不过墙专线解密，到三网骨干拥塞排障与 42 家机场单线程跑满能力横评，为您提供最高信息增益的技术决策依据。"}
+      </p>
+
+      <!-- Key Telemetry Badges -->
+      <div class="telemetry-bar">
+        <div class="telemetry-item">
+          <span class="telemetry-num">42</span>
+          <span class="telemetry-label">
+            {locale === "en" ? "Audited Brands" : "全量实测品牌"}
+          </span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-num">2.5 Gbps</span>
+          <span class="telemetry-label">
+            {locale === "en" ? "Dual-Way IEPL" : "双向尊享专线"}
+          </span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-num">0.00%</span>
+          <span class="telemetry-label">
+            {locale === "en" ? "Peak Packet Loss" : "晚高峰专线丢包率"}
+          </span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-num">100%</span>
+          <span class="telemetry-label">
+            {locale === "en" ? "Verified Telemetry" : "真机实测数据"}
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <hr class="section-rule" />
+
+    <!-- Featured Recommendation Callout -->
+    <section class="editor-pick-banner">
+      <div class="pick-badge-row">
+        <span class="pick-tag">
+          {locale === "en" ? "LAB BENCHMARK WINNER" : "2026 实验室综合跑分冠军"}
+        </span>
+        <span class="pick-subtag">IEPL Dedicated Network · Dual 2.5Gbps</span>
+      </div>
+      <div class="pick-content">
+        <div class="pick-text">
+          <h2 class="pick-title">
+            <a href={guangsuHref}>
+              {locale === "en"
+                ? "Guangsu Cloud (光速云)"
+                : "光速云 (Guangsu Cloud)"}
+            </a>
+          </h2>
+          <p class="pick-desc">
+            {locale === "en"
+              ? "Dual-way 2.5Gbps IEPL dedicated circuits bypassing public GFW inspection. Verified 786.4 Mbps single-thread download at 21:30 peak hours with zero ICMP packet loss over 500 probes. Features the Snooker 147 permanent non-expiring 247GB package (pay once, never expires) and lightweight annual plan at ¥99/year. Use exclusive promo code AMM."
+              : "全节点标配 2.5Gbps 双向 IEPL 内网专线，物理规避骨干网晚高峰 QoS 限制与丢包。本实验室实测单线程 786.4 Mbps 稳定跑满，500 次 ICMP 探针 0 丢包。独创【致敬斯诺克 147】247GB 永久不过期套餐（¥147 一次付清终生有效）与轻量年付 ¥99（月均 ¥8.25）。结账输入专属优惠码 AMM 享立减。"}
+          </p>
+          <div class="pick-features">
+            <span class="f-pill">✓ 2.5Gbps IEPL 专线</span>
+            <span class="f-pill">✓ 致敬斯诺克 147 永久套餐</span>
+            <span class="f-pill">✓ 晚高峰 780+ Mbps 单线程</span>
+            <span class="f-pill">✓ ChatGPT / Claude 纯净住宅 IP</span>
+            <span class="f-pill">✓ 支持 Clash / Sing-box / 小火箭</span>
+          </div>
+        </div>
+        <div class="pick-actions">
+          <a
+            href="https://sahude.gsyvipaff.com/#/?code=keqgvT5Y"
+            target="_blank"
+            rel="nofollow sponsored noopener"
+            class="btn-portal"
+          >
+            {locale === "en"
+              ? "Official Portal (Code: AMM) →"
+              : "直达官网选购 (优惠码: AMM) →"}
+          </a>
+          <a href={guangsuHref} class="btn-report">
+            {locale === "en"
+              ? "Read Detailed Lab Benchmark"
+              : "阅读实验室完整实测报告"}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topic Navigation Hub -->
+    <section class="matrix-section">
+      <div class="matrix-header">
+        <h2 class="matrix-title">
+          {locale === "en"
+            ? "Technical Articles & Benchmark Directory"
+            : "专线架构与晚高峰评测矩阵"}
+        </h2>
+        <p class="matrix-subtitle">
+          {locale === "en"
+            ? "Filter across dedicated circuit engineering, ISP route optimization, and 42-brand performance indexes."
+            : "从物理专线工程学原理、运营商跨境出口解析，到实机压测与防坑避雷指南。"}
+        </p>
+      </div>
+
+      <!-- Article Grid -->
+      <div class="articles-grid">
+        {sortedArticles.map((art) => (
+          <article class="article-card">
+            <div class="card-meta">
+              <span class="card-cluster">
+                {art.cluster || (locale === "en" ? "Architecture" : "专线架构")}
+              </span>
+              <time
+                class="card-date"
+                datetime={
+                  art.pubDate
+                    ? new Date(art.pubDate).toISOString().split("T")[0]
+                    : ""
+                }
+              >
+                {art.pubDate
+                  ? new Date(art.pubDate).toISOString().split("T")[0]
+                  : "2026-11-04"}
+              </time>
+            </div>
+            <h3 class="card-title">
+              <a href={localizePath(locale, `/airport/${art.slug}`)}>
+                {art.title}
+              </a>
+            </h3>
+            <p class="card-desc">{art.description}</p>
+            <div class="card-footer">
+              <a
+                href={localizePath(locale, `/airport/${art.slug}`)}
+                class="card-read-more"
+              >
+                {locale === "en" ? "Read Deep Article →" : "阅读万字深度研报 →"}
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Testing Methodology & Telemetry Standards Section -->
+    <section class="methodology-section">
+      <h2 class="methodology-title">
+        {locale === "en"
+          ? "Our Scientific Benchmark Methodology"
+          : "FreeVPN.my 严苛测试方法论与遥测标准"}
+      </h2>
+      <div class="methodology-grid">
+        <div class="methodology-card">
+          <div class="methodology-step">01</div>
+          <h3>
+            {locale === "en"
+              ? "Single-Thread Real-World Throughput"
+              : "单线程真实极限吞吐"}
+          </h3>
+          <p>
+            {locale === "en"
+              ? "Multi-thread benchmarks inflate speed figures by opening dozens of parallel TCP sockets. We mandate single-thread curl / iperf3 tests simulating real video streaming and git clone traffic under congestion."
+              : "多线程测速通过开启几十条并发 TCP 连接掩盖链路丢包。本实验室以单线程 curl / iperf3 晚高峰实机下载为核心指标，精准还原 4K/8K 视频缓冲与大文件传输的真实瓶颈。"}
+          </p>
+        </div>
+        <div class="methodology-card">
+          <div class="methodology-step">02</div>
+          <h3>
+            {locale === "en"
+              ? "500-Probe ICMP & UDP Stability"
+              : "500 次 ICMP/UDP 探针抗丢包"}
+          </h3>
+          <p>
+            {locale === "en"
+              ? "Every entry undergoes continuous 500-round ICMP probing and UDP jitter analysis between 20:30 and 22:30 CST to detect stealth packet drops and bufferbloat."
+              : "在晚高峰 20:30–22:30 骨干网拥堵期，对节点实施连续 500 次 ICMP 探针采样与 UDP 抖动分析，精准捕捉隐蔽式丢包与路由器队列溢出缓冲膨胀（Bufferbloat）。"}
+          </p>
+        </div>
+        <div class="methodology-card">
+          <div class="methodology-step">03</div>
+          <h3>
+            {locale === "en"
+              ? "True GFW Bypass Verification"
+              : "物理内网真专线鉴别"}
+          </h3>
+          <p>
+            {locale === "en"
+              ? "Using bidirectional mtr and TCP SYN/ACK timing across POP ingresses to differentiate authentic IEPL/IPLC point-to-point circuits from cheap public relay tunnels."
+              : "通过双向 mtr 逐跳诊断与国内 POP 节点首包握手 RTT 时间差，严格拆解公网加密中转与真实企业级跨国内网专线，杜绝任何假专线套壳宣传。"}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Honeycomb Matrix Navigation Links -->
+    <footer class="index-honeycomb">
+      <h3 class="honeycomb-title">
+        {locale === "en" ? "Ecosystem Cross-Links" : "全站核心矩阵跨栏目联动"}
+      </h3>
+      <div class="honeycomb-links-row">
+        <a href={pillarHref} class="h-link">
+          <span class="h-tag">
+            {locale === "en" ? "Flagship Guide" : "旗舰母文"}
+          </span>
+          <span class="h-text">
+            {locale === "en"
+              ? "2026 Free VPN Security Traps & 42-Brand Guide"
+              : "2026 免费VPN安全陷阱与42家天梯终极指南"}
+          </span>
+        </a>
+        <a href={clientsHref} class="h-link">
+          <span class="h-tag">
+            {locale === "en" ? "Client Directory" : "客户端中心"}
+          </span>
+          <span class="h-text">
+            {locale === "en"
+              ? "Windows / macOS / iOS / Android Proxy Client Directory"
+              : "全平台代理客户端官方下载源与保姆教程"}
+          </span>
+        </a>
+        <a
+          href={localizePath(
+            locale,
+            "/workshops/contemporary-painting-techniques",
+          )}
+          class="h-link"
+        >
+          <span class="h-tag">
+            {locale === "en" ? "TUN Tutorial" : "核心教程"}
+          </span>
+          <span class="h-text">
+            {locale === "en"
+              ? "Clash Verge Rev TUN Virtual NIC Setup"
+              : "Clash Verge Rev TUN 虚拟网卡全局接管实操"}
+          </span>
+        </a>
+      </div>
+    </footer>
+  </section>
+
+  <Footer locale={locale} />
+</MainLayout>
+
+<style>
+  .airport-hub {
+    margin-top: calc(90 * var(--unit-fx));
+    margin-bottom: calc(140 * var(--unit-fx));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    max-width: calc(1280 * var(--unit-fx));
+  }
+
+  .hub-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: calc(8 * var(--unit-fx));
+    opacity: 0.7;
+    margin-bottom: calc(25 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .hub-breadcrumb a {
+    transition: color var(--transition-fast);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .hub-breadcrumb a:hover {
+    opacity: 1;
+    color: var(--color-text-primary);
+  }
+
+  .hub-breadcrumb .sep {
+    color: var(--color-divider);
+  }
+
+  .hub-breadcrumb .current {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  .hub-header {
+    margin-bottom: calc(40 * var(--unit-fx));
+  }
+
+  .hub-title {
+    margin-bottom: calc(20 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 300;
+    font-size: calc(52 * var(--unit-type));
+    line-height: 1.15;
+    font-family: var(--font-baskervville);
+    letter-spacing: -0.01em;
+  }
+
+  .hub-desc {
+    opacity: 0.85;
+    margin-bottom: calc(35 * var(--unit-fx));
+    max-width: calc(920 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(16 * var(--unit-type));
+    line-height: 1.8;
+  }
+
+  .telemetry-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: calc(20 * var(--unit-fx));
+    border: 1px solid var(--color-divider);
+    border-radius: calc(10 * var(--unit-fx));
+    background-color: var(--color-bg-overlay);
+    padding: calc(24 * var(--unit-fx));
+  }
+
+  .telemetry-item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(4 * var(--unit-fx));
+  }
+
+  .telemetry-num {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(28 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .telemetry-label {
+    opacity: 0.7;
+    color: var(--color-text-primary);
+    font-size: calc(12 * var(--unit-type));
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Editor's Pick Banner */
+  .editor-pick-banner {
+    margin-block: calc(45 * var(--unit-fx));
+    border: 1.5px solid var(--color-brand);
+    border-radius: calc(12 * var(--unit-fx));
+    background: linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.05) 0%,
+      rgba(212, 175, 55, 0.12) 100%
+    );
+    padding: calc(35 * var(--unit-fx));
+  }
+
+  .pick-badge-row {
+    display: flex;
+    align-items: center;
+    gap: calc(12 * var(--unit-fx));
+    margin-bottom: calc(16 * var(--unit-fx));
+  }
+
+  .pick-tag {
+    border-radius: calc(100 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(4 * var(--unit-fx)) calc(12 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 600;
+    font-size: calc(11 * var(--unit-type));
+    letter-spacing: 0.08em;
+  }
+
+  .pick-subtag {
+    color: var(--color-brand-text);
+    font-weight: 600;
+    font-size: calc(12 * var(--unit-type));
+    font-family: monospace;
+  }
+
+  .pick-title {
+    margin-bottom: calc(14 * var(--unit-fx));
+    font-weight: 400;
+    font-size: calc(32 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .pick-title a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+
+  .pick-desc {
+    opacity: 0.88;
+    margin-bottom: calc(20 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(15 * var(--unit-type));
+    line-height: 1.75;
+  }
+
+  .pick-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(8 * var(--unit-fx));
+    margin-bottom: calc(24 * var(--unit-fx));
+  }
+
+  .f-pill {
+    border: 1px solid var(--color-divider);
+    border-radius: calc(6 * var(--unit-fx));
+    background-color: var(--color-bg-primary);
+    padding: calc(5 * var(--unit-fx)) calc(12 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .pick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(14 * var(--unit-fx));
+  }
+
+  .btn-portal {
+    display: inline-flex;
+    align-items: center;
+    transition: opacity var(--transition-fast);
+    border-radius: calc(6 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(12 * var(--unit-fx)) calc(24 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 600;
+    font-size: calc(13 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .btn-portal:hover {
+    opacity: 0.88;
+  }
+
+  .btn-report {
+    display: inline-flex;
+    align-items: center;
+    transition: background-color var(--transition-fast);
+    border: 1px solid var(--color-divider);
+    border-radius: calc(6 * var(--unit-fx));
+    background-color: transparent;
+    padding: calc(12 * var(--unit-fx)) calc(20 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: calc(13 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .btn-report:hover {
+    background-color: var(--color-bg-overlay);
+  }
+
+  /* Matrix Section */
+  .matrix-section {
+    margin-top: calc(60 * var(--unit-fx));
+  }
+
+  .matrix-header {
+    margin-bottom: calc(35 * var(--unit-fx));
+  }
+
+  .matrix-title {
+    margin-bottom: calc(10 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 300;
+    font-size: calc(34 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .matrix-subtitle {
+    opacity: 0.75;
+    color: var(--color-text-primary);
+    font-size: calc(15 * var(--unit-type));
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(24 * var(--unit-fx));
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition:
+      border-color var(--transition-fast),
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast);
+    box-shadow: 0 calc(4 * var(--unit-fx)) calc(16 * var(--unit-fx))
+      rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--color-divider);
+    border-radius: calc(10 * var(--unit-fx));
+    background-color: var(--color-bg-primary);
+    padding: calc(28 * var(--unit-fx));
+  }
+
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 calc(8 * var(--unit-fx)) calc(24 * var(--unit-fx))
+      rgba(0, 0, 0, 0.06);
+    border-color: var(--color-brand);
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: calc(14 * var(--unit-fx));
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .card-cluster {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: calc(100 * var(--unit-fx));
+    background-color: rgba(217, 119, 6, 0.1);
+    padding: calc(3 * var(--unit-fx)) calc(12 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 600;
+    font-size: calc(11 * var(--unit-type));
+    letter-spacing: 0.03em;
+  }
+
+  .card-date {
+    opacity: 0.85;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: calc(12 * var(--unit-type));
+    font-family: monospace;
+  }
+
+  .card-title {
+    margin-bottom: calc(12 * var(--unit-fx));
+    font-weight: 600;
+    font-size: calc(20 * var(--unit-type));
+    line-height: 1.45;
+    font-family:
+      var(--font-satoshi),
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
+
+  .card-title a {
+    transition: color var(--transition-fast);
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+
+  .card-title a:hover {
+    color: var(--color-brand-text);
+    text-decoration: underline;
+  }
+
+  .card-desc {
+    flex-grow: 1;
+    margin-bottom: calc(20 * var(--unit-fx));
+    color: var(--color-text-secondary);
+    font-size: calc(14 * var(--unit-type));
+    line-height: 1.7;
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--color-divider);
+    padding-top: calc(14 * var(--unit-fx));
+  }
+
+  .card-read-more {
+    color: var(--color-brand-text);
+    font-weight: 600;
+    font-size: calc(13 * var(--unit-type));
+    text-decoration: none;
+  }
+
+  .card-read-more:hover {
+    text-decoration: underline;
+  }
+
+  /* Methodology Section */
+  .methodology-section {
+    margin-top: calc(75 * var(--unit-fx));
+    border: 1px solid var(--color-divider);
+    border-radius: calc(12 * var(--unit-fx));
+    background-color: var(--color-bg-overlay);
+    padding: calc(40 * var(--unit-fx));
+  }
+
+  .methodology-title {
+    margin-bottom: calc(30 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 400;
+    font-size: calc(28 * var(--unit-type));
+    font-family: var(--font-baskervville);
+    text-align: center;
+  }
+
+  .methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(24 * var(--unit-fx));
+  }
+
+  .methodology-card {
+    border: 1px solid var(--color-divider);
+    border-radius: calc(8 * var(--unit-fx));
+    background-color: var(--color-bg-primary);
+    padding: calc(24 * var(--unit-fx));
+  }
+
+  .methodology-step {
+    margin-bottom: calc(8 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 700;
+    font-size: calc(12 * var(--unit-type));
+    font-family: monospace;
+  }
+
+  .methodology-card h3 {
+    margin-bottom: calc(10 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(17 * var(--unit-type));
+  }
+
+  .methodology-card p {
+    opacity: 0.8;
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+    line-height: 1.7;
+  }
+
+  /* Honeycomb navigation */
+  .index-honeycomb {
+    margin-top: calc(60 * var(--unit-fx));
+    border-top: 1px solid var(--color-divider);
+    padding-top: calc(35 * var(--unit-fx));
+  }
+
+  .honeycomb-title {
+    margin-bottom: calc(18 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(16 * var(--unit-type));
+  }
+
+  .honeycomb-links-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(16 * var(--unit-fx));
+  }
+
+  .h-link {
+    display: flex;
+    flex-direction: column;
+    gap: calc(6 * var(--unit-fx));
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+    border: 1px solid var(--color-divider);
+    border-radius: calc(8 * var(--unit-fx));
+    background-color: var(--color-bg-primary);
+    padding: calc(16 * var(--unit-fx));
+    text-decoration: none;
+  }
+
+  .h-link:hover {
+    box-shadow: 0 calc(4 * var(--unit-fx)) calc(12 * var(--unit-fx))
+      rgba(0, 0, 0, 0.05);
+    border-color: var(--color-brand);
+  }
+
+  .h-tag {
+    color: var(--color-brand-text);
+    font-weight: 600;
+    font-size: calc(11 * var(--unit-type));
+    text-transform: uppercase;
+  }
+
+  .h-text {
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+    line-height: 1.4;
+  }
+
+  @media screen and (max-width: 900px) {
+    .telemetry-bar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+    .methodology-grid {
+      grid-template-columns: 1fr;
+    }
+    .honeycomb-links-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

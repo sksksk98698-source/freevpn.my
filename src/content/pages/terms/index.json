@@ -1,12 +1,10 @@
 {
   "title": {
-    "en": "Terms of Use",
-    "fr": "Conditions d'utilisation",
-    "de": "Nutzungsbedingungen"
+    "zh": "服务条款与免责声明",
+    "en": "Terms of Service & Disclaimer"
   },
   "description": {
-    "en": "The terms that govern the use of the Domus Picturae website.",
-    "fr": "Les conditions qui régissent l'utilisation du site de Domus Picturae.",
-    "de": "Die Bedingungen für die Nutzung der Website von Domus Picturae."
+    "zh": "FreeVPN.my 网站使用条款、评测时效性及法律责任声明。",
+    "en": "FreeVPN.my website usage terms, testing timeliness, and legal disclaimer."
   }
 }

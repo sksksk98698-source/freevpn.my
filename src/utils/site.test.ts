@@ -37,13 +37,13 @@ describe("presentSite", () => {
   it("localises the tagline and description with the default-locale fallback", () => {
     const identity = presentSite(
       site({
-        tagline: { en: "Contemporary art", fr: "Art contemporain" },
-        description: { en: "A gallery", de: "Eine Galerie" },
+        tagline: { zh: "专业网络评测", en: "Contemporary art" },
+        description: { zh: "评测实验室" },
       }),
-      "fr",
+      "en",
     );
-    expect(identity.tagline).toBe("Art contemporain");
-    expect(identity.description).toBe("A gallery");
+    expect(identity.tagline).toBe("Contemporary art");
+    expect(identity.description).toBe("评测实验室");
   });
 
   it("drops empty optional links", () => {

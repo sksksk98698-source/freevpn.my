@@ -10,12 +10,15 @@ import Preloader from "@sections/Home/Preloader.astro";
 import Hero from "@sections/Home/Hero.astro";
 import Intro from "@sections/Home/Intro.astro";
 import Collection from "@sections/Home/Collection.astro";
+import BrandLadder from "@sections/Home/BrandLadder.astro";
+import FreeVpnCaution from "@sections/Home/FreeVpnCaution.astro";
 import Artists from "@sections/Home/Artists.astro";
 import Events from "@sections/Home/Events.astro";
 import News from "@sections/Home/News.astro";
 import About from "@sections/Home/About.astro";
 import type { Locale } from "@/i18n";
-import { getHomepageModel } from "@utils/content";
+import { getHomepageModel, getSiteIdentity } from "@utils/content";
+import { homeSchema, pageContext } from "@utils/seo";
 
 interface Props {
   locale: Locale;
@@ -23,14 +26,27 @@ interface Props {
 
 const { locale } = Astro.props;
 const home = await getHomepageModel(locale);
+const site = await getSiteIdentity(locale);
+const page = pageContext(Astro, locale);
+const homeStructuredData = homeSchema(page, site);
 ---
 
-<MainLayout locale={locale}>
+<MainLayout
+  locale={locale}
+  title={
+    locale === "en"
+      ? "Free VPN Security Radar & 42 Airport Benchmarks (2026)"
+      : "2026 免费VPN安全雷达与42家高速机场测速天梯"
+  }
+  schema={homeStructuredData}
+>
   <Preloader />
   <Navbar locale={locale} />
   <Hero locale={locale} />
   <Intro intro={home.intro} />
   <Collection featured={home.featured} />
+  <BrandLadder locale={locale} />
+  <FreeVpnCaution locale={locale} />
   <Artists artists={home.artists} locale={locale} />
   <Events events={home.events} locale={locale} />
   <News news={home.news} locale={locale} />

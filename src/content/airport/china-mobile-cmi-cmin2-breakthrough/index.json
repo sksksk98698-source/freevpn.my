@@ -1,0 +1,21 @@
+{
+  "slug": "china-mobile-cmi-cmin2-breakthrough",
+  "title": {
+    "zh": "中国移动宽带出海瓶颈破解：CMI 出口晚高峰丢包与 CMIN2 / BGP 专线破局方案",
+    "en": "China Mobile CMI Bottleneck Breakthrough: Evening Peak Packet Loss & CMIN2 / BGP Solutions"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "三网运营商专属线路选型集群",
+    "en": "Tri-Carrier Route Selection Cluster"
+  },
+  "description": {
+    "zh": "深度拆解中国移动大内网（NAT444）与 CMI 出口在晚高峰遭遇的高强度 QoS 丢包机制，评估新一代精品网 CMIN2（AS58807）与多线 BGP 专线如何彻底解决移动用户的出海卡顿顽疾。",
+    "en": "A technical dissection of China Mobile NAT444 carrier-grade NAT and CMI evening QoS throttling, detailing how CMIN2 (AS58807) and BGP dedicated lines eliminate cross-border packet drops."
+  },
+  "body": true
+}

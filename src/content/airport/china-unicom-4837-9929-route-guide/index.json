@@ -1,0 +1,21 @@
+{
+  "slug": "china-unicom-4837-9929-route-guide",
+  "title": {
+    "zh": "中国联通 4837 vs 9929 国际出口实测：北方用户如何选择低延迟亚太专线？",
+    "en": "China Unicom AS4837 vs AS9929 Global Routes: Low-Latency APAC Node Selection for Northern Users"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "三网运营商专属线路选型集群",
+    "en": "Tri-Carrier Route Selection Cluster"
+  },
+  "description": {
+    "zh": "全面对比中国联通普通骨干网 AS4837（169 网）与精品网 AS9929（联通 A 网）在北方各省的国际出口路由表现，揭秘北方用户直连日韩的地理优势与晚高峰专线选型指南。",
+    "en": "A comprehensive comparative analysis of China Unicom AS4837 and AS9929 (A-Net), highlighting Northern China subsea routing advantages to Japan and Korea and peak-hour dedicated line selection."
+  },
+  "body": true
+}

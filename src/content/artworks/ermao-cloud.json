@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "二猫云",
+    "en": "Ermao Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/benchmarks/二猫云-节点测速实测.png",
+  "imageAlt": {
+    "zh": "二猫云 节点评测与速度图谱",
+    "en": "Ermao Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "中转专线 / Shadowsocks",
+    "en": "Relay Express / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "二猫云在 20 元价格段表现出众，每月 130GB 的流量配额足以满足日常 4K 流媒体与高频网络办公需求。配合优惠码 ermao5555 体验更佳。",
+    "en": "Ermao Cloud is a high-performance cross-border proxy provider. Featuring Relay Express / Shadowsocks, Multi-region High Bandwidth, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥20/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://guangs.2maoyunaff.cc/#/?code=7mjvgGbW",
+  "promoCode": "ermao5555",
+  "lowestPrice": "¥20/月",
+  "trafficInfo": "130GB/月",
+  "speedtestImage": "/images/benchmarks/二猫云-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 7
+}

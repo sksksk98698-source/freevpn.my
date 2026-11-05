@@ -12,31 +12,28 @@ import {
 describe("bodyPath", () => {
   it("names the directory after the collection's body field", () => {
     expect(bodyDirectory("news")).toBe("body");
-    expect(bodyPath("news", "grand-opening", "fr")).toBe(
-      "/src/content/news/grand-opening/body/fr.md",
+    expect(bodyPath("news", "grand-opening", "en")).toBe(
+      "/src/content/news/grand-opening/body/en.md",
     );
   });
 });
 
 describe("bodyMarkdown", () => {
   const sources = {
-    "/src/content/news/opening/body/en.md": "English body",
-    "/src/content/news/opening/body/fr.md": "Corps français",
-    "/src/content/news/opening/body/de.md": "   \n",
+    "/src/content/news/opening/body/zh.md": "Chinese body",
+    "/src/content/news/opening/body/en.md": "   \n",
   };
 
   it("uses the requested locale when present", () => {
-    expect(bodyMarkdown(sources, "news", "opening", "fr")).toBe(
-      "Corps français",
-    );
+    expect(bodyMarkdown(sources, "news", "opening", "zh")).toBe("Chinese body");
   });
 
   it("falls back to the default locale, treating a blank file as missing", () => {
-    expect(bodyMarkdown(sources, "news", "opening", "de")).toBe("English body");
+    expect(bodyMarkdown(sources, "news", "opening", "en")).toBe("Chinese body");
   });
 
   it("returns an empty string when neither exists", () => {
-    expect(bodyMarkdown({}, "news", "opening", "fr")).toBe("");
+    expect(bodyMarkdown({}, "news", "opening", "en")).toBe("");
   });
 });
 
@@ -71,20 +68,20 @@ describe("renderMarkdown", () => {
 
 describe("renderBodyFrom", () => {
   const sources = {
-    "/src/content/news/opening/body/en.md": "First *one*.\n\nSecond.\n\nLast.",
-    "/src/content/news/single/body/en.md": "Only paragraph.",
-    "/src/content/news/single/body/fr.md": "  ",
+    "/src/content/news/opening/body/zh.md": "First *one*.\n\nSecond.\n\nLast.",
+    "/src/content/news/single/body/zh.md": "Only paragraph.",
+    "/src/content/news/single/body/en.md": "  ",
   };
 
   it("renders the whole body with no closing unless asked", async () => {
-    const body = await renderBodyFrom(sources, "news", "opening", "en");
+    const body = await renderBodyFrom(sources, "news", "opening", "zh");
     expect(body.closing).toBeNull();
     expect(body.main).toContain("<em>one</em>");
     expect(body.main).toContain("<p>Last.</p>");
   });
 
   it("renders the closing paragraph separately when asked", async () => {
-    const body = await renderBodyFrom(sources, "news", "opening", "en", {
+    const body = await renderBodyFrom(sources, "news", "opening", "zh", {
       splitClosing: true,
     });
     expect(body.main).toContain("<p>Second.</p>");
@@ -93,7 +90,7 @@ describe("renderBodyFrom", () => {
   });
 
   it("gives no closing for a single paragraph, after the locale fallback", async () => {
-    const body = await renderBodyFrom(sources, "news", "single", "fr", {
+    const body = await renderBodyFrom(sources, "news", "single", "en", {
       splitClosing: true,
     });
     expect(body).toEqual({ main: "<p>Only paragraph.</p>\n", closing: null });

@@ -1,24 +1,22 @@
 {
-  "name": "Domus Picturae",
+  "name": "FreeVPN Lab",
   "tagline": {
-    "en": "Experience art, live the vision",
-    "fr": "Découvrez l'art, vivez la vision",
-    "de": "Erleben Sie Kunst, leben Sie die Vision"
+    "zh": "2026 全球高速专线与42家机场科学评测指南",
+    "en": "2026 Global Fast Line & 42 Proxy Brands Independent Benchmark"
   },
   "description": {
-    "en": "Domus Picturae is a contemporary art gallery in Rome showcasing exceptional artworks and supporting emerging and established artists.",
-    "fr": "Domus Picturae est une galerie d'art contemporain à Rome qui présente des œuvres d'exception et soutient des artistes émergents et confirmés.",
-    "de": "Domus Picturae ist eine Galerie für zeitgenössische Kunst in Rom, die herausragende Werke zeigt und aufstrebende wie etablierte Künstler fördert."
+    "zh": "freevpn.my 是专注于跨境网络优化、IEPL/IPLC专线、流媒体与AI解锁的独立第三方评测实验室，提供42家主流机场真实晚高峰测速、客户端下载与避坑指南。",
+    "en": "freevpn.my is an independent performance lab specializing in cross-border network optimization, IPLC/IEPL dedicated lines, streaming & AI unlocks, and peak-hour benchmarks for 42 proxy providers."
   },
-  "address": "Via dei Pittori 7\n00186 Rome\nItaly",
-  "phone": "+39 06 0000 0000",
-  "email": "hello@example.com",
+  "address": "FreeVPN Testing Lab\nGlobal Benchmark & Network Analysis",
+  "phone": "",
+  "email": "contact@freevpn.my",
   "social": {
     "x": "https://x.com",
     "instagram": "https://www.instagram.com"
   },
-  "showreelLink": "https://youtu.be/WBwNw4WjV7g",
-  "creditName": "gulamoff",
-  "creditUrl": "https://www.gulamoff.dev/",
-  "sourceUrl": "https://github.com/mearashadowfax/DomusPicturae"
+  "showreelLink": "",
+  "creditName": "",
+  "creditUrl": "",
+  "sourceUrl": ""
 }

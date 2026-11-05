@@ -1,53 +1,45 @@
 {
   "title": {
-    "en": "Luminous Ground",
-    "fr": "Terrain lumineux",
-    "de": "Leuchtender Grund"
+    "zh": "4K流媒体与ChatGPT / Claude / Gemini AI原生解锁矩阵",
+    "en": "4K Streaming & AI (ChatGPT / Claude / Gemini) Native Unlock Matrix"
   },
   "description": {
-    "en": "Marcus Weber's first solo presentation at the gallery: digital light prints that reimagine mountains, forests and northern skies as layered frequencies of light.",
-    "fr": "Première présentation personnelle de Marcus Weber à la galerie : des impressions lumineuses numériques qui réinventent montagnes, forêts et ciels boréaux comme des fréquences de lumière superposées.",
-    "de": "Marcus Webers erste Einzelpräsentation in der Galerie: digitale Lichtdrucke, die Berge, Wälder und nördliche Himmel als geschichtete Lichtfrequenzen neu erfinden."
+    "zh": "深度实测 42 家机场对 Netflix、Disney+、YouTube 4K、Claude 3.5 Sonnet 与 ChatGPT 网页及 APP 的真实支持与原生 IP 质量。",
+    "en": "Exhaustive verification of native residential IP unlocks for Netflix, Disney+, YouTube, Claude 3.5, and ChatGPT across all 42 providers."
   },
-  "startDate": "2026-11-19",
-  "endDate": "2027-01-16",
+  "startDate": "2026-06-01",
+  "endDate": "2026-11-30",
   "timeline": {
-    "en": "November 19, 2026 – January 16, 2027",
-    "fr": "19 novembre 2026 – 16 janvier 2027",
-    "de": "19. November 2026 – 16. Januar 2027"
+    "zh": "2026年6月 – 11月 持续追踪",
+    "en": "June – November 2026 Active Tracking"
   },
-  "image": "/images/exhibitions/luminous-ground/image.jpg",
+  "image": "/images/benchmarks/guangsu-unlock-photo_2026-08-19_12-18-40.jpg",
   "imageAlt": {
-    "en": "Digital abstraction inspired by the northern lights",
-    "fr": "Abstraction numérique inspirée des aurores boréales",
-    "de": "Digitale Abstraktion, inspiriert von Nordlichtern"
+    "zh": "流媒体与AI工具原生解锁实测截图",
+    "en": "Streaming and AI Native Unlock Verification"
   },
   "location": {
-    "en": "Domus Picturae, Via dei Pittori 7, Rome",
-    "fr": "Domus Picturae, Via dei Pittori 7, Rome",
-    "de": "Domus Picturae, Via dei Pittori 7, Rom"
+    "zh": "FreeVPN 流媒体与应用兼容性实验室",
+    "en": "FreeVPN Streaming & App Compatibility Lab"
   },
   "admission": {
-    "en": "Free",
-    "fr": "Gratuit",
-    "de": "Frei"
+    "zh": "完全公开",
+    "en": "Open Access"
   },
   "openingHours": [
     {
       "day": {
-        "en": "Tuesday – Friday",
-        "fr": "Mardi – vendredi",
-        "de": "Dienstag – Freitag"
+        "zh": "风控监测频率",
+        "en": "IP Risk Monitoring"
       },
-      "hours": "11:00 – 19:00"
+      "hours": "7×24小时自动化巡检"
     },
     {
       "day": {
-        "en": "Saturday",
-        "fr": "Samedi",
-        "de": "Samstag"
+        "zh": "流媒体测试平台",
+        "en": "Target Platforms"
       },
-      "hours": "11:00 – 18:00"
+      "hours": "Netflix, Claude, ChatGPT, Disney+"
     }
   ]
 }

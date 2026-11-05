@@ -1,0 +1,20 @@
+{
+  "slug": "sing-box-core-architecture-beginner-guide",
+  "title": {
+    "zh": "Sing-box 新一代通用代理平台入门全景：轻量核心架构、配置文件语法与客户端选型",
+    "en": "Sing-box Universal Proxy Platform Primer: Lightweight Architecture, Config Syntax & Client Ecosystem"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "Sing-box 极简实践",
+    "en": "Sing-box Minimalist Setup"
+  },
+  "description": {
+    "zh": "全面梳理 Sing-box 通用代理平台的核心架构与设计理念。深度解析其基于 Go 语言原生开发的高性能网络栈、严谨的 JSON 配置文件语法、与传统 Clash 的底层差异及跨平台客户端选型建议。",
+    "en": "An exhaustive architectural exploration of Sing-box, the next-generation universal proxy platform. Covers Go-based high-concurrency network stack design, JSON configuration format, differences from Clash, and multi-platform client selection."
+  }
+}

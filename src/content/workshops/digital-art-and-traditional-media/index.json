@@ -1,24 +1,20 @@
 {
   "title": {
-    "en": "Digital Art and Traditional Media: Bridging the Gap",
-    "fr": "Art numérique et médias traditionnels : combler le fossé",
-    "de": "Digitale Kunst und traditionelle Medien: Brücken bauen"
+    "zh": "Shadowrocket 小火箭 iOS 客户端节点导入与证书避坑指南",
+    "en": "Shadowrocket (Small Rocket) iOS Setup & Certificate Troubleshooting Guide"
   },
   "image": "/images/workshops/digital-art-and-traditional-media/image.jpg",
   "imageAlt": {
-    "en": "A figure in a neon-lit city at night",
-    "fr": "Une silhouette dans une ville éclairée au néon, la nuit",
-    "de": "Eine Gestalt in einer neonbeleuchteten Stadt bei Nacht"
+    "zh": "Shadowrocket iOS 小火箭界面演示",
+    "en": "Shadowrocket iOS interface demonstration"
   },
-  "video": "/images/videos/video2.mp4",
+  "video": "/images/videos/video1.mp4",
   "registerTitle": {
-    "en": "Reserve your place",
-    "fr": "Réservez votre place",
-    "de": "Reservieren Sie Ihren Platz"
+    "zh": "获取美区 Apple ID 并下载小火箭",
+    "en": "Obtain US Apple ID & Download Shadowrocket"
   },
   "registerInfo": {
-    "en": "Explore the intersection of digital and traditional art forms. Learn how contemporary artists combine digital tools with traditional techniques to create innovative works. Limited spaces available — register early to avoid disappointment.",
-    "fr": "Explorez la rencontre entre les formes d'art numériques et traditionnelles. Découvrez comment les artistes contemporains associent outils numériques et techniques traditionnelles pour créer des œuvres innovantes. Places limitées — inscrivez-vous tôt.",
-    "de": "Erkunden Sie die Schnittstelle digitaler und traditioneller Kunstformen. Erfahren Sie, wie zeitgenössische Künstler digitale Werkzeuge mit traditionellen Techniken verbinden. Begrenzte Plätze – melden Sie sich frühzeitig an."
+    "zh": "由于国区 App Store 政策，Shadowrocket 需通过美区或其他海外 Apple ID 购买下载（售价约 $2.99）。一次购买终生使用。",
+    "en": "Shadowrocket requires a non-mainland Apple ID (priced at approx $2.99) on the App Store. Once purchased, updates are free for life."
   }
 }

@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "极连云",
+    "en": "JiLian Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/benchmarks/极连云-节点测速实测.png",
+  "imageAlt": {
+    "zh": "极连云 节点评测与速度图谱",
+    "en": "JiLian Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "专线中转 / Shadowsocks",
+    "en": "Dedicated Relay / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "极连云针对人工智能热潮进行了专门的出口节点清洗与原生 IP 配置，是程序员、设计师和学术科研人员使用海外 AI 工具的高效伙伴。",
+    "en": "JiLian Cloud is a high-performance cross-border proxy provider. Featuring Dedicated Relay / Shadowsocks, Low Latency Gateway, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥18/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://guangs.jlyvipaff.com/#/?code=VM1rKGUu",
+  "promoCode": "ji8888",
+  "lowestPrice": "¥18/月",
+  "trafficInfo": "100GB/月",
+  "speedtestImage": "/images/benchmarks/极连云-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 14
+}

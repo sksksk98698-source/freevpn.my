@@ -18,7 +18,13 @@ const t = useUI(locale);
 const images = [image1, image2, image3, image4];
 ---
 
-<MainLayout locale={locale} title={t.notFound.title} theme="dark" scroll="slow">
+<MainLayout
+  locale={locale}
+  title={t.notFound.title}
+  theme="dark"
+  scroll="slow"
+  noindex={true}
+>
   <section class="not-found">
     <h1>{t.notFound.title}</h1>
     {images.map((image, index) => (

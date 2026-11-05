@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "榴莲云",
+    "en": "Durian Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2023,
+  "image": "/images/artworks/lighthouse-of-quiet-tides/image.png",
+  "imageAlt": {
+    "zh": "榴莲云 节点评测与速度图谱",
+    "en": "Durian Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "中转网络 / 协议未明",
+    "en": "Relay Network / SS"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "榴莲云同样主打 5.6 元的超值尝鲜价，为用户提供了低成本的海外网络连接选择。",
+    "en": "Durian Cloud is a high-performance cross-border proxy provider. Featuring Relay Network / SS, Daily Web & Video, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥5.6/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://qwerty.liulianyunaff.com#/?code=hS5pvbfE",
+  "promoCode": "ll88",
+  "lowestPrice": "¥5.6/月",
+  "trafficInfo": "60GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 24
+}

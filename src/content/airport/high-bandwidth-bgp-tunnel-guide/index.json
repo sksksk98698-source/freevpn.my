@@ -1,0 +1,21 @@
+{
+  "slug": "high-bandwidth-bgp-tunnel-guide",
+  "title": {
+    "zh": "大流量 BGP 隧道机场选购指南：超售比率计算与高峰期单线程降速排查",
+    "en": "High-Bandwidth BGP Tunnel Buyer's Guide: Calculating Oversubscription Ratios & Single-Thread Throttling"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "多线 BGP 智能中转与入口调度集群",
+    "en": "Multi-ISP BGP Relay Cluster"
+  },
+  "description": {
+    "zh": "深入剖析主打“月付十元、几千G流量”的大流量 BGP 隧道机场背后的严重超售机制，教你用 TCP 拥塞窗口与单线程 iperf3 精准检测机房带宽缩水真相。",
+    "en": "A technical buyer's guide to high-bandwidth budget BGP tunnel proxies, explaining oversubscription math, TCP congestion window collapse, and single-thread iperf3 diagnostics."
+  },
+  "body": true
+}

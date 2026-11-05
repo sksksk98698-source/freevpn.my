@@ -1,0 +1,20 @@
+{
+  "slug": "v2rayn-routing-rules-adblock-config",
+  "title": {
+    "zh": "v2rayN 路由规则自定义与去广告分流方案：绕过局域网与大陆白名单极速优化",
+    "en": "v2rayN Routing Rules & Ad-Blocking: Bypassing LAN & Domestic Whitelists for Peak Efficiency"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "v2rayN 现代协议实战",
+    "en": "v2rayN Modern Protocols"
+  },
+  "description": {
+    "zh": "详解 v2rayN 高级路由分流规则编写与去广告黑名单集成。教你如何配置【绕过大陆与局域网】智能路由模式、添加私有内网直连规则、拦截常见广告域名并定时自动更新 Geo 数据文件。",
+    "en": "Complete guide to customizing v2rayN routing rules and ad-blocking domains. Learn how to configure Bypass Mainland China & LAN policies, manage private subnet rules, and automate GeoIP/GeoSite database updates."
+  }
+}

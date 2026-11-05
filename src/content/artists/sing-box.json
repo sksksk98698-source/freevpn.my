@@ -1,0 +1,22 @@
+{
+  "name": "Sing-box",
+  "isEstate": false,
+  "image": "/images/artists/yuki-tanaka/image.jpg",
+  "imageAlt": {
+    "zh": "Sing-box",
+    "en": "Sing-box"
+  },
+  "shortBio": {
+    "zh": "由 SagerNet 团队打造的通用网络代理平台，全平台支持，以超高性能和极低内存占用著称。",
+    "en": "Universal proxy platform by SagerNet, celebrated for ultra-low memory consumption and next-gen protocol coverage."
+  },
+  "biography": {
+    "zh": "sing-box 是近年来开源代理技术社区最耀眼的通用代理底层平台。由 SagerNet 核心团队使用 Go 语言全新编写，彻底重构了网络数据包转发流程，消除了传统代理核心的历史技术包袱。\n\nsing-box 原生支持 Windows、macOS、Linux、Android、iOS 等全操作系统平台。其内置的内存零拷贝（Zero-copy）网络栈使得高并发吞吐能力达到同类软件的 2 倍以上，内存占用却降低了 40%。\n\n它在业界率先原生支持 Shadowsocks 2022、TUIC v5、Hysteria 2、WireGuard 与最新 VLESS 规范。无论是作为独立客户端运行，还是作为内核嵌入软路由，sing-box 都是追求极致性能极客玩家的不二之选。",
+    "en": "sing-box is the next-generation universal proxy engine engineered by the SagerNet team. Written in modern Go with zero-copy packet forwarding, it eliminates legacy architectural bottlenecks.\n\nAvailable natively across Windows, macOS, Linux, Android, and iOS, sing-box reduces RAM usage by over 40% while doubling concurrent connection throughput.\n\nIt is an industry pioneer for Shadowsocks 2022, TUIC v5, Hysteria 2, WireGuard, and VLESS implementations, setting the technical benchmark for router firmware and power users alike."
+  },
+  "quote": {
+    "zh": "重新定义下一代网络代理协议性能极限。",
+    "en": "Redefining the performance frontier for universal network routing."
+  },
+  "hasCv": false
+}

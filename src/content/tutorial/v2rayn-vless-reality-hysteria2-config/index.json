@@ -1,0 +1,20 @@
+{
+  "slug": "v2rayn-vless-reality-hysteria2-config",
+  "title": {
+    "zh": "v2rayN 启用 VLESS Reality 与 Hysteria 2 实操：新一代抗封锁协议参数详解",
+    "en": "v2rayN VLESS Reality & Hysteria 2 In-Depth: Next-Gen Anti-Censorship Protocols Configuration"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "v2rayN 现代协议实战",
+    "en": "v2rayN Modern Protocols"
+  },
+  "description": {
+    "zh": "手把手教你在 v2rayN 中配置当前最具抗封锁能力的现代网络协议。详解 VLESS-Reality 伪装 SNI、公钥 Public Key 与 ShortId 配置，以及基于 UDP 的 Hysteria 2 拥塞控制与端口跳跃调优。",
+    "en": "Step-by-step tutorial on deploying modern anti-censorship protocols in v2rayN. Detailed analysis of VLESS-Reality SNI camouflage, public keys, ShortIds, and Hysteria 2 UDP congestion control and port-hopping."
+  }
+}

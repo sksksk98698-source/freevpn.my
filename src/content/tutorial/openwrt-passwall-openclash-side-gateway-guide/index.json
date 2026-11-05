@@ -1,0 +1,20 @@
+{
+  "slug": "openwrt-passwall-openclash-side-gateway-guide",
+  "title": {
+    "zh": "OpenWrt 软路由科学出海全流程：PassWall / OpenClash 插件选型与旁路由透明网关配置",
+    "en": "OpenWrt Router Proxying: PassWall vs. OpenClash & Side-Gateway Transparent Proxy Deployment"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "全场景与智能网关",
+    "en": "Smart Gateways & Ecosystem"
+  },
+  "cluster": {
+    "zh": "路由器固件与家庭网关",
+    "en": "Router Firmware & Gateways"
+  },
+  "description": {
+    "zh": "家庭与小型工作室软路由出海终极指南。深入对比 OpenWrt 平台两大神级插件 PassWall 与 OpenClash，详解旁路由（Side Gateway）单网口网络拓扑、DHCP 网关下发与全屋设备透明出海部署。",
+    "en": "The definitive OpenWrt smart router deployment handbook. In-depth architectural comparison between PassWall and OpenClash, single-NIC side-gateway topology design, DHCP distribution, and whole-home transparent proxying."
+  }
+}

@@ -7,30 +7,30 @@ const artwork = (id: string, availability: string) =>
 
 describe("routes", () => {
   it("prefixes non-default locales and leaves the default bare", () => {
-    expect(routes.artists("en")).toBe("/artists");
-    expect(routes.artists("fr")).toBe("/fr/artists");
-    expect(routes.home("de")).toBe("/de");
-    expect(routes.exhibition("de", "echoes-of-stillness")).toBe(
-      "/de/exhibitions/echoes-of-stillness",
+    expect(routes.artists("zh")).toBe("/artists");
+    expect(routes.artists("en")).toBe("/en/artists");
+    expect(routes.home("zh")).toBe("/");
+    expect(routes.home("en")).toBe("/en");
+    expect(routes.exhibition("en", "echoes-of-stillness")).toBe(
+      "/en/exhibitions/echoes-of-stillness",
     );
     expect(routes.cv("sarah-chen")).toBe("/cv/sarah-chen.pdf");
-    expect(routes.template()).toBe("/template");
   });
 
   it("sends an artwork to the section its Availability implies", () => {
-    expect(routes.artwork("en", artwork("a", "available"))).toBe("/artworks/a");
-    expect(routes.artwork("en", artwork("b", "sold"))).toBe("/artworks/b");
-    expect(routes.artwork("fr", artwork("c", "not-for-sale"))).toBe(
-      "/fr/private-collection/c",
+    expect(routes.artwork("zh", artwork("a", "available"))).toBe("/artworks/a");
+    expect(routes.artwork("zh", artwork("b", "sold"))).toBe("/artworks/b");
+    expect(routes.artwork("en", artwork("c", "not-for-sale"))).toBe(
+      "/en/private-collection/c",
     );
   });
 
   it("accepts an entry or a bare id for the other detail routes", () => {
     const artist = { id: "sarah-chen" } as CollectionEntry<"artists">;
-    expect(routes.artist("en", artist)).toBe(routes.artist("en", "sarah-chen"));
-    expect(routes.article("de", "grand-opening")).toBe(
-      "/de/news/grand-opening",
+    expect(routes.artist("zh", artist)).toBe(routes.artist("zh", "sarah-chen"));
+    expect(routes.article("en", "grand-opening")).toBe(
+      "/en/news/grand-opening",
     );
-    expect(routes.workshop("fr", "abstract")).toBe("/fr/workshops/abstract");
+    expect(routes.workshop("en", "abstract")).toBe("/en/workshops/abstract");
   });
 });

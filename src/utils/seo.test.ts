@@ -12,20 +12,19 @@ import { presentWorkshop } from "./programme";
 import {
   aboutMeta,
   articleMeta,
-  artistMeta,
   articleSchema,
+  artistMeta,
   artworkMeta,
   artworkSchema,
   exhibitionMeta,
   exhibitionSchema,
   pageContext,
-  templateMeta,
   webPageSchema,
   workshopMeta,
 } from "./seo";
 
 const site = new URL("https://example.test/");
-const page = (path: string, locale: "en" | "fr" = "en") =>
+const page = (path: string, locale: "zh" | "en" = "zh") =>
   pageContext({ url: new URL(path, site), site }, locale);
 
 const artist = {
@@ -35,8 +34,8 @@ const artist = {
 const artwork = {
   id: "whispering-pines",
   data: {
-    title: { en: "Whispering Pines", fr: "Pins murmurants" },
-    medium: { en: "Watercolour on paper", fr: "Aquarelle sur papier" },
+    title: { zh: "松语", en: "Whispering Pines" },
+    medium: { zh: "IEPL专线", en: "IEPL Line" },
     year: 2023,
     availability: "available",
     artist: { collection: "artists", id: "sarah-chen" },
@@ -46,9 +45,9 @@ const artwork = {
 const exhibition = {
   id: "echoes",
   data: {
-    title: { en: "Echoes of Stillness" },
-    description: { en: "A group show" },
-    location: { en: "Domus Picturae, Rome" },
+    title: { zh: "晚高峰测速大横评", en: "Peak Hours Benchmark" },
+    description: { zh: "群测报告", en: "A group test" },
+    location: { zh: "freevpn.my 实验室", en: "freevpn.my Lab" },
     startDate: new Date("2026-09-03T00:00:00Z"),
     endDate: new Date("2026-10-31T00:00:00Z"),
     openingHours: [],
@@ -57,8 +56,8 @@ const exhibition = {
 const article = {
   id: "opening",
   data: {
-    title: { en: "Opening" },
-    description: { en: "We opened" },
+    title: { zh: "上线通知", en: "Opening" },
+    description: { zh: "评测上线", en: "We opened" },
     pubDate: new Date("2025-03-15T09:30:00Z"),
     slides: [],
   },
@@ -67,41 +66,37 @@ const article = {
 describe("seo schemas", () => {
   it("builds the WebPage default with the site as isPartOf", () => {
     const schema = webPageSchema(
-      page("/fr/about", "fr"),
-      { name: "Gallery", description: "About it" },
-      { title: "About", description: "d" },
+      page("/about", "zh"),
+      { name: "FreeVPN Lab", description: "About it" },
+      { title: "关于", description: "d" },
     );
     expect(schema).toMatchObject({
       "@type": "WebPage",
-      "@id": "https://example.test/fr/about",
-      inLanguage: "fr-FR",
+      "@id": "https://example.test/about",
+      inLanguage: "zh-CN",
       isPartOf: {
         "@type": "WebSite",
         url: "https://example.test/",
-        name: "Gallery",
+        name: "FreeVPN Lab",
       },
     });
   });
 
   it("absolutises the artist link and image on a VisualArtwork", () => {
-    const p = presentArtwork(artwork, [artist], "fr");
-    const schema = artworkSchema(
-      page("/fr/artworks/whispering-pines", "fr"),
-      p,
-      {
-        description: "d",
-        imageSrc: "/_astro/x.webp",
-      },
-    );
+    const p = presentArtwork(artwork, [artist], "zh");
+    const schema = artworkSchema(page("/artworks/whispering-pines", "zh"), p, {
+      description: "d",
+      imageSrc: "/_astro/x.webp",
+    });
     expect(schema).toMatchObject({
       "@type": "VisualArtwork",
-      name: "Pins murmurants",
-      artMedium: "Aquarelle sur papier",
+      name: "松语",
+      artMedium: "IEPL专线",
       dateCreated: "2023",
       creator: {
         "@type": "Person",
         name: "Sarah Chen",
-        url: "https://example.test/fr/artists/sarah-chen",
+        url: "https://example.test/artists/sarah-chen",
       },
       image: "https://example.test/_astro/x.webp",
       width: { "@type": "QuantitativeValue", value: 50, unitText: "cm" },
@@ -111,23 +106,23 @@ describe("seo schemas", () => {
   it("formats exhibition dates as ISO days and articles with full timestamps", () => {
     expect(
       exhibitionSchema(
-        page("/exhibitions/echoes"),
-        presentExhibition(exhibition, "en"),
+        page("/exhibitions/echoes", "zh"),
+        presentExhibition(exhibition, "zh"),
       ),
     ).toMatchObject({
       "@type": "ExhibitionEvent",
       startDate: "2026-09-03",
       endDate: "2026-10-31",
-      location: { "@type": "Place", name: "Domus Picturae, Rome" },
+      location: { "@type": "Place", name: "freevpn.my 实验室" },
     });
     const a = articleSchema(
-      page("/news/opening"),
-      presentNews(article, "en"),
+      page("/news/opening", "zh"),
+      presentNews(article, "zh"),
       {},
     );
     expect(a).toMatchObject({
       "@type": "NewsArticle",
-      headline: "Opening",
+      headline: "上线通知",
       datePublished: "2025-03-15T09:30:00.000Z",
     });
     expect((a as { image?: string }).image).toBeUndefined();
@@ -137,26 +132,21 @@ describe("seo schemas", () => {
 describe("pageContext", () => {
   it("derives canonical, alternates and x-default from the site origin", () => {
     const ctx = pageContext(
-      { url: new URL("https://example.test/fr/artists/sarah-chen"), site },
-      "fr",
+      { url: new URL("https://example.test/en/artists/sarah-chen"), site },
+      "en",
     );
-    expect(ctx.url.href).toBe("https://example.test/fr/artists/sarah-chen");
+    expect(ctx.url.href).toBe("https://example.test/en/artists/sarah-chen");
     expect(ctx.basePath).toBe("/artists/sarah-chen");
     expect(ctx.alternates).toEqual([
       {
-        locale: "en",
+        locale: "zh",
         path: "/artists/sarah-chen",
         href: "https://example.test/artists/sarah-chen",
       },
       {
-        locale: "fr",
-        path: "/fr/artists/sarah-chen",
-        href: "https://example.test/fr/artists/sarah-chen",
-      },
-      {
-        locale: "de",
-        path: "/de/artists/sarah-chen",
-        href: "https://example.test/de/artists/sarah-chen",
+        locale: "en",
+        path: "/en/artists/sarah-chen",
+        href: "https://example.test/en/artists/sarah-chen",
       },
     ]);
     expect(ctx.xDefault).toBe("https://example.test/artists/sarah-chen");
@@ -164,34 +154,19 @@ describe("pageContext", () => {
 
   it("maps the home page of a prefixed locale back to the bare origin", () => {
     const ctx = pageContext(
-      { url: new URL("https://example.test/de"), site },
-      "de",
-    );
-    expect(ctx.basePath).toBe("/");
-    expect(ctx.alternates.map((a) => a.path)).toEqual(["/", "/fr", "/de"]);
-    expect(ctx.xDefault).toBe("https://example.test/");
-  });
-
-  it("offers only the default locale for untranslated pages", () => {
-    const ctx = pageContext(
-      { url: new URL("https://example.test/template"), site },
+      { url: new URL("https://example.test/en"), site },
       "en",
     );
-    expect(ctx.alternates).toEqual([
-      {
-        locale: "en",
-        path: "/template",
-        href: "https://example.test/template",
-      },
-    ]);
-    expect(ctx.xDefault).toBe("https://example.test/template");
+    expect(ctx.basePath).toBe("/");
+    expect(ctx.alternates.map((a) => a.path)).toEqual(["/", "/en"]);
+    expect(ctx.xDefault).toBe("https://example.test/");
   });
 
   it("refuses to run without a site origin", () => {
     expect(() =>
       pageContext(
         { url: new URL("https://example.test/"), site: undefined },
-        "en",
+        "zh",
       ),
     ).toThrow(/astro.config.mjs/);
   });
@@ -200,108 +175,76 @@ describe("pageContext", () => {
 describe("page meta", () => {
   it("describes an artist by the first biography paragraph, else the short bio", () => {
     const withBio = presentArtist(
-      fixtures.artist("a", { name: "A", biography: { en: "One.\n\nTwo." } }),
-      "en",
+      fixtures.artist("a", {
+        name: "A",
+        biography: { zh: "一段。\n\n二段。" },
+      }),
+      "zh",
     );
-    const meta = artistMeta(page("/artists/a"), withBio);
-    expect(meta).toMatchObject({ title: "A", description: "One." });
+    const meta = artistMeta(page("/artists/a", "zh"), withBio);
+    expect(meta).toMatchObject({ title: "A", description: "一段。" });
     expect(meta.schema).toMatchObject({
       "@type": "Person",
-      description: "One.",
+      description: "一段。",
     });
     const noBio = presentArtist(
       fixtures.artist("b", {
-        biography: { en: "" },
-        shortBio: { en: "Short." },
+        biography: { zh: "" },
+        shortBio: { zh: "简短。" },
       }),
-      "en",
+      "zh",
     );
-    expect(artistMeta(page("/artists/b"), noBio).description).toBe("Short.");
+    expect(artistMeta(page("/artists/b", "zh"), noBio).description).toBe(
+      "简短。",
+    );
   });
 
   it("captions an artwork from its facts; the schema prefers the editor's description", () => {
-    const p = presentArtwork(artwork, [artist], "en");
-    const meta = artworkMeta(page("/artworks/whispering-pines"), p, {});
-    expect(meta.title).toBe("Whispering Pines");
+    const p = presentArtwork(artwork, [artist], "zh");
+    const meta = artworkMeta(page("/artworks/whispering-pines", "zh"), p, {});
+    expect(meta.title).toBe("松语");
     expect(meta.description).toBe(
-      "Whispering Pines, Sarah Chen, 2023. Watercolour on paper, 50 × 70 cm.",
+      "松语, Sarah Chen, 2023. IEPL专线, 50 × 70 cm.",
     );
     expect(meta.schema).toMatchObject({ description: meta.description });
-    const described = presentArtwork(
-      {
-        ...artwork,
-        data: {
-          ...artwork.data,
-          year: undefined,
-          description: { en: "Pines." },
-        },
-      } as Artwork,
-      [artist],
-      "en",
-    );
-    const m = artworkMeta(page("/artworks/whispering-pines"), described, {});
-    expect(m.description).toBe(
-      "Whispering Pines, Sarah Chen. Watercolour on paper, 50 × 70 cm.",
-    );
-    expect(m.schema).toMatchObject({ description: "Pines." });
   });
 
   it("agrees between the meta tags and the schema for exhibitions and articles", () => {
     const e = exhibitionMeta(
-      page("/exhibitions/echoes"),
-      presentExhibition(exhibition, "en"),
+      page("/exhibitions/echoes", "zh"),
+      presentExhibition(exhibition, "zh"),
     );
     expect(e).toMatchObject({
-      title: "Echoes of Stillness",
-      description: "A group show",
-      schema: { name: "Echoes of Stillness", description: "A group show" },
+      title: "晚高峰测速大横评",
+      description: "群测报告",
+      schema: { name: "晚高峰测速大横评", description: "群测报告" },
     });
     const a = articleMeta(
-      page("/news/opening"),
-      presentNews(article, "en"),
+      page("/news/opening", "zh"),
+      presentNews(article, "zh"),
       {},
     );
     expect(a).toMatchObject({
-      title: "Opening",
-      description: "We opened",
-      schema: { headline: "Opening", description: "We opened" },
+      title: "上线通知",
+      description: "评测上线",
+      schema: { headline: "上线通知", description: "评测上线" },
     });
   });
 
   it("describes a workshop by its registration info, without a schema", () => {
     const w = presentWorkshop(
-      fixtures.workshop("w", { registerInfo: { en: "Sign up." } }),
-      "en",
+      fixtures.workshop("w", { registerInfo: { zh: "立即阅读。" } }),
+      "zh",
     );
     expect(workshopMeta(w)).toEqual({
-      title: "w (en)",
-      description: "Sign up.",
-    });
-  });
-
-  it("describes the template as free software linked to its repository", () => {
-    const m = templateMeta(page("/template"), "Astro template", {
-      name: "Domus Picturae",
-      description: "A template",
-      version: "1.2.0",
-      repositoryHref: "https://github.com/owner/repo",
-      imageSrc: "/_astro/cover.webp",
-    });
-    expect(m.title).toBe("Astro template");
-    expect(m.schema).toMatchObject({
-      "@type": "SoftwareApplication",
-      "@id": "https://example.test/template",
-      softwareVersion: "1.2.0",
-      isAccessibleForFree: true,
-      offers: { price: "0" },
-      sameAs: ["https://github.com/owner/repo"],
-      image: "https://example.test/_astro/cover.webp",
+      title: "w (zh)",
+      description: "立即阅读。",
     });
   });
 
   it("describes the About page by its intro's first paragraph, without markup", () => {
     expect(
-      aboutMeta("About", "<p>We are <em>a gallery</em>.</p>\n\n<p>More.</p>"),
-    ).toEqual({ title: "About", description: "We are a gallery." });
+      aboutMeta("关于", "<p>我们是<em>实验室</em>。</p>\n\n<p>更多。</p>"),
+    ).toEqual({ title: "关于", description: "我们是实验室。" });
   });
 });

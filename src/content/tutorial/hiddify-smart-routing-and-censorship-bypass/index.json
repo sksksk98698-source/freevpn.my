@@ -1,0 +1,20 @@
+{
+  "slug": "hiddify-smart-routing-and-censorship-bypass",
+  "title": {
+    "zh": "Hiddify 智能分流与区域阻断应对：伊朗与中东极端封锁环境下磨砺出的自适应抗干扰机制",
+    "en": "Hiddify Smart Routing & Extreme Censorship Bypass: Adaptive Anti-Jamming Lessons from Iran & Middle East"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "全场景与智能网关",
+    "en": "Smart Gateways & Ecosystem"
+  },
+  "cluster": {
+    "zh": "Hiddify 全协议自动化",
+    "en": "Hiddify Universal Automation"
+  },
+  "description": {
+    "zh": "揭秘 Hiddify 客户端在极端网络封锁与全国性断网环境下磨砺出的自适应分流与抗审查技术。深入解析 TLS Client Hello 分片混淆、自适应域名探针、防主动探测及极端网络应急出海策略。",
+    "en": "Explore Hiddify's battle-tested censorship circumvention techniques developed during nationwide Iranian network blackouts. Analyze TLS Client Hello fragmentation, adaptive probing, and active-probing countermeasures."
+  }
+}

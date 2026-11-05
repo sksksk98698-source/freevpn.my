@@ -1,53 +1,45 @@
 {
   "title": {
-    "en": "Thresholds of Perception",
-    "fr": "Seuils de perception",
-    "de": "Schwellen der Wahrnehmung"
+    "zh": "2026 免费VPN安全陷阱深度剖析与42家高速机场晚高峰测速天梯终极指南",
+    "en": "2026 Free VPN Hidden Dangers & 42 Proxy Providers Peak Speed Benchmark Guide"
   },
   "description": {
-    "en": "The gallery's inaugural exhibition: eight artists explore the boundaries between the visible and the invisible, the material and the immaterial.",
-    "fr": "L'exposition inaugurale de la galerie : huit artistes explorent les frontières entre le visible et l'invisible, le matériel et l'immatériel.",
-    "de": "Die Eröffnungsausstellung der Galerie: Acht Künstler erkunden die Grenzen zwischen Sichtbarem und Unsichtbarem, Materiellem und Immateriellem."
+    "zh": "万字级深度长文：深入揭开永久免费VPN背后的隐私倒卖与肉鸡跳板内幕，全面发布42家主流机场晚高峰测速天梯榜，详解光速云IEPL专线、147永久套餐与高性价比安全平替方案。",
+    "en": "An exhaustive master benchmark: unmasking free VPN security traps, publishing the 42-provider peak speed ladder, and detailing Guangsu Cloud dedicated line alternatives."
   },
-  "startDate": "2025-03-15",
-  "endDate": "2025-05-15",
+  "startDate": "2026-01-01",
+  "endDate": "2026-12-31",
   "timeline": {
-    "en": "March 15 – May 15, 2025",
-    "fr": "15 mars – 15 mai 2025",
-    "de": "15. März – 15. Mai 2025"
+    "zh": "2026年度 核心支柱专题 · 深度技术指南",
+    "en": "2026 Master Pillar Benchmark & Security Guide"
   },
-  "image": "/images/exhibitions/thresholds-of-perception/image.jpg",
+  "image": "/images/benchmarks/光速云-节点测速实测.png",
   "imageAlt": {
-    "en": "Geometric abstraction of urban structures",
-    "fr": "Abstraction géométrique de structures urbaines",
-    "de": "Geometrische Abstraktion urbaner Strukturen"
+    "zh": "2026 免费VPN安全陷阱深度剖析与42家高速机场晚高峰测速天梯",
+    "en": "2026 Free VPN Security & 42 Proxy Benchmark Guide"
   },
   "location": {
-    "en": "Domus Picturae, Via dei Pittori 7, Rome",
-    "fr": "Domus Picturae, Via dei Pittori 7, Rome",
-    "de": "Domus Picturae, Via dei Pittori 7, Rom"
+    "zh": "FreeVPN 核心性能评测中心 · 全球节点实验室",
+    "en": "FreeVPN Core Performance Lab · Global Telemetry Hub"
   },
   "admission": {
-    "en": "Free",
-    "fr": "Gratuit",
-    "de": "Frei"
+    "zh": "公开技术报告 · 长期更新",
+    "en": "Open Technical Whitepaper"
   },
   "openingHours": [
     {
       "day": {
-        "en": "Tuesday – Friday",
-        "fr": "Mardi – vendredi",
-        "de": "Dienstag – Freitag"
+        "zh": "数据采集时段",
+        "en": "Telemetry Window"
       },
-      "hours": "11:00 – 19:00"
+      "hours": "20:00 – 23:00 CST 晚高峰"
     },
     {
       "day": {
-        "en": "Saturday",
-        "fr": "Samedi",
-        "de": "Samstag"
+        "zh": "交叉验证环境",
+        "en": "Testing ISP Peering"
       },
-      "hours": "11:00 – 18:00"
+      "hours": "电信 163 / 联通 4837 / 移动 CMIN2"
     }
   ]
 }

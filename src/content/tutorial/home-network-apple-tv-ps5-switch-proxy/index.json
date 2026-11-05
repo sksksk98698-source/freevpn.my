@@ -1,0 +1,20 @@
+{
+  "slug": "home-network-apple-tv-ps5-switch-proxy",
+  "title": {
+    "zh": "全屋智能设备无感出海方案：电视盒子（Apple TV / Android TV）、PS5 / Switch 游戏机全局加速",
+    "en": "Whole-Home Smart Device Proxying: Seamless Apple TV, Android TV, PS5 & Nintendo Switch Acceleration"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "全场景与智能网关",
+    "en": "Smart Gateways & Ecosystem"
+  },
+  "cluster": {
+    "zh": "路由器固件与家庭网关",
+    "en": "Router Firmware & Gateways"
+  },
+  "description": {
+    "zh": "针对电视盒子与次世代主机游戏的无感网络加速解决方案。详解 Apple TV 4K 配合 Surge / Quantumult X 或旁路由解锁 Netflix 4K HDR、PS5 与 Nintendo Switch 外服联机 NAT Type 优化实战。",
+    "en": "Comprehensive acceleration playbook for smart living room devices and consoles. Learn how to configure Apple TV 4K with tvOS Surge/Quantumult X or side-gateways for Netflix 4K HDR, and achieve NAT Type A/B on PS5 and Nintendo Switch."
+  }
+}

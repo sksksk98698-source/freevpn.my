@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "光速云",
+    "en": "Guangsu Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2020,
+  "image": "/images/benchmarks/光速云-节点测速实测.png",
+  "imageAlt": {
+    "zh": "光速云 节点评测与速度图谱",
+    "en": "Guangsu Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "IEPL企业级专线 / VLESS / BGP双架构",
+    "en": "Dual IEPL Dedicated / VLESS Protocol"
+  },
+  "dimensions": {
+    "width": 2500,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "光速云是本站综合性能评测实验室 2026 年度的**第一主推机皇品牌**。自 2020 年运营以来，光速云始终坚持采用高规格 **IEPL 专线与企业级内网专线** 的双线路架构，保障了即便在晚高峰网络拥堵时段依然保持极致平稳。\n\n### 🌟 核心特色与招牌套餐\n1. **致敬斯诺克147永久套餐**：一次性付费 ¥147，即可永久获得 247GB 专线流量，完全没有月度过期的顾虑，非常适合轻度办公、海外查资料以及作为常备“防失联”救急梯子的用户。\n2. **轻量版年付 ¥99**：每月 69GB 高速流量，换算月费仅约 ¥8 元，在所有高品质专线机场中性价比极高。\n3. **极速版与定制版**：月付 ¥25 起（168GB/月），更提供针对跨境电商、TikTok 高码率直播和企业内网互联的专属独享 IP 定制方案。\n\n### 🚀 晚高峰测速与解锁实测\n经实验室在晚高峰多地区实测（详见下方测速图谱）：\n- 香港专线：延迟 22ms，下载速率超 500Mbps\n- 新加坡专线：延迟 46ms，下载速率超 380Mbps\n- 日本专线：延迟 57ms，下载速率 135Mbps\n- 流媒体与 AI：完美解锁 Netflix 4K、Disney+、Claude 3.5 Sonnet 及 ChatGPT 网页与 APP。\n\n> **透明披露声明**：本站所有注册链接均为官方推广链接。通过链接购买可能会为评测实验室带来维护佣金，但这不会影响您的购买价格，并帮助我们保持长期客观公正的实测标准。使用优惠码 `AMM` 可享新人特惠。",
+    "en": "Guangsu Cloud is a high-performance cross-border proxy provider. Featuring Dual IEPL Dedicated / VLESS Protocol, Up to 2.5 Gbps / 99.99% SLA, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥8/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://sahude.gsyvipaff.com/#/?code=keqgvT5Y",
+  "promoCode": "AMM",
+  "lowestPrice": "¥8/月",
+  "trafficInfo": "69GB/月 - 247GB永久",
+  "speedtestImage": "/images/benchmarks/光速云-节点测速实测.png",
+  "isTopPick": true,
+  "rank": 1
+}

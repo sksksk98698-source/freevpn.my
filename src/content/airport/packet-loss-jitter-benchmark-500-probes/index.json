@@ -1,0 +1,21 @@
+{
+  "slug": "packet-loss-jitter-benchmark-500-probes",
+  "title": {
+    "zh": "持续 500 次 ICMP/UDP 探针抗丢包大比拼：42 家机场晚高峰链路抖动（Jitter）详实记录",
+    "en": "Continuous 500-Probe ICMP/UDP Packet Loss Benchmark: 42-Proxy Peak Jitter Audit"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "晚高峰单线程测速天梯集群",
+    "en": "Peak-Hour Speed Ladder Cluster"
+  },
+  "description": {
+    "zh": "晚高峰持续发射 500 次高频 ICMP 与 UDP 数据包，精确实测 42 家主流机场的链路抖动标准差（Jitter）、丢包率与路由器队列溢出缓冲膨胀（Bufferbloat）指标。",
+    "en": "Deploying continuous 500-round ICMP and UDP probes during evening peak hours to measure jitter standard deviation, packet loss ratios, and bufferbloat across 42 proxy brands."
+  },
+  "body": true
+}

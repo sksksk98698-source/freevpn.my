@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "浪网",
+    "en": "LangNet"
+  },
+  "artist": "lab-team",
+  "year": 2023,
+  "image": "/images/benchmarks/test-unlock-photo_2026-08-19_12-18-40.jpg",
+  "imageAlt": {
+    "zh": "浪网 节点评测与速度图谱",
+    "en": "LangNet speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "中转专线 / Shadowsocks",
+    "en": "Relay Dedicated / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "浪网提供 14 元月付的高性价比入门服务，适合需要平价且稳定外网连接的普通消费者。",
+    "en": "LangNet is a high-performance cross-border proxy provider. Featuring Relay Dedicated / Shadowsocks, 100 Mbps Standard, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥14/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://langnet.cc",
+  "promoCode": "LANGNET",
+  "lowestPrice": "¥14/月",
+  "trafficInfo": "100GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 39
+}

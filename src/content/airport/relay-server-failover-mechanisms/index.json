@@ -1,0 +1,21 @@
+{
+  "slug": "relay-server-failover-mechanisms",
+  "title": {
+    "zh": "国内中转机房宕机自动容灾（Failover）实测：秒级故障转移机制对出海业务的重要性",
+    "en": "Relay Server Automatic Failover Benchmark: Sub-Second Disaster Recovery for Critical Cross-Border Tasks"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "多线 BGP 智能中转与入口调度集群",
+    "en": "Multi-ISP BGP Relay Cluster"
+  },
+  "description": {
+    "zh": "实机模拟国内 POP 节点断网、DDoS 攻击与机房割接，深度剖析 HAProxy 健康检查、Keepalived 虚 IP 漂移与客户端自动 Fallback 策略组如何在 800ms 内实现无感容灾。",
+    "en": "Simulating ingress fiber cuts, DDoS attacks, and maintenance events to evaluate HAProxy health probing, Keepalived VIP failover, and client-side fallback policies under 800ms."
+  },
+  "body": true
+}

@@ -9,13 +9,26 @@ interface Props {
 }
 
 const { presentation } = Astro.props;
-const { artist, locale, href, badge, title, year, image, isSquare } =
-  presentation;
+const {
+  artist,
+  locale,
+  href,
+  badge,
+  title,
+  year,
+  image,
+  isSquare,
+  lowestPrice,
+  trafficInfo,
+  promoCode,
+  isTopPick,
+  rank,
+} = presentation;
 const t = useUI(locale);
 ---
 
-<li class="artwork-card">
-  <a href={href}>
+<li class="artwork-card" class:list={{ "is-top-pick": isTopPick }}>
+  <a href={href} class="artwork-card-link">
     <div class="artwork-card-image">
       {image && (
         <Image
@@ -26,20 +39,43 @@ const t = useUI(locale);
           width={800}
         />
       )}
+      {rank && (
+        <div class="artwork-rank-badge" class:list={{ "is-gold": isTopPick }}>
+          <span>#{rank}</span>
+        </div>
+      )}
       {badge && (
         <div class="artwork-card-badge">
-          <span>{t.artworks[badge]}</span>
+          <span>{badge in t.artworks ? t.artworks[badge] : badge}</span>
         </div>
       )}
     </div>
-    <p class="artwork-card-caption">
-      {artist.name}
-      <br />
-      <em>
-        {title}
-        {year && `, ${year}`}
-      </em>
-    </p>
+    <div class="artwork-card-caption">
+      <div class="artwork-card-header">
+        <span class="artwork-card-title">{title}</span>
+        {year && <span class="artwork-card-year">{year}</span>}
+      </div>
+      <p class="artwork-card-subtitle">{artist.name}</p>
+
+      {(lowestPrice || trafficInfo) && (
+        <div class="artwork-card-metrics">
+          {lowestPrice && (
+            <span class="artwork-price-pill">{lowestPrice} 起</span>
+          )}
+          {trafficInfo && (
+            <span class="artwork-traffic-pill">{trafficInfo}</span>
+          )}
+        </div>
+      )}
+
+      {promoCode && (
+        <div class="artwork-promo-pill">
+          <span>
+            {locale === "zh" ? "优惠码" : "Promo"}: <code>{promoCode}</code>
+          </span>
+        </div>
+      )}
+    </div>
   </a>
 </li>
 
@@ -48,21 +84,36 @@ const t = useUI(locale);
     display: flex;
     position: relative;
     flex-direction: column;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     border-radius: var(--radius);
     overflow: clip;
+  }
+
+  .artwork-card.is-top-pick {
+    box-shadow: 0 0 0 calc(2 * var(--unit-fx)) var(--color-brand);
+  }
+
+  .artwork-card-link {
+    display: block;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
   }
 
   .artwork-card-image {
     position: relative;
     border-radius: var(--radius);
-    height: calc(400 * var(--unit-fx));
+    background-color: var(--color-bg-secondary);
+    height: calc(360 * var(--unit-fx));
     overflow: clip;
   }
 
   .artwork-card-image img {
     display: block;
     transform: scale(1);
-    transition: transform 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
     border-radius: var(--radius);
     width: 100%;
     height: 100%;
@@ -74,40 +125,115 @@ const t = useUI(locale);
   }
 
   .artwork-card:hover .artwork-card-image img {
-    transform: scale(2.5);
+    transform: scale(1.08);
+  }
+
+  .artwork-rank-badge {
+    position: absolute;
+    top: calc(16 * var(--unit-fx));
+    left: calc(16 * var(--unit-fx));
+    z-index: 2;
+    backdrop-filter: blur(8px);
+    border-radius: 9999px;
+    background: rgba(0, 0, 0, 0.75);
+    padding: calc(4 * var(--unit-fx)) calc(12 * var(--unit-fx));
+    color: #fff;
+    font-weight: 700;
+    font-size: calc(12 * var(--unit-type));
+    letter-spacing: 0.05em;
+  }
+
+  .artwork-rank-badge.is-gold {
+    box-shadow: 0 calc(2 * var(--unit-fx)) calc(8 * var(--unit-fx))
+      rgba(212, 175, 55, 0.4);
+    background: linear-gradient(135deg, #d4af37, #f3e5ab);
+    color: #1a1a1a;
   }
 
   .artwork-card-badge {
-    display: flex;
     position: absolute;
-    justify-content: center;
-    align-items: center;
-    inset: 0;
-    background-color: rgb(0 0 0 / 0.5);
-    color: white;
-    font-weight: 600;
-    font-size: calc(16 * var(--unit-type));
-    letter-spacing: calc(2 * var(--unit-fx));
+    top: calc(16 * var(--unit-fx));
+    right: calc(16 * var(--unit-fx));
+    z-index: 2;
+    border-radius: var(--radius);
+    background-color: var(--color-brand);
+    padding: calc(4 * var(--unit-fx)) calc(10 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-size: calc(11 * var(--unit-type));
+    letter-spacing: 0.04em;
     text-transform: uppercase;
   }
 
   .artwork-card-caption {
-    margin-top: calc(10 * var(--unit-fx));
+    display: flex;
+    flex-direction: column;
+    gap: calc(4 * var(--unit-fx));
+    padding-block: calc(14 * var(--unit-fx));
+  }
+
+  .artwork-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .artwork-card-title {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(18 * var(--unit-type));
+    line-height: 1.25;
+    font-family: var(--font-satoshi), system-ui, sans-serif;
+  }
+
+  .artwork-card-year {
+    opacity: 0.7;
+    color: var(--color-text-primary);
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .artwork-card-subtitle {
+    opacity: 0.85;
+    margin: 0;
+    color: var(--color-text-primary);
     font-size: calc(13 * var(--unit-type));
   }
 
-  @media screen and (max-width: 600px) {
-    .artwork-card-image {
-      height: calc(220 * var(--unit-fx));
-    }
+  .artwork-card-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(6 * var(--unit-fx));
+    margin-top: calc(4 * var(--unit-fx));
+  }
 
-    .artwork-card:hover .artwork-card-image img {
-      transform: scale(1);
-    }
+  .artwork-price-pill,
+  .artwork-traffic-pill {
+    display: inline-block;
+    border: 1px solid var(--color-divider);
+    border-radius: calc(4 * var(--unit-fx));
+    background: var(--color-bg-overlay);
+    padding: calc(2 * var(--unit-fx)) calc(8 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(12 * var(--unit-type));
+  }
 
-    .artwork-card-badge {
-      font-size: calc(14 * var(--unit-type));
-      letter-spacing: calc(1 * var(--unit-fx));
-    }
+  .artwork-price-pill {
+    color: var(--color-brand-text);
+    font-weight: 600;
+  }
+
+  .artwork-promo-pill {
+    opacity: 0.9;
+    margin-top: calc(2 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .artwork-promo-pill code {
+    border: 1px solid var(--color-divider);
+    border-radius: calc(3 * var(--unit-fx));
+    background: var(--color-bg-overlay);
+    padding: calc(1 * var(--unit-fx)) calc(6 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 700;
   }
 </style>

@@ -1,0 +1,22 @@
+{
+  "name": "FlClash",
+  "isEstate": false,
+  "image": "/images/artists/sophie-laurent/image.jpg",
+  "imageAlt": {
+    "zh": "FlClash",
+    "en": "FlClash"
+  },
+  "shortBio": {
+    "zh": "基于 Flutter 构建的现代化跨平台代理客户端，拥有极其精致的图形交互与多端一致的视觉体验。",
+    "en": "Modern multi-platform proxy client built with Flutter, featuring exceptional UI aesthetics and fluid animations."
+  },
+  "biography": {
+    "zh": "FlClash 是一款基于 Google Flutter 框架构建的全新一代多平台代理客户端，支持 Android、Windows、macOS 与 Linux 系统。\n\n其最突出的亮点是打破了传统代理工具“粗糙工科风”的刻板印象，界面遵循 Material Design 3 现代美学标准，动画流畅细腻，支持跟随系统的自适应深色模式。\n\n在底层核心上，FlClash 同样集成了稳定的 Clash.Meta 内核，支持订阅解析、节点自动测速、规则集扩展与全局/规则分流，非常适合既追求视觉美感又需要稳定出海体验的年轻用户群体。",
+    "en": "FlClash is a visually stunning proxy client crafted with Google's Flutter framework, supporting Android, Windows, macOS, and Linux.\n\nIt redefines proxy client UX by pairing Material Design 3 elegance with silky 120Hz animations and dynamic dark mode theming.\n\nUnder the hood, FlClash leverages the Clash.Meta engine for reliable rule routing, subscription health checks, and responsive latency testing, offering the ideal balance of beauty and utility."
+  },
+  "quote": {
+    "zh": "美学与实用兼备的新一代视觉系代理工具。",
+    "en": "Where refined UI aesthetics meets robust Clash.Meta proxy capabilities."
+  },
+  "hasCv": false
+}

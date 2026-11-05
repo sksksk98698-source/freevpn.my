@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "隐形人",
+    "en": "Invisible Man"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/artworks/memory-of-water/image.jpg",
+  "imageAlt": {
+    "zh": "隐形人 节点评测与速度图谱",
+    "en": "Invisible Man speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "IEPL专线 / 专有客户端（不支持通用订阅）",
+    "en": "IEPL Line / Proprietary Client Only"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "隐形人拥有 60+ 节点并给出了“1 小时修复”的运维承诺，采用自研客户端一键登录，但需注意其不支持 Clash、Shadowrocket 等通用第三方订阅。",
+    "en": "Invisible Man is a high-performance cross-border proxy provider. Featuring IEPL Line / Proprietary Client Only, 2 Gbps Dedicated Bandwidth, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥22/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://yinxingren1.invisibleaff.com/#/?code=kcyEeoJT",
+  "promoCode": "yxr888",
+  "lowestPrice": "¥22/月",
+  "trafficInfo": "120GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 27
+}

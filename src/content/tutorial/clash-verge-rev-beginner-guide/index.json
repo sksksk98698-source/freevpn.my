@@ -1,0 +1,20 @@
+{
+  "slug": "clash-verge-rev-beginner-guide",
+  "title": {
+    "zh": "2026 Clash Verge Rev 完整安装与新手保姆级教程：从 GitHub Releases 下载到节点订阅一键导入",
+    "en": "2026 Clash Verge Rev Complete Setup Guide: From GitHub Releases Download to Subscription Import"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "Clash Verge 极客调优",
+    "en": "Clash Verge Rev Geek Tuning"
+  },
+  "description": {
+    "zh": "面向 Windows / macOS / Linux 用户的 2026 最新版 Clash Verge Rev 官方保姆级安装与订阅配置教程。详解 GitHub Releases 安装包选型、订阅链接加密导入、智能规则分流模式切换与常见系统代理失效排查。",
+    "en": "The definitive 2026 setup handbook for Clash Verge Rev on Windows, macOS, and Linux. Step-by-step guidance on release artifact selection, encrypted subscription import, rule-based proxy routing, and system proxy failover."
+  }
+}

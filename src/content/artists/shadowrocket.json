@@ -1,0 +1,22 @@
+{
+  "name": "Shadowrocket 小火箭",
+  "isEstate": false,
+  "image": "/images/artists/emma-thompson/image.jpg",
+  "imageAlt": {
+    "zh": "Shadowrocket 小火箭",
+    "en": "Shadowrocket 小火箭"
+  },
+  "shortBio": {
+    "zh": "iOS 平台无可争议的国民级代理应用，轻量省电，规则分流完善，支持节点一键批量测速与多协议导入。",
+    "en": "The quintessential iOS proxy utility, renowned for lightweight battery efficiency and versatile routing rules."
+  },
+  "biography": {
+    "zh": "Shadowrocket（在中文互联网俗称“小火箭”）是苹果 iOS 与 iPadOS 生态中普及率最高、性价比最强的国民级网络代理工具。该软件售价仅为 $2.99 USD，一次购买即可终生免费升级。\n\n小火箭对移动端系统资源调度进行了极致优化，支持常驻后台且几乎不增加电池功耗。它不仅支持订阅 URL 一键导入和二维码扫码，还能对成百上千个节点进行快速 HTTP / ICMP 延迟测速与健康检查。\n\n在路由分流策略上，Shadowrocket 提供了极其细致的 Domain-Keyword、IP-CIDR 与 GeoIP 规则分流体系，允许用户将国内外流量精准剥离：访问国内微信和淘宝走 Direct 直连，访问 ChatGPT / Claude 自动走原生美西/新加坡住宅专线，完美保障手机出海体验。",
+    "en": "Shadowrocket (commonly known as \"Small Rocket\") is the undisputed champion of proxy utilities on iOS and iPadOS. Priced at just $2.99 USD for lifetime updates, it delivers enterprise-grade network capabilities with exceptional battery optimization.\n\nThe client features automated QR code scanning, batch HTTP latency benchmarks, and comprehensive protocol compatibility spanning VMess, VLESS, Trojan, and Hysteria 2.\n\nWith granular routing rule sets (Domain-Keyword, IP-CIDR, GeoIP), Shadowrocket automatically sends domestic Chinese traffic through direct connections while routing Claude, ChatGPT, and 4K media streams through clean dedicated residential endpoints."
+  },
+  "quote": {
+    "zh": "iOS 移动出海不可或缺的网络瑞士军刀。",
+    "en": "The undisputed Swiss Army knife of iOS proxy management."
+  },
+  "hasCv": false
+}

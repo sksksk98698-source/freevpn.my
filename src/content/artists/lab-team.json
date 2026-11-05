@@ -1,0 +1,22 @@
+{
+  "name": "FreeVPN 实测实验室",
+  "isEstate": true,
+  "image": "/images/artists/isabella-rodriguez/image.jpg",
+  "imageAlt": {
+    "zh": "FreeVPN 实测实验室",
+    "en": "FreeVPN 实测实验室"
+  },
+  "shortBio": {
+    "zh": "致力于揭露虚假测速与劣质代理陷阱的独立技术专家组，常驻上海、广州、成都三地物理机房，定期发布晚高峰天梯。",
+    "en": "Independent performance testing lab exposing speed fraud and evaluating 42 proxy providers across China."
+  },
+  "biography": {
+    "zh": "FreeVPN 实测实验室是由一群资深网络工程师、外贸运维专家与前沿 AI 开发者组成的独立技术研究组织。我们的唯一使命是：破除网络出海领域的虚假宣传与信息茧房。\n\n实验室在上海电信千兆光纤、广州联通千兆骨干以及成都移动宽带部署了 7×24 小时自动化测试物理集群，每日对全网收录的 42 家主流机场品牌进行晚高峰（20:30–22:30 CST）极限压力测试。\n\n我们坚持采集单线程吞吐量、TLS 握手延迟与 ICMP 探针丢包率三维核心数据，定期公开晚高峰测速天梯榜与 AI 原生住宅 IP 解锁矩阵白皮书，为全球出海中文用户提供最权威、最客观的网络基础设施选型指南。",
+    "en": "FreeVPN Performance Testing Lab is an independent technical evaluation group composed of network engineers, DevOps specialists, and AI researchers. Our mission: eradicate deceptive marketing and speed fraud in the proxy ecosystem.\n\nOperating automated testing clusters across China Telecom (Shanghai), China Unicom (Guangzhou), and China Mobile (Chengdu), the lab conducts rigorous peak-hour benchmarks (20:30–22:30 CST) against 42 active proxy providers.\n\nBy tracking single-thread throughput, TLS handshake RTT, and packet loss telemetry, our reports deliver unbiased, reproducible benchmarks for researchers, developers, and international professionals worldwide."
+  },
+  "quote": {
+    "zh": "拒绝公关费，坚持晚高峰单线程实机测速。",
+    "en": "Independent telemetry, zero marketing bias, peak-hour raw performance."
+  },
+  "hasCv": false
+}

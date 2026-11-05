@@ -1,0 +1,21 @@
+{
+  "slug": "automated-node-sla-monitoring-setup",
+  "title": {
+    "zh": "如何使用自建探测探针自动化监控机场节点在线率（SLA）与延迟突变？",
+    "en": "Automating Proxy SLA & Latency Spike Monitoring with Self-Hosted Probing Scripts"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "机场跑路前兆与稳定性监测集群",
+    "en": "Exit Scam Radar & SLA Cluster"
+  },
+  "description": {
+    "zh": "教你用一行脚本或轻量开源探针（Uptime Kuma / Python）全天候 24 小时监控订阅节点的在线率、TCP 握手时延与丢包率，并在节点故障时自动向微信/Telegram 发送报警。",
+    "en": "Deploying lightweight open-source monitoring probes (Uptime Kuma / Python) to audit proxy node SLA, TCP handshake latencies, and packet loss 24/7 with instant Telegram/Bark alerting."
+  },
+  "body": true
+}

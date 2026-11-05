@@ -21,10 +21,10 @@ describe("schemaFor", () => {
       deps,
     );
     expect(
-      schema.parse({ title: { en: "a", fr: "b", de: "c" }, note: { en: "" } }),
+      schema.parse({ title: { zh: "a", en: "b" }, note: { zh: "" } }),
     ).toEqual({
-      title: { en: "a", fr: "b", de: "c" },
-      note: { en: "" },
+      title: { zh: "a", en: "b" },
+      note: { zh: "" },
     });
     expect(() => schema.parse({ title: { en: "a" } })).toThrow();
   });

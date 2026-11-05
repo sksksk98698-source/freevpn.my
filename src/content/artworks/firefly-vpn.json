@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "Firefly",
+    "en": "Firefly Network"
+  },
+  "artist": "lab-team",
+  "year": 2021,
+  "image": "/images/artworks/digital-bloom/image.jpg",
+  "imageAlt": {
+    "zh": "Firefly 节点评测与速度图谱",
+    "en": "Firefly Network speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "纯IPLC专线 / VLESS / 原生IP",
+    "en": "Pure IPLC / VLESS / Residential IP"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "Firefly 采用纯正的 IPLC 国际专线架构，配合 VLESS 现代协议，即使在特殊敏感时期也能保障极高的可用度。官网提供免翻墙直连通道，方便新用户续费与管理。",
+    "en": "Firefly Network is a high-performance cross-border proxy provider. Featuring Pure IPLC / VLESS / Residential IP, Gigabit Dedicated IPLC, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥25/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://vip02.fireflyaff.com/#/?code=2n7VURre",
+  "promoCode": "firefly",
+  "lowestPrice": "¥25/月",
+  "trafficInfo": "150GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 10
+}

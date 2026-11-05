@@ -17,7 +17,8 @@ const includeKeystatic =
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://domus-picturae.vercel.app",
+  site:
+    process.env.PUBLIC_SITE_URL || process.env.SITE_URL || "https://freevpn.my",
   output: "static",
   trailingSlash: "never",
 
@@ -46,7 +47,7 @@ export default defineConfig({
       name: "Baskervville",
       cssVariable: "--font-baskervville",
       styles: ["normal"],
-      weights: [300, 400, 900],
+      weights: [400, 700],
       fallbacks: ["serif"],
     },
     {

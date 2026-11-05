@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "微风网络",
+    "en": "Breeze Net"
+  },
+  "artist": "lab-team",
+  "year": 2021,
+  "image": "/images/benchmarks/微风-节点测速实测.png",
+  "imageAlt": {
+    "zh": "微风网络 节点评测与速度图谱",
+    "en": "Breeze Net speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "隧道中转 / Shadowsocks",
+    "en": "Tunnel Relay / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "微风网络是专为轻量办公和海外即时通讯打造的实惠服务商。月付仅需 7 元即可获得 60GB 流量，使用优惠码 flat888 可立享 9 折。",
+    "en": "Breeze Net is a high-performance cross-border proxy provider. Featuring Tunnel Relay / Shadowsocks, 100 Mbps Stable Bandwidth, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥7/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://edp01.breezenetaff.com/#/?code=t3huofyI",
+  "promoCode": "flat888",
+  "lowestPrice": "¥7/月",
+  "trafficInfo": "60GB/月",
+  "speedtestImage": "/images/benchmarks/微风-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 4
+}

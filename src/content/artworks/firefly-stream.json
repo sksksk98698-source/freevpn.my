@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "萤火虫",
+    "en": "Firefly Stream"
+  },
+  "artist": "lab-team",
+  "year": 2021,
+  "image": "/images/benchmarks/test-unlock-photo_2026-09-07_12-51-58.jpg",
+  "imageAlt": {
+    "zh": "萤火虫 节点评测与速度图谱",
+    "en": "Firefly Stream speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "IPLC专线 / VLESS / 原生IP",
+    "en": "IPLC Line / VLESS / Residential IP"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "萤火虫采用 IPLC + VLESS 架构，年付套餐折合月费仅 8 元，主打原生 IP 与多设备支持，性价比颇高。",
+    "en": "Firefly Stream is a high-performance cross-border proxy provider. Featuring IPLC Line / VLESS / Residential IP, No Speed Limit / Unlimited Devices, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥8/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://vip02.fireflyaff.com/#/?code=jTp9wSgZ",
+  "promoCode": "firefly",
+  "lowestPrice": "¥8/月",
+  "trafficInfo": "60GB/月 - 1000GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 41
+}

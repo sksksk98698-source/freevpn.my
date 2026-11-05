@@ -1,0 +1,569 @@
+---
+/** Individual deep SEO/GEO article view for /airport/[slug]. */
+import type { CollectionEntry } from "astro:content";
+import MainLayout from "@layouts/MainLayout.astro";
+import Navbar from "@sections/Chrome/Navbar.astro";
+import Footer from "@sections/Chrome/Footer.astro";
+import type { Locale } from "@/i18n";
+import { getSiteIdentity, renderBody } from "@utils/content";
+import { pageContext, techArticleSchema } from "@utils/seo";
+import { localizePath } from "@/i18n/config";
+
+interface Props {
+  locale: Locale;
+  article: CollectionEntry<"airport">;
+}
+
+const { locale, article } = Astro.props;
+const site = await getSiteIdentity(locale);
+const page = pageContext(Astro, locale);
+
+const title =
+  typeof article.data.title === "object"
+    ? article.data.title[locale] || article.data.title.zh
+    : article.data.title;
+
+const description =
+  typeof article.data.description === "object"
+    ? article.data.description[locale] || article.data.description.zh
+    : article.data.description;
+
+const category =
+  typeof article.data.category === "object"
+    ? article.data.category[locale] || article.data.category.zh
+    : article.data.category ||
+      (locale === "en" ? "Proxy Benchmarks" : "机场评测与专线架构");
+
+const cluster =
+  typeof article.data.cluster === "object"
+    ? article.data.cluster[locale] || article.data.cluster.zh
+    : article.data.cluster ||
+      (locale === "en" ? "IEPL & IPLC Clusters" : "专线架构集群");
+
+const { main } = await renderBody("airport", article.id, locale);
+
+const pubDateStr = article.data.pubDate
+  ? new Date(article.data.pubDate).toISOString().split("T")[0]
+  : "2026-11-04";
+
+const articleSchema = techArticleSchema(
+  page,
+  {
+    title,
+    description,
+    pubDate: article.data.pubDate,
+  },
+  site,
+);
+
+const airportIndexHref = localizePath(locale, "/airport");
+const guangsuHref = localizePath(locale, "/artworks/guangsu-cloud");
+const pillarHref = localizePath(
+  locale,
+  "/exhibitions/thresholds-of-perception",
+);
+---
+
+<MainLayout
+  locale={locale}
+  title={`${title} - FreeVPN.my 权威实测`}
+  description={description}
+  schema={articleSchema}
+>
+  <Navbar locale={locale} />
+
+  <article class="airport-article">
+    <!-- Breadcrumb navigation -->
+    <nav class="article-breadcrumb" aria-label="Breadcrumb">
+      <a href={localizePath(locale, "/")}>
+        {locale === "en" ? "Home" : "首页"}
+      </a>
+      <span class="sep">/</span>
+      <a href={airportIndexHref}>
+        {locale === "en" ? "Airport Benchmarks" : "机场测评天梯"}
+      </a>
+      <span class="sep">/</span>
+      <span class="current">{category}</span>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="article-header">
+      <div class="article-meta-row">
+        <span class="meta-badge-cat">{category}</span>
+        <span class="meta-badge-cluster">{cluster}</span>
+        <time class="meta-date" datetime={pubDateStr}>
+          {pubDateStr}
+        </time>
+        <span class="meta-reading-time">
+          {locale === "en"
+            ? "Deep Reading (~15 mins)"
+            : "万字权威长文 · 约 15 分钟深度研读"}
+        </span>
+      </div>
+      <h1 class="article-title">{title}</h1>
+      <p class="article-intro">{description}</p>
+    </header>
+
+    <hr class="section-rule" />
+
+    <!-- Article Content Prose -->
+    <div class="article-body-container">
+      <div class="prose-content">
+        <Fragment set:html={main} />
+      </div>
+    </div>
+
+    <!-- Conversion & Verification Callout -->
+    <section class="conversion-callout">
+      <div class="callout-content">
+        <span class="callout-tag">
+          {locale === "en"
+            ? "RECOMMENDED SAFE ALTERNATIVE"
+            : "编辑部权威推荐安全方案"}
+        </span>
+        <h3>
+          {locale === "en"
+            ? "Guangsu Cloud: Dual 2.5Gbps IEPL Dedicated Lines"
+            : "光速云（Guangsu Cloud）：2.5Gbps 双向 IEPL 尊享专线"}
+        </h3>
+        <p>
+          {locale === "en"
+            ? "Tested with 786.4 Mbps single-thread throughput and zero packet loss during peak hours. Featuring the Snooker 147 permanent 247GB package (pay once, never expires) and lightweight annual plan at ¥99/year. Use exclusive code AMM at checkout."
+            : "通过本实验室 500 次 ICMP 探针压测与晚高峰单线程 786.4 Mbps 实机验证。提供【致敬斯诺克147】247GB 永久不过期套餐（¥147 一次付清终生有效）与轻量版年付 ¥99（月均仅 ¥8.25）。结账输入专属优惠码 AMM 享立减。"}
+        </p>
+      </div>
+      <div class="callout-actions">
+        <a
+          href="https://sahude.gsyvipaff.com/#/?code=keqgvT5Y"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          class="btn-cta-primary"
+        >
+          {locale === "en"
+            ? "Visit Official Portal (Code: AMM) →"
+            : "直达光速云官网 (优惠码: AMM) →"}
+        </a>
+        <a href={guangsuHref} class="btn-cta-secondary">
+          {locale === "en"
+            ? "Read Independent Lab Report"
+            : "查看光速云独立测评报告"}
+        </a>
+      </div>
+    </section>
+
+    <!-- Honeycomb Matrix Navigation Footer -->
+    <footer class="honeycomb-nav">
+      <h3 class="honeycomb-title">
+        {locale === "en"
+          ? "Honeycomb Knowledge Matrix"
+          : "蜂巢式站内知识图谱导航"}
+      </h3>
+      <div class="honeycomb-grid">
+        <div class="honeycomb-item">
+          <span class="honeycomb-level">
+            {locale === "en" ? "Level 1 Pillar" : "一级支柱回链"}
+          </span>
+          <a href={airportIndexHref} class="honeycomb-link">
+            {locale === "en"
+              ? "Airport Benchmarks & Speed Ladder Hub →"
+              : "机场评测与晚高峰天梯知识总览 →"}
+          </a>
+        </div>
+        <div class="honeycomb-item">
+          <span class="honeycomb-level">
+            {locale === "en" ? "Master Flagship" : "全站旗舰母文"}
+          </span>
+          <a href={pillarHref} class="honeycomb-link">
+            {locale === "en"
+              ? "2026 Free VPN Security Traps & 42-Brand Guide →"
+              : "2026 免费VPN安全陷阱与42家天梯终极指南 →"}
+          </a>
+        </div>
+        <div class="honeycomb-item">
+          <span class="honeycomb-level">
+            {locale === "en" ? "Client Tutorials" : "客户端落地"}
+          </span>
+          <a
+            href={localizePath(
+              locale,
+              "/workshops/contemporary-painting-techniques",
+            )}
+            class="honeycomb-link"
+          >
+            {locale === "en"
+              ? "Clash Verge Rev TUN Setup Guide →"
+              : "Clash Verge Rev TUN 虚拟网卡保姆级配置 →"}
+          </a>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <Footer locale={locale} />
+</MainLayout>
+
+<style>
+  .airport-article {
+    margin-top: calc(90 * var(--unit-fx));
+    margin-bottom: calc(140 * var(--unit-fx));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    max-width: calc(1150 * var(--unit-fx));
+  }
+
+  .article-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(8 * var(--unit-fx));
+    opacity: 0.7;
+    margin-bottom: calc(25 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .article-breadcrumb a {
+    transition: color var(--transition-fast);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .article-breadcrumb a:hover {
+    opacity: 1;
+    color: var(--color-text-primary);
+  }
+
+  .article-breadcrumb .sep {
+    color: var(--color-divider);
+  }
+
+  .article-breadcrumb .current {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  .article-header {
+    margin-bottom: calc(35 * var(--unit-fx));
+  }
+
+  .article-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(10 * var(--unit-fx));
+    margin-bottom: calc(18 * var(--unit-fx));
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .meta-badge-cat {
+    border-radius: calc(100 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(3 * var(--unit-fx)) calc(10 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 500;
+  }
+
+  .meta-badge-cluster {
+    border: 1px solid var(--color-divider);
+    border-radius: calc(4 * var(--unit-fx));
+    background-color: var(--color-bg-overlay);
+    padding: calc(3 * var(--unit-fx)) calc(8 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 500;
+    font-size: calc(11 * var(--unit-type));
+  }
+
+  .meta-date,
+  .meta-reading-time {
+    opacity: 0.65;
+    color: var(--color-text-primary);
+  }
+
+  .article-title {
+    margin-bottom: calc(20 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 300;
+    font-size: calc(48 * var(--unit-type));
+    line-height: 1.18;
+    font-family: var(--font-baskervville);
+    letter-spacing: -0.01em;
+  }
+
+  .article-intro {
+    opacity: 0.85;
+    margin: 0;
+    max-width: calc(950 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(17 * var(--unit-type));
+    line-height: 1.7;
+  }
+
+  .section-rule {
+    margin-block: calc(40 * var(--unit-fx));
+    border: none;
+    background-color: var(--color-divider);
+    height: calc(0.5 * var(--unit-fx));
+  }
+
+  /* Prose Content */
+  .article-body-container {
+    margin-block: calc(40 * var(--unit-fx));
+  }
+
+  .prose-content {
+    color: var(--color-text-primary);
+    font-size: calc(16 * var(--unit-type));
+    line-height: 1.85;
+    word-break: break-word;
+  }
+
+  .prose-content :global(h2) {
+    margin-top: calc(55 * var(--unit-fx));
+    margin-bottom: calc(20 * var(--unit-fx));
+    border-bottom: 1px solid var(--color-divider);
+    padding-bottom: calc(10 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 300;
+    font-size: calc(32 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .prose-content :global(h3) {
+    margin-top: calc(35 * var(--unit-fx));
+    margin-bottom: calc(15 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: calc(22 * var(--unit-type));
+  }
+
+  .prose-content :global(p) {
+    margin-block: calc(18 * var(--unit-fx));
+  }
+
+  .prose-content :global(blockquote) {
+    margin-block: calc(25 * var(--unit-fx));
+    border-left: 3px solid var(--color-brand);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background-color: var(--color-bg-overlay);
+    padding: calc(20 * var(--unit-fx)) calc(25 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(15 * var(--unit-type));
+    line-height: 1.7;
+  }
+
+  .prose-content :global(table) {
+    margin-block: calc(30 * var(--unit-fx));
+    border: 1px solid var(--color-divider);
+    border-collapse: collapse;
+    width: 100%;
+    font-size: calc(14 * var(--unit-type));
+  }
+
+  .prose-content :global(th),
+  .prose-content :global(td) {
+    border: 1px solid var(--color-divider);
+    padding: calc(12 * var(--unit-fx)) calc(16 * var(--unit-fx));
+    text-align: left;
+  }
+
+  .prose-content :global(th) {
+    background-color: var(--color-bg-overlay);
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .prose-content :global(td) {
+    color: var(--color-text-primary);
+  }
+
+  .prose-content :global(pre) {
+    margin-block: calc(25 * var(--unit-fx));
+    border-radius: var(--radius);
+    background-color: #1a1a1a;
+    padding: calc(20 * var(--unit-fx));
+    overflow-x: auto;
+    color: #f1f1f1;
+    font-size: calc(13 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  .prose-content :global(code) {
+    border: 1px solid var(--color-divider);
+    border-radius: 3px;
+    background-color: var(--color-bg-overlay);
+    padding: 0.2em 0.4em;
+    color: var(--color-text-primary);
+    font-size: 0.9em;
+    font-family: monospace;
+  }
+
+  .prose-content :global(pre code) {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+  }
+
+  .prose-content :global(ul),
+  .prose-content :global(ol) {
+    margin-block: calc(18 * var(--unit-fx));
+    padding-left: calc(25 * var(--unit-fx));
+  }
+
+  .prose-content :global(li) {
+    margin-block: calc(8 * var(--unit-fx));
+  }
+
+  .prose-content :global(a) {
+    color: var(--color-text-primary);
+    text-decoration: underline;
+    text-underline-offset: calc(3 * var(--unit-fx));
+  }
+
+  /* Conversion Callout */
+  .conversion-callout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(40 * var(--unit-fx));
+    margin-block: calc(60 * var(--unit-fx));
+    border: 1.5px solid var(--color-brand);
+    border-radius: var(--radius);
+    background-color: var(--color-bg-overlay);
+    padding: calc(35 * var(--unit-fx)) calc(40 * var(--unit-fx));
+  }
+
+  .callout-tag {
+    display: inline-block;
+    margin-bottom: calc(8 * var(--unit-fx));
+    border-radius: calc(4 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(2 * var(--unit-fx)) calc(8 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 600;
+    font-size: calc(10 * var(--unit-type));
+    letter-spacing: 0.05em;
+  }
+
+  .callout-content h3 {
+    margin: 0 0 calc(10 * var(--unit-fx)) 0;
+    color: var(--color-text-primary);
+    font-size: calc(24 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .callout-content p {
+    opacity: 0.88;
+    margin: 0;
+    max-width: calc(650 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(14 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  .callout-actions {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: calc(10 * var(--unit-fx));
+  }
+
+  .btn-cta-primary {
+    display: block;
+    transition: opacity var(--transition-fast);
+    border-radius: calc(100 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(12 * var(--unit-fx)) calc(24 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 500;
+    font-size: calc(13 * var(--unit-type));
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .btn-cta-primary:hover {
+    opacity: 0.85;
+  }
+
+  .btn-cta-secondary {
+    display: block;
+    color: var(--color-brand-text);
+    font-weight: 500;
+    font-size: calc(12 * var(--unit-type));
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: calc(3 * var(--unit-fx));
+  }
+
+  /* Honeycomb navigation */
+  .honeycomb-nav {
+    margin-top: calc(40 * var(--unit-fx));
+    border-top: 1px solid var(--color-divider);
+    padding-top: calc(40 * var(--unit-fx));
+  }
+
+  .honeycomb-title {
+    margin-bottom: calc(20 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(20 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .honeycomb-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: calc(20 * var(--unit-fx));
+  }
+
+  .honeycomb-item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(8 * var(--unit-fx));
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+    box-shadow: 0 calc(4 * var(--unit-fx)) calc(12 * var(--unit-fx))
+      rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius);
+    background-color: var(--color-bg-primary);
+    padding: calc(20 * var(--unit-fx));
+  }
+
+  .honeycomb-item:hover {
+    box-shadow: 0 calc(6 * var(--unit-fx)) calc(18 * var(--unit-fx))
+      rgba(0, 0, 0, 0.05);
+    border-color: var(--color-brand);
+  }
+
+  .honeycomb-level {
+    color: var(--color-brand-text);
+    font-weight: 600;
+    font-size: calc(11 * var(--unit-type));
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .honeycomb-link {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: calc(14 * var(--unit-type));
+    text-decoration: underline;
+    text-underline-offset: calc(3 * var(--unit-fx));
+  }
+
+  @media screen and (max-width: 900px) {
+    .article-title {
+      font-size: calc(36 * var(--unit-type));
+    }
+
+    .conversion-callout {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .honeycomb-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

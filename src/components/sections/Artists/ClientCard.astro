@@ -1,0 +1,383 @@
+---
+import { Image } from "astro:assets";
+import type { ArtistPresentation } from "@utils/artists";
+import type { Locale } from "@/i18n";
+import { localizePath } from "@/i18n/config";
+
+interface Props {
+  artist: ArtistPresentation;
+  locale: Locale;
+}
+
+const { artist, locale } = Astro.props;
+const { portrait } = artist;
+
+interface ClientMeta {
+  platforms: string[];
+  engine: string;
+  features: string[];
+  tutorialUrl: string;
+  tutorialLabel: { zh: string; en: string };
+  badge: { zh: string; en: string };
+}
+
+const metaMap: Record<string, ClientMeta> = {
+  "clash-verge-rev": {
+    platforms: ["Windows", "macOS", "Linux"],
+    engine: "Mihomo (Clash.Meta)",
+    features: ["TUN 虚拟网卡", "规则分流", "支持 VLESS Reality", "开源轻量"],
+    tutorialUrl: "/workshops/contemporary-painting-techniques",
+    tutorialLabel: {
+      zh: "Clash Verge Rev 保姆级配置教程",
+      en: "Clash Verge Rev Complete Setup Guide",
+    },
+    badge: { zh: "电脑桌面首选", en: "Top Desktop Pick" },
+  },
+  shadowrocket: {
+    platforms: ["iOS", "iPadOS"],
+    engine: "自研高性能底层核心",
+    features: ["系统级 VPN 隧道", "规则分流", "全协议兼容", "低耗电常驻"],
+    tutorialUrl: "/workshops/digital-art-and-traditional-media",
+    tutorialLabel: {
+      zh: "Shadowrocket 小火箭避坑配置指南",
+      en: "Shadowrocket iOS Configuration Guide",
+    },
+    badge: { zh: "苹果移动端首选", en: "Top iOS Pick" },
+  },
+  v2rayn: {
+    platforms: ["Windows"],
+    engine: "Xray / sing-box 双核心",
+    features: ["FullCone 全锥型 NAT", "TUN 模式", "外服低延迟加速", "开源经典"],
+    tutorialUrl: "/workshops/exploring-abstract-art-a-hands-on-workshop",
+    tutorialLabel: {
+      zh: "v2rayN 与 Sing-box 进阶游戏加速教程",
+      en: "v2rayN & Sing-box Advanced Setup Guide",
+    },
+    badge: { zh: "极客电竞必备", en: "Gaming & Geek Choice" },
+  },
+  "sing-box": {
+    platforms: ["全平台 (Win/Mac/Linux/iOS/Android)"],
+    engine: "sing-box 原生核心 (Go Zero-copy)",
+    features: ["超低内存占用", "TUN 模式", "TUIC v5 / Hysteria 2", "通用平台"],
+    tutorialUrl: "/workshops/exploring-abstract-art-a-hands-on-workshop",
+    tutorialLabel: {
+      zh: "Sing-box 核心技术与进阶指南",
+      en: "Sing-box Core & Advanced Guide",
+    },
+    badge: { zh: "下一代通用核心", en: "Next-gen Engine" },
+  },
+  flclash: {
+    platforms: ["Android", "Windows", "macOS", "Linux"],
+    engine: "Clash.Meta 内核",
+    features: ["Flutter 现代美学", "自适应深色模式", "规则分流", "多端一致"],
+    tutorialUrl: "/workshops/contemporary-painting-techniques",
+    tutorialLabel: {
+      zh: "FlClash 跨平台配置上手指南",
+      en: "FlClash Setup Guide",
+    },
+    badge: { zh: "视觉系美学", en: "Aesthetic UI" },
+  },
+  hiddify: {
+    platforms: ["全平台 (Win/Mac/Linux/iOS/Android)"],
+    engine: "sing-box 核心驱动",
+    features: ["30+ 种协议自适应", "一键傻瓜式导入", "抗封锁", "多语言"],
+    tutorialUrl: "/workshops/contemporary-painting-techniques",
+    tutorialLabel: {
+      zh: "Hiddify 全平台傻瓜上手指南",
+      en: "Hiddify Universal Setup Guide",
+    },
+    badge: { zh: "零门槛自适应", en: "Zero-Config Multiplatform" },
+  },
+  "lab-team": {
+    platforms: ["上海 / 广州 / 成都自动化物理机群"],
+    engine: "iperf3 / curl / mtr 真实基准",
+    features: [
+      "晚高峰单线程压测",
+      "42家机场全覆盖",
+      "拒绝公关保护费",
+      "客观独立",
+    ],
+    tutorialUrl: "/exhibitions/thresholds-of-perception",
+    tutorialLabel: {
+      zh: "2026 免费VPN安全陷阱深度剖析与42家天梯榜",
+      en: "2026 Free VPN Traps & 42-Brand Ladder Guide",
+    },
+    badge: { zh: "独立实测机构", en: "Independent Lab" },
+  },
+};
+
+const meta = metaMap[artist.id] || {
+  platforms: ["通用操作系统"],
+  engine: "开源通用代理引擎",
+  features: ["智能分流", "节点测速", "加密传输"],
+  tutorialUrl: "/workshops/contemporary-painting-techniques",
+  tutorialLabel: { zh: "查看图文配置教程", en: "View Setup Guide" },
+  badge: { zh: "官方推荐", en: "Official Pick" },
+};
+
+const tutorialHref = localizePath(locale, meta.tutorialUrl);
+const guangsuHref = localizePath(locale, "/artworks/guangsu-cloud");
+---
+
+<li class="client-card">
+  <div class="client-card-header">
+    <div class="client-card-avatar-wrap">
+      {portrait && (
+        <Image
+          src={portrait.src}
+          alt={portrait.alt}
+          format="webp"
+          width={160}
+          class="client-card-avatar"
+        />
+      )}
+    </div>
+    <div class="client-card-title-group">
+      <div class="client-card-badge-row">
+        <span class="client-badge">
+          {meta.badge[locale === "en" ? "en" : "zh"]}
+        </span>
+        <span class="client-engine">{meta.engine}</span>
+      </div>
+      <h3 class="client-card-name">
+        <a href={artist.href}>{artist.name}</a>
+      </h3>
+    </div>
+  </div>
+
+  <div class="client-card-body">
+    <div class="client-platforms">
+      <span class="platform-label">
+        {locale === "en" ? "Platforms:" : "支持平台:"}
+      </span>
+      <div class="platform-tags">
+        {meta.platforms.map((p) => (
+          <span class="platform-pill">{p}</span>
+        ))}
+      </div>
+    </div>
+
+    <p class="client-bio">{artist.shortBio}</p>
+
+    <div class="client-features">
+      {meta.features.map((f) => (
+        <span class="feature-tag">{f}</span>
+      ))}
+    </div>
+  </div>
+
+  <div class="client-card-actions">
+    <a href={tutorialHref} class="btn-tutorial">
+      <span>📖 {meta.tutorialLabel[locale === "en" ? "en" : "zh"]}</span>
+    </a>
+    <div class="client-card-sub-actions">
+      <a href={artist.href} class="btn-detail">
+        {locale === "en" ? "Detailed Specs" : "独立技术档案"}
+      </a>
+      <a href={guangsuHref} class="btn-proxy">
+        {locale === "en"
+          ? "Paired Line: Guangsu Cloud (AMM)"
+          : "推荐搭配: 光速云专线 (AMM)"}
+      </a>
+    </div>
+  </div>
+</li>
+
+<style>
+  .client-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition:
+      transform var(--transition-base),
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius);
+    background-color: var(--color-bg-primary);
+    padding: calc(30 * var(--unit-fx));
+  }
+
+  .client-card:hover {
+    transform: translateY(calc(-4 * var(--unit-fx)));
+    box-shadow: 0 calc(12 * var(--unit-fx)) calc(30 * var(--unit-fx))
+      rgba(0, 0, 0, 0.05);
+    border-color: var(--color-text-primary);
+  }
+
+  .client-card-header {
+    display: flex;
+    align-items: center;
+    gap: calc(20 * var(--unit-fx));
+    margin-bottom: calc(20 * var(--unit-fx));
+  }
+
+  .client-card-avatar-wrap {
+    flex-shrink: 0;
+    border: 1px solid var(--color-divider);
+    border-radius: 50%;
+    background-color: var(--color-bg-overlay);
+    width: calc(70 * var(--unit-fx));
+    height: calc(70 * var(--unit-fx));
+    overflow: hidden;
+  }
+
+  .client-card-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .client-card-title-group {
+    flex-grow: 1;
+  }
+
+  .client-card-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(8 * var(--unit-fx));
+    margin-bottom: calc(6 * var(--unit-fx));
+  }
+
+  .client-badge {
+    border-radius: calc(100 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(2 * var(--unit-fx)) calc(8 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 500;
+    font-size: calc(11 * var(--unit-type));
+    letter-spacing: 0.03em;
+  }
+
+  .client-engine {
+    opacity: 0.75;
+    color: var(--color-text-primary);
+    font-size: calc(12 * var(--unit-type));
+    font-family: var(--font-satoshi);
+  }
+
+  .client-card-name {
+    margin: 0;
+    font-weight: 500;
+    font-size: calc(26 * var(--unit-type));
+    line-height: 1.2;
+    font-family: var(--font-baskervville);
+  }
+
+  .client-card-name a {
+    transition: color var(--transition-fast);
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+
+  .client-card-name a:hover {
+    color: var(--color-brand-text);
+  }
+
+  .client-card-body {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: calc(14 * var(--unit-fx));
+    margin-bottom: calc(24 * var(--unit-fx));
+  }
+
+  .client-platforms {
+    display: flex;
+    align-items: baseline;
+    gap: calc(10 * var(--unit-fx));
+    font-size: calc(13 * var(--unit-type));
+  }
+
+  .platform-label {
+    flex-shrink: 0;
+    opacity: 0.8;
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .platform-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(6 * var(--unit-fx));
+  }
+
+  .platform-pill {
+    border: 1px solid var(--color-divider);
+    border-radius: calc(4 * var(--unit-fx));
+    background-color: var(--color-bg-overlay);
+    padding: calc(2 * var(--unit-fx)) calc(8 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(11 * var(--unit-type));
+  }
+
+  .client-bio {
+    opacity: 0.85;
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: calc(14 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  .client-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(8 * var(--unit-fx));
+  }
+
+  .feature-tag {
+    border-left: 2px solid var(--color-brand-text);
+    padding-left: calc(6 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .client-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: calc(10 * var(--unit-fx));
+    border-top: 1px solid var(--color-divider);
+    padding-top: calc(18 * var(--unit-fx));
+  }
+
+  .btn-tutorial {
+    display: block;
+    transition: opacity var(--transition-fast);
+    border-radius: calc(100 * var(--unit-fx));
+    background-color: var(--color-text-primary);
+    padding: calc(10 * var(--unit-fx)) calc(16 * var(--unit-fx));
+    color: var(--color-bg-primary);
+    font-weight: 500;
+    font-size: calc(13 * var(--unit-type));
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .btn-tutorial:hover {
+    opacity: 0.85;
+  }
+
+  .client-card-sub-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .btn-detail,
+  .btn-proxy {
+    opacity: 0.75;
+    transition: color var(--transition-fast);
+    color: var(--color-text-primary);
+    text-decoration: underline;
+    text-underline-offset: calc(3 * var(--unit-fx));
+  }
+
+  .btn-detail:hover,
+  .btn-proxy:hover {
+    opacity: 1;
+    color: var(--color-brand-text);
+  }
+</style>

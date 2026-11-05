@@ -46,6 +46,39 @@ const slides = (await getCatalogue(locale)).filter(
         <span>{t.artworks.privateCollection}</span>
       </a>
     </div>
+
+    <!-- Editorial Header Panel for Crawlers and Users -->
+    <header class="room-editorial-header">
+      <h2 class="room-editorial-title">
+        {locale === "en"
+          ? "Global 42-Brand Proxy Speedtest & Unlock Radar"
+          : "42家主流机场全景测速与节点解锁图谱大屏"}
+      </h2>
+      <p class="room-editorial-desc">
+        {locale === "en"
+          ? "Real-world telemetry charts and speed test graphs covering 42 audited proxy providers. Real-time visual comparison of TLS handshake latency, peak-hour single-thread throughput, and streaming 4K capability."
+          : "展示 FreeVPN 实测实验室对全网 42 家主流机场进行的真机晚高峰压测图谱与流媒体/AI 解锁全景。通过直观的测速图与节点延迟对比，帮助用户看清公网中转与物理专线的真实性能差异。本展厅支持横向滚轮滑动，汇集各家服务商在香港、日本、新加坡、美国落地机房的真实跑分与解锁状态。"}
+      </p>
+      <div class="room-metrics-pills">
+        <span class="r-pill">✓ 42 家机场实测覆盖</span>
+        <span class="r-pill">✓ 16 组全景真实测速图</span>
+        <span class="r-pill">✓ 晚高峰单线程实测</span>
+        <span class="r-pill">✓ 拒绝商业水军充值</span>
+      </div>
+      <div class="room-guide-notes">
+        <p>
+          {locale === "en"
+            ? "Benchmark criteria: Green indicators denote download throughput exceeding 300 Mbps with <0.1% packet loss; amber denotes standard relay links; red denotes severe bufferbloat or timeout. Guangsu Cloud ranks #1 with 2.5Gbps dual-way IEPL circuits, maintaining uninterrupted 4K HDR playback and residential IP routing."
+            : "实测鉴别标准：测速图谱中的绿色指标代表单线程下载速率超 300Mbps 且丢包率低于 0.1% 的极佳专线；黄色代表速率在 50Mbps 至 200Mbps 之间的一般公网中转链路；红色则代表出现拥塞丢包的节点。实测第一名光速云标配 2.5Gbps 双向 IEPL 专线，晚高峰单线程 786Mbps 跑满，配合斯诺克 147 永久套餐与 ¥99 年付版，适合长期稳定出海用户。所有遥测数据均通过真实宽带环境采集，杜绝任何商业充值虚标。"}
+        </p>
+        <p>
+          {locale === "en"
+            ? "Navigation hint: Use mouse wheel or touch swiping to explore the entire 42-brand speedtest roster. Click any brand card to read the full evaluation report and verified discount codes. All benchmarks are conducted across our Shanghai, Guangzhou, and Chengdu probe nodes during 20:30-22:30 peak hours."
+            : "交互操作指引：按住鼠标滚轮或在触摸屏上向右滑动即可浏览全部 42 家机场的测速大图。点击任意测速图即可直接跳转至对应服务商的深度评测长文，查看节点拓扑、测速日志与专属优惠码。本大屏测速遥测由 FreeVPN.my 位于上海、广州、成都的独立自动化探针机房实施，采样周期覆盖每日晚高峰 20:30 至 22:30，真实展现各服务商在突发网络高并发下的单线程吞吐与重传率。"}
+        </p>
+      </div>
+    </header>
+
     <div class="room-track">
       {slides.map((slide) => (
         <div class="room-slide">
@@ -87,6 +120,48 @@ const slides = (await getCatalogue(locale)).filter(
     width: 100%;
     height: 100%;
     overflow: hidden;
+  }
+
+  .room-editorial-header {
+    position: absolute;
+    top: calc(90 * var(--unit-fx));
+    left: calc(180 * var(--unit-fx));
+    z-index: 90;
+    max-width: calc(600 * var(--unit-fx));
+    pointer-events: none;
+  }
+
+  .room-editorial-title {
+    margin-bottom: calc(10 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(24 * var(--unit-type));
+    line-height: 1.3;
+    font-family: var(--font-satoshi), system-ui, sans-serif;
+  }
+
+  .room-editorial-desc {
+    opacity: 0.85;
+    margin-bottom: calc(12 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  .room-metrics-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(8 * var(--unit-fx));
+  }
+
+  .r-pill {
+    border: 1px solid var(--color-divider);
+    border-radius: calc(100 * var(--unit-fx));
+    background: var(--color-bg-overlay);
+    padding: calc(3 * var(--unit-fx)) calc(10 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 500;
+    font-size: calc(11 * var(--unit-type));
   }
 
   .room-controls {

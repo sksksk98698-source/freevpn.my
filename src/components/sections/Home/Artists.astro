@@ -3,6 +3,7 @@
 import ArtistRow from "@sections/Artists/ArtistRow.astro";
 import { useUI, type Locale } from "@/i18n";
 import type { Homepage } from "@utils/homepage";
+import { localizePath } from "@/i18n/config";
 
 interface Props {
   artists: Homepage["artists"];
@@ -11,12 +12,25 @@ interface Props {
 
 const { artists, locale } = Astro.props;
 const t = useUI(locale);
+const clientsHubHref = localizePath(locale, "/artists");
 ---
 
 <section class="artists">
-  <h2 class="artists-title" data-reveal="lines">
-    {t.home.artists}
-  </h2>
+  <div class="artists-header">
+    <div>
+      <h2 class="artists-title" data-reveal="lines">
+        {t.home.artists}
+      </h2>
+      <p class="artists-subtitle">
+        {locale === "en"
+          ? "Verified proxy client suite across Windows, macOS, iOS, Android, and Linux."
+          : "严格核验的 Windows、macOS、iOS、Android 与 Linux 全平台主流代理客户端官方指南与分流模板。"}
+      </p>
+    </div>
+    <a href={clientsHubHref} class="artists-view-all">
+      {locale === "en" ? "View Full Directory →" : "查看全部客户端指南 →"}
+    </a>
+  </div>
   <hr class="artists-rule" data-reveal="rule" />
   <ul class="artists-list">
     {artists.map((artist) => (
@@ -34,28 +48,64 @@ const t = useUI(locale);
     line-height: 1.4;
   }
 
+  .artists-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: calc(20 * var(--unit-fx));
+    margin-bottom: calc(15 * var(--unit-fx));
+  }
+
   .artists-title {
-    font-weight: 300;
-    font-size: calc(25 * var(--unit-type));
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(30 * var(--unit-type));
     line-height: 1.2;
+    font-family: var(--font-satoshi), system-ui, sans-serif;
+  }
+
+  .artists-subtitle {
+    opacity: 0.75;
+    margin-top: calc(6 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(14 * var(--unit-type));
+  }
+
+  .artists-view-all {
+    opacity: 0.85;
+    transition:
+      opacity var(--transition-fast),
+      color var(--transition-fast);
+    color: var(--color-brand-text);
+    font-weight: 600;
+    font-size: calc(14 * var(--unit-type));
+    text-decoration: underline;
+    text-underline-offset: calc(4 * var(--unit-fx));
+  }
+
+  .artists-view-all:hover {
+    opacity: 1;
+    color: var(--color-brand);
   }
 
   .artists-rule {
     margin-top: calc(10 * var(--unit-fx));
     border: none;
     background-color: var(--color-divider);
-    height: calc(0.5 * var(--unit-fx));
+    height: calc(1 * var(--unit-fx));
   }
 
   .artists-list {
     position: relative;
-    margin-block: calc(50 * var(--unit-fx));
+    margin-block: calc(30 * var(--unit-fx));
     list-style: none;
   }
 
   @media screen and (max-width: 600px) {
-    .artists-list :global(.artist-row + .artist-row) {
-      margin-top: calc(10 * var(--unit-fx));
+    .artists-header {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>

@@ -1,85 +1,72 @@
 {
   "title": {
-    "en": "Yuki Tanaka: Bridging Digital and Traditional Media in 'Hybrid Landscapes'",
-    "fr": "Yuki Tanaka : entre numérique et tradition dans « Hybrid Landscapes »",
-    "de": "Yuki Tanaka: Digitale und traditionelle Medien in „Hybrid Landscapes“"
+    "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+    "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
   },
-  "pubDate": "2025-04-05",
+  "pubDate": "2026-03-25",
   "description": {
-    "en": "Yuki Tanaka's new body of work explores the intersection of digital technology and traditional craft, questioning our relationship with both the virtual and the material.",
-    "fr": "Le nouveau corpus de Yuki Tanaka explore la rencontre entre technologie numérique et artisanat traditionnel, interrogeant notre relation au virtuel comme au matériel.",
-    "de": "Yuki Tanakas neue Werkgruppe erkundet die Schnittstelle von digitaler Technologie und traditionellem Handwerk und befragt unser Verhältnis zum Virtuellen wie zum Materiellen."
+    "zh": "不同运营商的国际出口带宽截然不同。详解电信 163 vs CN2、联通 9929/4837 以及移动 CMIN2 在搭配机场专线时的选线技巧。",
+    "en": "A technical analysis comparing China Telecom 163/CN2, Unicom 9929/4837, and Mobile CMIN2 routing behaviors with dedicated proxy lines."
   },
   "featuredImage": "/images/news/yuki-tanaka-digital-traditional/featuredImage.jpg",
   "featuredImageAlt": {
-    "en": "Yuki Tanaka's Hybrid Landscapes installation",
-    "fr": "L'installation Hybrid Landscapes de Yuki Tanaka",
-    "de": "Yuki Tanakas Installation Hybrid Landscapes"
+    "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+    "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
   },
   "slides": [
     {
       "image": "/images/news/yuki-tanaka-digital-traditional/slides/0/image.jpg",
       "imageAlt": {
-        "en": "A mountain lake",
-        "fr": "Un lac de montagne",
-        "de": "Ein Bergsee"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       },
       "caption": {
-        "en": "Mountain lake",
-        "fr": "Lac de montagne",
-        "de": "Bergsee"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       }
     },
     {
       "image": "/images/news/yuki-tanaka-digital-traditional/slides/1/image.jpg",
       "imageAlt": {
-        "en": "Bird's-eye view of green mountains",
-        "fr": "Vue aérienne de montagnes verdoyantes",
-        "de": "Vogelperspektive auf grüne Berge"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       },
       "caption": {
-        "en": "Grassland from above",
-        "fr": "Prairies vues du ciel",
-        "de": "Grasland von oben"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       }
     },
     {
       "image": "/images/news/yuki-tanaka-digital-traditional/slides/2/image.jpg",
       "imageAlt": {
-        "en": "Aerial photograph of sea waves in daylight",
-        "fr": "Photographie aérienne de vagues en plein jour",
-        "de": "Luftaufnahme von Meereswellen bei Tageslicht"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       },
       "caption": {
-        "en": "Waves",
-        "fr": "Vagues",
-        "de": "Wellen"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       }
     },
     {
       "image": "/images/news/yuki-tanaka-digital-traditional/slides/3/image.jpg",
       "imageAlt": {
-        "en": "A mountain range with water in the foreground",
-        "fr": "Une chaîne de montagnes avec de l'eau au premier plan",
-        "de": "Eine Bergkette mit Wasser im Vordergrund"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       },
       "caption": {
-        "en": "Mountain road",
-        "fr": "Route de montagne",
-        "de": "Bergstraße"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       }
     },
     {
       "image": "/images/news/yuki-tanaka-digital-traditional/slides/4/image.jpg",
       "imageAlt": {
-        "en": "Rolling hills at dusk",
-        "fr": "Collines au crépuscule",
-        "de": "Hügel in der Abenddämmerung"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       },
       "caption": {
-        "en": "Hills at dusk",
-        "fr": "Collines au crépuscule",
-        "de": "Hügel in der Dämmerung"
+        "zh": "移动 / 联通 / 电信三网用户如何根据本地网络选择最优专线入口？",
+        "en": "Choosing Optimal Dedicated Entry Routes for China Telecom, Unicom & Mobile"
       }
     }
   ]

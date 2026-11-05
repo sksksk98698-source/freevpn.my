@@ -17,7 +17,7 @@ describe("submitForm", () => {
     const fetchImpl = vi.fn(async () => new Response("{}", { status: 200 }));
     await expect(
       submitForm(
-        "https://formspree.io/f/abc",
+        "https://api.example.com/forms",
         { email: "a@b.c", website: "" },
         fetchImpl,
       ),
@@ -26,7 +26,7 @@ describe("submitForm", () => {
       string,
       RequestInit,
     ];
-    expect(url).toBe("https://formspree.io/f/abc");
+    expect(url).toBe("https://api.example.com/forms");
     expect(JSON.parse(init.body as string)).toEqual({ email: "a@b.c" });
     expect((init.headers as Record<string, string>).Accept).toBe(
       "application/json",

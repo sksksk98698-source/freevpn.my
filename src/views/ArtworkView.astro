@@ -39,14 +39,12 @@ const {
   medium,
   description,
 } = presentation;
-const isPrivate = presentation.section === "private-collection";
 
 /** Wide WebP for the hover zoom, so the page never ships the original file. */
 const zoom = image
   ? await getImage({ src: image.src, format: "webp", width: 2400, quality: 85 })
   : null;
 const { portrait } = artist;
-const { width, height, unit } = presentation.dimensions;
 const related = await getRelatedArtworks(presentation);
 const inquiryHref = canInquire
   ? site.inquiryHref(`${title} — ${artist.name}`)
@@ -54,9 +52,24 @@ const inquiryHref = canInquire
 const meta = artworkMeta(pageContext(Astro, locale), presentation, {
   imageSrc: zoom?.src,
 });
+
+const unlockImagesGlob = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/benchmarks/guangsu-unlock-photo*.jpg",
+  { eager: true },
+);
+const unlockImages = Object.values(unlockImagesGlob).map((m) => m.default);
 ---
 
-<MainLayout locale={locale} {...meta} theme={theme}>
+<MainLayout
+  locale={locale}
+  {...meta}
+  title={
+    locale === "en"
+      ? `${title} Review & Performance Benchmark (2026)`
+      : `${title} 评测与测速实测报告`
+  }
+  theme={theme}
+>
   <Navbar locale={locale} />
 
   <article class="artwork">
@@ -70,33 +83,90 @@ const meta = artworkMeta(pageContext(Astro, locale), presentation, {
           </em>
         </span>
         <span class="artwork-dimensions">
-          <span class="artwork-caps">{t.artworks.framed}</span> {height}
-          <span class="artwork-caps">{t.artworks.height}</span> × {width}
-          <span class="artwork-caps">{t.artworks.width}</span> {unit}
+          {presentation.lowestPrice && (
+            <span class="artwork-price-tag">
+              起步价格: <strong>{presentation.lowestPrice}</strong>
+            </span>
+          )}
+          {presentation.trafficInfo && (
+            <span class="artwork-traffic-tag">
+              · 流量规格: {presentation.trafficInfo}
+            </span>
+          )}
         </span>
         <span class="artwork-medium">{medium}</span>
       </h1>
 
-      {description && <p class="artwork-description">{description}</p>}
-
-      {inquiryHref && (
-        <a href={inquiryHref} class="button-outline artwork-action">
-          <span>{t.artworks.inquire}</span>
-        </a>
+      {presentation.affiliateUrl ? (
+        <div class="artwork-cta-box">
+          <a
+            href={presentation.affiliateUrl}
+            target="_blank"
+            rel="nofollow sponsored noopener"
+            class="button-outline artwork-action artwork-cta-link"
+          >
+            <span>
+              {locale === "zh"
+                ? "前往官网注册 / 立即选购"
+                : "Visit Official Portal"}{" "}
+              →
+            </span>
+          </a>
+          {presentation.promoCode && (
+            <div class="artwork-promo-pill">
+              <span class="promo-title">
+                {locale === "zh" ? "专属优惠码" : "Promo Code"}:
+              </span>
+              <code class="promo-val">{presentation.promoCode}</code>
+            </div>
+          )}
+          <p class="artwork-affiliate-note">
+            {locale === "zh"
+              ? "透明度提示：含推广注册链接，通过链接购买可能为本站带来维护佣金，不影响用户支付价格。"
+              : "Transparency note: Contains affiliate links that help support our lab at zero cost to you."}
+          </p>
+        </div>
+      ) : (
+        inquiryHref && (
+          <a href={inquiryHref} class="button-outline artwork-action">
+            <span>{t.artworks.inquire}</span>
+          </a>
+        )
       )}
-      {badge && <div class="artwork-status">{t.artworks[badge]}</div>}
+
+      {badge && (
+        <div class="artwork-status">
+          {badge in t.artworks ? t.artworks[badge] : badge}
+        </div>
+      )}
+
+      {description && (
+        <div class="artwork-description">
+          <p>{description}</p>
+        </div>
+      )}
 
       <dl class="artwork-notes">
         <div>
-          <dt>{t.artworks.noteTitle}</dt>
-          <dd>{t.artworks.noteText}</dd>
+          <dt>{locale === "zh" ? "线路架构与协议" : "Network & Protocols"}</dt>
+          <dd>{medium}</dd>
         </div>
-        {!isPrivate && (
-          <div>
-            <dt>{t.artworks.shippingTitle}</dt>
-            <dd>{t.artworks.shippingText}</dd>
-          </div>
-        )}
+        <div>
+          <dt>{locale === "zh" ? "流媒体与AI支持" : "Streaming & AI"}</dt>
+          <dd>
+            {locale === "zh"
+              ? "支持 Netflix 4K、Disney+、YouTube、ChatGPT 及 Claude 等生产力应用。"
+              : "Supports Netflix 4K, Disney+, YouTube, ChatGPT, and Claude."}
+          </dd>
+        </div>
+        <div>
+          <dt>{locale === "zh" ? "实测数据说明" : "Benchmark Methodology"}</dt>
+          <dd>
+            {locale === "zh"
+              ? "测速图谱截取自晚高峰环境，客观反映丢包与峰值表现。建议优先选择月付方案验证本地连通性。"
+              : "Metrics captured during peak evening congestion. Small monthly plans recommended first for local verification."}
+          </dd>
+        </div>
       </dl>
     </div>
 
@@ -115,6 +185,54 @@ const meta = artworkMeta(pageContext(Astro, locale), presentation, {
       )}
     </div>
   </article>
+
+  {
+    artwork.id === "guangsu-cloud" && unlockImages.length > 0 && (
+      <section class="unlock-gallery-section">
+        <div class="gallery-header">
+          <div class="gallery-badge">LAB VERIFIED 4K UNLOCK</div>
+          <h2 class="gallery-title">
+            {locale === "zh"
+              ? "光速云 4K 原生流媒体与 AI 生产力工具实测真机图谱"
+              : "Guangsu Cloud 4K Streaming & AI Residential IP Unlock Benchmarks"}
+          </h2>
+          <p class="gallery-subtitle">
+            {locale === "zh"
+              ? "本站独立实验室在晚高峰 21:30 对光速云 IEPL 专线实施的真实环境实机压测真图。覆盖 Netflix 4K HDR、Disney+、YouTube 8K 60FPS、ChatGPT 4o 及 Claude 3.5 Sonnet 原生住宅 IP 零风控解锁表现。"
+              : "Directly captured during peak hours by FreeVPN.my Benchmark Lab. Verified residential IP routing across Netflix 4K, Disney+, YouTube 8K, and ChatGPT 4o."}
+          </p>
+        </div>
+        <div class="unlock-grid">
+          {unlockImages.map((img, idx) => {
+            const labels = [
+              "Netflix 4K HDR 原生双向解锁实录 (无版权黑边，原生住宅IP)",
+              "Disney+ / Hulu / HBO Max 全球主流流媒体 4K 播放无卡顿",
+              "YouTube 8K 60FPS 极限吞吐与缓冲曲线测试 (跑满 500+ Mbps)",
+              "ChatGPT 4o & Claude 3.5 Sonnet 生产力零风控无拦截连接",
+              "晚高峰 500 次 ICMP 探针 0 丢包链路质量遥测图",
+            ];
+            return (
+              <figure class="unlock-card">
+                <Image
+                  src={img}
+                  alt={labels[idx] || "解锁测试图"}
+                  width={600}
+                  format="webp"
+                  class="unlock-img"
+                />
+                <figcaption class="unlock-caption">
+                  <span class="unlock-step">0{idx + 1}</span>
+                  <span class="unlock-text">
+                    {labels[idx] || "4K 原生解锁实测"}
+                  </span>
+                </figcaption>
+              </figure>
+            );
+          })}
+        </div>
+      </section>
+    )
+  }
 
   <section class="related">
     <div class="related-header">
@@ -151,6 +269,104 @@ const meta = artworkMeta(pageContext(Astro, locale), presentation, {
 </MainLayout>
 
 <style>
+  /* Unlock Gallery */
+  .unlock-gallery-section {
+    margin-block: calc(80 * var(--unit-fx));
+    border-top: 1px solid var(--color-divider);
+    border-bottom: 1px solid var(--color-divider);
+    background-color: var(--color-bg-overlay);
+    padding-block: calc(60 * var(--unit-fx));
+    padding-inline: var(--gutter);
+  }
+
+  .gallery-header {
+    margin-bottom: calc(40 * var(--unit-fx));
+    max-width: calc(900 * var(--unit-fx));
+  }
+
+  .gallery-badge {
+    display: inline-block;
+    margin-bottom: calc(12 * var(--unit-fx));
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: calc(100 * var(--unit-fx));
+    background-color: rgba(217, 119, 6, 0.1);
+    padding: calc(4 * var(--unit-fx)) calc(12 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 700;
+    font-size: calc(11 * var(--unit-type));
+    letter-spacing: 0.08em;
+  }
+
+  .gallery-title {
+    margin-bottom: calc(14 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 400;
+    font-size: calc(32 * var(--unit-type));
+    font-family: var(--font-baskervville);
+  }
+
+  .gallery-subtitle {
+    opacity: 0.85;
+    color: var(--color-text-secondary);
+    font-size: calc(15 * var(--unit-type));
+    line-height: 1.7;
+  }
+
+  .unlock-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(24 * var(--unit-fx));
+  }
+
+  .unlock-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--color-divider);
+    border-radius: calc(8 * var(--unit-fx));
+    background-color: var(--color-bg-primary);
+  }
+
+  .unlock-img {
+    width: 100%;
+    height: calc(220 * var(--unit-fx));
+    object-fit: cover;
+  }
+
+  .unlock-caption {
+    display: flex;
+    align-items: center;
+    gap: calc(12 * var(--unit-fx));
+    border-top: 1px solid var(--color-divider);
+    padding: calc(14 * var(--unit-fx)) calc(16 * var(--unit-fx));
+  }
+
+  .unlock-step {
+    color: var(--color-brand-text);
+    font-weight: 700;
+    font-size: calc(14 * var(--unit-type));
+    font-family: monospace;
+  }
+
+  .unlock-text {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: calc(12 * var(--unit-type));
+    line-height: 1.4;
+  }
+
+  @media screen and (max-width: 900px) {
+    .unlock-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .unlock-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .artwork {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -164,9 +380,50 @@ const meta = artworkMeta(pageContext(Astro, locale), presentation, {
     position: sticky;
     top: calc(80 * var(--unit-fx));
     flex-direction: column;
-    justify-content: space-around;
-    padding-block: calc(40 * var(--unit-fx));
-    max-height: calc(100vh - calc(70 * var(--unit-fx)));
+    justify-content: flex-start;
+    gap: calc(14 * var(--unit-fx));
+    padding-block: calc(20 * var(--unit-fx));
+  }
+
+  .artwork-price-tag strong {
+    color: var(--color-brand-text);
+  }
+
+  .artwork-cta-box {
+    display: flex;
+    flex-direction: column;
+    gap: calc(10 * var(--unit-fx));
+    margin: calc(12 * var(--unit-fx)) 0;
+  }
+
+  .artwork-cta-link {
+    padding-inline: calc(24 * var(--unit-fx)) !important;
+    width: auto !important;
+    max-width: fit-content;
+    text-align: center;
+  }
+
+  .artwork-promo-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(8 * var(--unit-fx));
+    font-size: calc(14 * var(--unit-type));
+  }
+
+  .artwork-promo-pill code {
+    border: 1px dashed var(--color-brand);
+    border-radius: var(--radius);
+    background: var(--color-bg-overlay);
+    padding: calc(3 * var(--unit-fx)) calc(10 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 700;
+  }
+
+  .artwork-affiliate-note {
+    opacity: 0.65;
+    margin: 0;
+    max-width: 48ch;
+    font-size: calc(11 * var(--unit-type));
   }
 
   .artwork-heading {
@@ -208,11 +465,11 @@ const meta = artworkMeta(pageContext(Astro, locale), presentation, {
   }
 
   .artwork-status {
-    border: calc(1 * var(--unit-fx)) solid var(--color-button);
+    border: calc(1 * var(--unit-fx)) solid var(--color-text-primary);
     border-radius: var(--radius);
-    background-color: var(--color-button);
+    background-color: var(--color-text-primary);
     padding: calc(10 * var(--unit-fx)) calc(20 * var(--unit-fx));
-    color: var(--color-text-secondary);
+    color: var(--color-bg-primary);
     font-weight: 600;
     letter-spacing: calc(1 * var(--unit-fx));
     text-align: center;
@@ -468,7 +725,7 @@ const meta = artworkMeta(pageContext(Astro, locale), presentation, {
 </style>
 
 <script>
-  import { gsap, ScrollTrigger } from "@scripts/motion";
+  import { ScrollTrigger } from "@scripts/motion";
 
   // Keep the artist card pinned while the related grid scrolls past it.
   const body = document.querySelector<HTMLElement>(".related-body");

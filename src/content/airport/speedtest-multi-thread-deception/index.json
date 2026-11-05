@@ -1,0 +1,21 @@
+{
+  "slug": "speedtest-multi-thread-deception",
+  "title": {
+    "zh": "多线程测速骗局大揭秘：为什么 Speedtest 跑出 2Gbps 却看不了 YouTube 4K 视频？",
+    "en": "Multi-Thread Speedtest Deception: Why 2Gbps Synthetic Scores Still Buffer YouTube 4K"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "42家机场横评与防坑避雷",
+    "en": "42-Brand Benchmarks & Risk Radar"
+  },
+  "cluster": {
+    "zh": "晚高峰单线程测速天梯集群",
+    "en": "Peak-Hour Speed Ladder Cluster"
+  },
+  "description": {
+    "zh": "深度解析 TCP 窗口缩放因子、拥塞避免算法（Cubic vs BBR）与多并发套接字聚合机制，揭穿测速软件如何用虚高数字掩盖晚高峰严重丢包，助你掌握识别假测速的核心技巧。",
+    "en": "A technical deep dive into TCP window scaling, Cubic vs BBR congestion control, and multi-socket aggregation, explaining how synthetic speedtests mask severe peak-hour packet drops."
+  },
+  "body": true
+}

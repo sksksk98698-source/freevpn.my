@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "闪电鼠",
+    "en": "Lightning Mouse"
+  },
+  "artist": "lab-team",
+  "year": 2023,
+  "image": "/images/artworks/golden-anatomy/image.jpg",
+  "imageAlt": {
+    "zh": "闪电鼠 节点评测与速度图谱",
+    "en": "Lightning Mouse speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "BGP中转 / Shadowsocks",
+    "en": "BGP Relay / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "闪电鼠以 5.6 元的极低起步价吸引了大量入门用户，低廉的价格非常适合用来备用。",
+    "en": "Lightning Mouse is a high-performance cross-border proxy provider. Featuring BGP Relay / Shadowsocks, 100 Mbps Direct, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥5.6/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://qwerty.shandianshuaff.com/#/?code=rUE75iYh",
+  "promoCode": "sd88",
+  "lowestPrice": "¥5.6/月",
+  "trafficInfo": "60GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 22
+}

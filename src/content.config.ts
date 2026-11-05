@@ -39,4 +39,6 @@ export const collections = {
   homepage: define("homepage", singletons.homepage),
   about: define("about", singletons.about),
   site: define("site", singletons.site),
+  airport: define("airport", model.airport),
+  tutorial: define("tutorial", model.tutorial),
 };

@@ -1,0 +1,21 @@
+{
+  "slug": "china-telecom-163-vs-cn2-iepl",
+  "title": {
+    "zh": "中国电信用户科学出海选线指南：163 骨干网拥塞现状与 CN2 GIA / IEPL 专线对比",
+    "en": "China Telecom Global Routing Guide: AS4134 Backbone Bottlenecks vs CN2 GIA & IEPL Circuits"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "三网运营商专属线路选型集群",
+    "en": "Tri-Carrier Route Selection Cluster"
+  },
+  "description": {
+    "zh": "针对中国电信 AS4134 晚高峰国际出口拥堵率常年突破 90% 的严峻现实，深度实测对比普通 163 直连、高端 CN2 GIA（AS4809）与 2.5Gbps IEPL 内网专线的速度与抗卡顿表现。",
+    "en": "Addressing China Telecom AS4134 evening peak congestion exceeding 90%, this technical benchmark evaluates standard 163 direct routes against CN2 GIA (AS4809) and 2.5Gbps IEPL dedicated circuits."
+  },
+  "body": true
+}

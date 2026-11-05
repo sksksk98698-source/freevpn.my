@@ -26,6 +26,8 @@ interface Props {
   theme?: "light" | "dark";
   /** Override the smooth-scroll settings, e.g. for slower cinematic pages. */
   scroll?: "default" | "slow";
+  /** Explicitly set noindex for error pages or private endpoints. */
+  noindex?: boolean;
 }
 
 const {
@@ -35,6 +37,7 @@ const {
   schema,
   theme = "light",
   scroll = "default",
+  noindex = false,
 } = Astro.props;
 
 const site = await getSiteIdentity(locale);
@@ -60,6 +63,7 @@ const defaultSchema = webPageSchema(page, site, {
       title={pageTitle}
       description={pageDescription}
       canonical={canonical}
+      noindex={noindex}
       openGraph={{
         basic: {
           title: pageTitle,
@@ -104,14 +108,23 @@ const defaultSchema = webPageSchema(page, site, {
           { rel: "alternate", hreflang: "x-default", href: page.xDefault },
         ],
         meta: [
-          {
-            name: "viewport",
-            content: "width=device-width, initial-scale=1.0",
-          },
+          { name: "viewport", content: "width=device-width, initial-scale=1.0" },
           { name: "mobile-web-app-capable", content: "yes" },
           { name: "generator", content: Astro.generator },
           { name: "apple-mobile-web-app-title", content: site.name },
           { name: "theme-color", content: SITE.themeColor },
+          ...(SITE.verifications.google
+            ? [{ name: "google-site-verification", content: SITE.verifications.google }]
+            : []),
+          ...(SITE.verifications.bing
+            ? [{ name: "msvalidate.01", content: SITE.verifications.bing }]
+            : []),
+          ...(SITE.verifications.shenma
+            ? [{ name: "shenma-site-verification", content: SITE.verifications.shenma }]
+            : []),
+          ...(SITE.verifications.baidu
+            ? [{ name: "baidu-site-verification", content: SITE.verifications.baidu }]
+            : []),
         ],
       }}
     />

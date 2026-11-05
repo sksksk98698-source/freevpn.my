@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "飞猫云",
+    "en": "Flycat Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2022,
+  "image": "/images/benchmarks/飞猫云-节点测速实测.png",
+  "imageAlt": {
+    "zh": "飞猫云 节点评测与速度图谱",
+    "en": "Flycat Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "中转专线 / Shadowsocks",
+    "en": "Relay Dedicated / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "飞猫云主打高性价比平民路线，提供 7 元入门档套餐并支持 8 折优惠券。对于预算有限、只需要日常轻度使用 Google 查资料、刷 Twitter/Instagram 与油管视频的用户，是性价比极高的实惠之选。",
+    "en": "Flycat Cloud is a high-performance cross-border proxy provider. Featuring Relay Dedicated / Shadowsocks, 500 Mbps Peak Speed, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥7/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://guangs.flycataff.com/#/?code=6uq0Xe9y",
+  "promoCode": "flycat888",
+  "lowestPrice": "¥7/月",
+  "trafficInfo": "60GB/月",
+  "speedtestImage": "/images/benchmarks/飞猫云-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 3
+}

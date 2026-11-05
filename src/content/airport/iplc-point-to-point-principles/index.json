@@ -1,0 +1,21 @@
+{
+  "slug": "iplc-point-to-point-principles",
+  "title": {
+    "zh": "IPLC 跨国点对点内网专线原理全景剖析：物理不过 GFW 机制与抗主动探测特性",
+    "en": "IPLC Point-to-Point Circuit Architecture: Physical GFW Bypass & Anti-Active-Probing Mechanisms"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "IPLC 纯专线与全球节点集群",
+    "en": "IPLC Point-to-Point Cluster"
+  },
+  "description": {
+    "zh": "深入硬核拆解 IPLC（国际私有租用线路）在物理层、链路层与海底光缆时分复用（TDM/SDH）中的传输原理，阐明其为何物理上彻底脱离 GFW 监管范围，实现 100% 免疫主动探测阻断。",
+    "en": "A comprehensive technical dissection of IPLC (International Private Leased Circuit) physical, data-link, and SDH/TDM transport mechanisms, detailing why it physically bypasses public GFW inspection."
+  },
+  "body": true
+}

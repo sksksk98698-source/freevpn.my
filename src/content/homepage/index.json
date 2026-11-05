@@ -1,193 +1,171 @@
 {
   "intro": {
     "subheading": {
-      "en": "Where art <br /> ignites inspiration",
-      "fr": "Où l'art <br /> enflamme l'inspiration",
-      "de": "Wo Kunst <br /> Inspiration entfacht"
+      "zh": "告别劣质免费VPN <br /> 畅享极速专线网络",
+      "en": "Beyond Unsafe Free VPNs <br /> Pure High-Speed Dedicated Lines"
     },
     "content": {
-      "en": "<span>Domus Picturae</span> is more than just an art gallery; it's a vibrant hub for artistic exploration. Here, we celebrate the power of creativity by showcasing established and emerging artists across various mediums.",
-      "fr": "<span>Domus Picturae</span> n’est pas seulement une galerie d’art ; c’est un lieu vibrant d’exploration artistique. Ici, nous célébrons la puissance de la créativité en présentant des artistes confirmés et émergents à travers divers médiums.",
-      "de": "<span>Domus Picturae</span> ist mehr als nur eine Kunstgalerie; sie ist ein lebendiges Zentrum für künstlerische Entfaltung. Hier feiern wir die Kraft der Kreativität, indem wir etablierte und aufstrebende Künstler in verschiedenen Medien präsentieren."
+      "zh": "<span>FreeVPN.my</span> 是专注于跨境网络优化与节点实测的第三方评测实验室。我们拒绝虚标与信息黑盒，针对 42 家主流机场展开晚高峰吞吐量、丢包率与 AI/4K 流媒体解锁实测，为你精选真正稳定可靠的高性价比加速方案。",
+      "en": "<span>FreeVPN.my</span> is an independent performance benchmarking lab dedicated to cross-border network acceleration. We test 42 leading proxy providers during peak congestion hours to deliver transparent, data-driven recommendations."
     }
   },
   "events": {
     "subheading": {
-      "en": "Upcoming Events <br /> & Workshops",
-      "fr": "Événements <br /> & Ateliers à venir",
-      "de": "Bevorstehende Veranstaltungen <br /> & Workshops"
+      "zh": "晚高峰测速横评 <br /> 与客户端实操教程",
+      "en": "Peak-Hour Benchmarks <br /> & Configuration Tutorials"
     },
     "content": {
-      "en": "<span>At Domus Picturae</span>, we believe in the power of art to unite and inspire. Our gallery hosts events and workshops for all art lovers. Whether you're an aspiring artist or an enthusiast, join us for talks, workshops, previews, and more.",
-      "fr": "<span>À Domus Picturae</span>, nous croyons au pouvoir de l'art pour unir et inspirer. Notre galerie accueille des événements et des ateliers pour tous les amateurs d'art. Que vous soyez un artiste en herbe ou un passionné, rejoignez-nous pour des conférences, des ateliers, des avant-premières et bien plus encore.",
-      "de": "<span>In der Domus Picturae</span> glauben wir an die Kraft der Kunst, Menschen zu verbinden und zu inspirieren. Unsere Galerie veranstaltet Events und Workshops für alle Kunstliebhaber. Ob Sie ein aufstrebender Künstler oder ein Enthusiast sind – nehmen Sie an Gesprächen, Workshops, Vorpremieren und vielem mehr teil."
+      "zh": "<span>实测检验真理</span>。我们定期发布 17 家晚高峰测速天梯图谱、流媒体原生解锁矩阵以及 Clash Verge Rev、v2rayN、Shadowrocket 等主流客户端的零基础配置指南。",
+      "en": "<span>Data speaks truth</span>. We regularly publish peak-hour speed charts, 4K streaming & AI unlock matrices, and beginner-friendly tutorials for Clash Verge Rev, v2rayN, and Shadowrocket."
     },
     "description": {
-      "en": "Explore events that inspire and connect.",
-      "fr": "Découvrez des événements qui inspirent et rassemblent.",
-      "de": "Entdecken Sie Veranstaltungen, die inspirieren und verbinden."
+      "zh": "探索深入的测速专题与保姆级实操教程。",
+      "en": "Explore comprehensive benchmark reports and setup guides."
     },
     "buttonText": {
-      "en": "See the events",
-      "fr": "Voir les événements",
-      "de": "Zu den Veranstaltungen"
+      "zh": "查看测速专题",
+      "en": "View Benchmarks"
     }
   },
   "about": {
     "content": {
-      "en": "Unveil the story behind our collection. Explore our gallery's philosophy and artists.",
-      "fr": "Découvrez l'histoire derrière notre collection. Explorez la philosophie de notre galerie et les artistes.",
-      "de": "Entdecken Sie die Geschichte hinter unserer Sammlung. Erkunden Sie die Philosophie und die Künstler unserer Galerie."
+      "zh": "了解我们的评测准则与实验室测试环境。无商业公关操控，仅凭晚高峰真实数据说话。",
+      "en": "Learn about our rigorous testing methodology and independent evaluation standards. Data over marketing."
     },
     "buttonText": {
-      "en": "More about us",
-      "fr": "En savoir plus sur nous",
-      "de": "Mehr über uns"
+      "zh": "了解实验室",
+      "en": "About Our Lab"
     },
     "galleryItems": [
       {
         "image": "/images/homepage/about/galleryItems/0/image.jpg",
         "imageAlt": {
-          "en": "Artwork 1",
-          "fr": "Œuvre 1",
-          "de": "Kunstwerk 1"
+          "zh": "网络实测图谱 1",
+          "en": "Network Benchmark Chart 1"
         },
-        "top": -5.0,
-        "left": 5.0,
+        "top": -5,
+        "left": 5,
         "parallaxSpeed": 0.065
       },
       {
         "image": "/images/homepage/about/galleryItems/1/image.jpg",
         "imageAlt": {
-          "en": "Artwork 2",
-          "fr": "Œuvre 2",
-          "de": "Kunstwerk 2"
+          "zh": "网络实测图谱 2",
+          "en": "Network Benchmark Chart 2"
         },
-        "top": 40.0,
-        "left": -5.0,
+        "top": 40,
+        "left": -5,
         "parallaxSpeed": 0.05
       },
       {
         "image": "/images/homepage/about/galleryItems/2/image.jpg",
         "imageAlt": {
-          "en": "Artwork 3",
-          "fr": "Œuvre 3",
-          "de": "Kunstwerk 3"
+          "zh": "网络实测图谱 3",
+          "en": "Network Benchmark Chart 3"
         },
-        "top": 25.0,
-        "left": 17.0,
+        "top": 25,
+        "left": 17,
         "parallaxSpeed": 0.08
       },
       {
         "image": "/images/homepage/about/galleryItems/3/image.jpg",
         "imageAlt": {
-          "en": "Artwork 4",
-          "fr": "Œuvre 4",
-          "de": "Kunstwerk 4"
+          "zh": "网络实测图谱 4",
+          "en": "Network Benchmark Chart 4"
         },
-        "top": 70.0,
-        "left": 10.0,
+        "top": 70,
+        "left": 10,
         "parallaxSpeed": 0.07
       },
       {
         "image": "/images/homepage/about/galleryItems/4/image.jpg",
         "imageAlt": {
-          "en": "Artwork 5",
-          "fr": "Œuvre 5",
-          "de": "Kunstwerk 5"
+          "zh": "网络实测图谱 5",
+          "en": "Network Benchmark Chart 5"
         },
-        "top": 62.0,
-        "left": 32.0,
+        "top": 62,
+        "left": 32,
         "parallaxSpeed": 0.1
       },
       {
         "image": "/images/homepage/about/galleryItems/5/image.jpg",
         "imageAlt": {
-          "en": "Artwork 6",
-          "fr": "Œuvre 6",
-          "de": "Kunstwerk 6"
+          "zh": "网络实测图谱 6",
+          "en": "Network Benchmark Chart 6"
         },
-        "top": -10.0,
-        "left": 65.0,
+        "top": -10,
+        "left": 65,
         "parallaxSpeed": 0.085
       },
       {
         "image": "/images/homepage/about/galleryItems/6/image.jpg",
         "imageAlt": {
-          "en": "Artwork 7",
-          "fr": "Œuvre 7",
-          "de": "Kunstwerk 7"
+          "zh": "网络实测图谱 7",
+          "en": "Network Benchmark Chart 7"
         },
-        "top": 10.0,
-        "left": 85.0,
+        "top": 10,
+        "left": 85,
         "parallaxSpeed": 0.06
       },
       {
         "image": "/images/homepage/about/galleryItems/7/image.jpg",
         "imageAlt": {
-          "en": "Artwork 8",
-          "fr": "Œuvre 8",
-          "de": "Kunstwerk 8"
+          "zh": "网络实测图谱 8",
+          "en": "Network Benchmark Chart 8"
         },
-        "top": 40.0,
-        "left": 73.0,
+        "top": 40,
+        "left": 73,
         "parallaxSpeed": 0.04
       },
       {
         "image": "/images/homepage/about/galleryItems/8/image.jpg",
         "imageAlt": {
-          "en": "Artwork 9",
-          "fr": "Œuvre 9",
-          "de": "Kunstwerk 9"
+          "zh": "网络实测图谱 9",
+          "en": "Network Benchmark Chart 9"
         },
-        "top": 80.0,
-        "left": 70.0,
+        "top": 80,
+        "left": 70,
         "parallaxSpeed": 0.1
       },
       {
         "image": "/images/homepage/about/galleryItems/9/image.jpg",
         "imageAlt": {
-          "en": "Artwork 10",
-          "fr": "Œuvre 10",
-          "de": "Kunstwerk 10"
+          "zh": "网络实测图谱 10",
+          "en": "Network Benchmark Chart 10"
         },
-        "top": 50.0,
-        "left": 95.0,
+        "top": 50,
+        "left": 95,
         "parallaxSpeed": 0.065
       }
     ]
   },
   "collection": [
     {
-      "artwork": "aurora-syntax",
+      "artwork": "guangsu-cloud",
       "caption": {
-        "en": "",
-        "fr": "",
-        "de": ""
+        "zh": "年度机皇 · 光速云 (IEPL双专线 / 147永久套餐 / 优惠码 AMM)",
+        "en": "Top Pick · Guangsu Cloud (IEPL Dual Dedicated Line / Promo AMM)"
       }
     },
     {
-      "artwork": "whispering-pines",
+      "artwork": "muguang-speed",
       "caption": {
-        "en": "",
-        "fr": "",
-        "de": ""
+        "zh": "暮光加速 (BGP智能调度与超低延迟出口)",
+        "en": "Twilight Speed (Smart BGP & Low Latency)"
       }
     },
     {
-      "artwork": "lunar-fragments",
+      "artwork": "feimao-cloud",
       "caption": {
-        "en": "",
-        "fr": "",
-        "de": ""
+        "zh": "飞猫云 (7元档高性价比尝鲜首选)",
+        "en": "Flycat Cloud (Budget-Friendly Dedicated Line)"
       }
     },
     {
-      "artwork": "digital-bloom",
+      "artwork": "weifeng-net",
       "caption": {
-        "en": "",
-        "fr": "",
-        "de": ""
+        "zh": "微风网络 (轻量办公与高品质跨境网络)",
+        "en": "Breeze Net (Lightweight Office Acceleration)"
       }
     }
   ]

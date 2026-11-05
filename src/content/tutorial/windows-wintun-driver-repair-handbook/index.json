@@ -1,0 +1,20 @@
+{
+  "slug": "windows-wintun-driver-repair-handbook",
+  "title": {
+    "zh": "Windows 平台 Wintun 驱动故障修复指南：驱动签名失效、适配器被占用与服务启动报错",
+    "en": "Windows Wintun Driver Repair Handbook: Driver Signature Errors, Stale Adapters & Service Failures"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "网络底层与分流",
+    "en": "Network Architecture & Routing"
+  },
+  "cluster": {
+    "zh": "TUN 虚拟网卡深度分流",
+    "en": "TUN Virtual Interface & Routing"
+  },
+  "description": {
+    "zh": "面向 Windows 10 与 11 用户的 Wintun 虚拟网卡底层驱动排障权威指南。深入修复【无法创建 Wintun 适配器】、旧版 OpenVPN 驱动残留冲突、驱动强制签名阻断与系统注册表清理方法。",
+    "en": "Authoritative diagnostic and repair guide for Windows Wintun virtual network drivers. Resolves adapter initialization errors, driver signature enforcement bugs, OpenVPN driver collisions, and stale registry entries."
+  }
+}

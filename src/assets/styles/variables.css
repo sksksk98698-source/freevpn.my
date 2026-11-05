@@ -35,28 +35,28 @@
     --unit-type: calc(var(--unit-fx) * var(--rem-scale));
 
     /* Brand */
-    --color-brand: oklch(73.9% 0.0796 66.71);
-    /* The brand hue as small text on light surfaces; the accent itself is too pale to read (2.3:1). */
-    --color-brand-text: oklch(55% 0.0796 66.71);
+    --color-brand: #d97706;
+    /* High contrast readable brand text: WCAG AAA */
+    --color-brand-text: #92400e;
 
     /* Surfaces */
-    --color-bg-primary: oklch(100% 0 0);
-    --color-bg-overlay: oklch(98.1% 0 0);
-    --color-bg-secondary: oklch(24.3% 0 0);
-    --color-bg-menu-open: oklch(94% 0 0);
+    --color-bg-primary: #ffffff;
+    --color-bg-overlay: #f8fafc;
+    --color-bg-secondary: #0f172a;
+    --color-bg-menu-open: #f1f5f9;
 
-    /* Text */
-    --color-text-primary: oklch(33.3% 0.0222 66.71);
-    --color-text-secondary: oklch(100% 0 0);
-    --color-text-tertiary: oklch(88.4% 0 0);
-    /* Secondary text on the dark surfaces (About band, 404); fails contrast on light ones. */
-    --color-text-on-dark-muted: oklch(85.1% 0 0);
+    /* Text - Maximum readability on light mode */
+    --color-text-primary: #09090b;
+    --color-text-secondary: #27272a;
+    --color-text-tertiary: #52525b;
+    /* Secondary text on dark surfaces */
+    --color-text-on-dark-muted: #f4f4f5;
 
     /* UI */
     --color-button: var(--color-brand);
-    --color-divider: var(--color-brand);
-    --color-error: oklch(63.7% 0.237 25.331);
-    --color-nav-ink: oklch(100% 0 0);
+    --color-divider: #e4e4e7;
+    --color-error: #dc2626;
+    --color-nav-ink: #ffffff;
     /* White under mix-blend-mode: difference inverts whatever it sits on; never themed. */
     --color-cursor: oklch(100% 0 0);
 
@@ -75,20 +75,38 @@
   }
 
   /*
-   * Dark theme. A view opts in by rendering <MainLayout theme="dark">, which
-   * sets data-theme on <html>. Only tokens change; no component knows.
+   * Dark theme tokens.
+   * High-contrast AAA compliant: bright crisp white text (#ffffff) on dark backgrounds (#09090b).
+   * Luminous amber-gold (#fde047) for brand text.
    */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --color-brand: #fbbf24;
+      --color-brand-text: #fde047;
+      --color-bg-primary: #09090b;
+      --color-bg-overlay: #18181b;
+      --color-bg-secondary: #27272a;
+      --color-bg-menu-open: #18181b;
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #e4e4e7;
+      --color-text-tertiary: #a1a1aa;
+      --color-text-on-dark-muted: #f4f4f5;
+      --color-divider: rgba(255, 255, 255, 0.2);
+    }
+  }
+
   [data-theme="dark"] {
-    /* A cooler, quieter sand: the light theme's accent reads orange on plum. */
-    --color-brand: oklch(78% 0.05 80);
-    --color-brand-text: var(--color-brand);
-    --color-bg-primary: oklch(17% 0.02 320);
-    --color-bg-overlay: oklch(30% 0.025 330);
-    --color-bg-menu-open: oklch(24% 0.02 325);
-    --color-text-primary: oklch(90% 0.005 300);
-    --color-text-secondary: oklch(17% 0.02 320);
-    --color-text-tertiary: oklch(34% 0.02 320);
-    --color-text-on-dark-muted: oklch(70% 0.01 300);
+    --color-brand: #fbbf24;
+    --color-brand-text: #fde047;
+    --color-bg-primary: #09090b;
+    --color-bg-overlay: #18181b;
+    --color-bg-secondary: #27272a;
+    --color-bg-menu-open: #18181b;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #e4e4e7;
+    --color-text-tertiary: #a1a1aa;
+    --color-text-on-dark-muted: #f4f4f5;
+    --color-divider: rgba(255, 255, 255, 0.2);
   }
 
   /* Tablet: 768 × 1024 design base */

@@ -1,0 +1,21 @@
+{
+  "slug": "iepl-qos-bypass-architecture",
+  "title": {
+    "zh": "2026 IEPL 物理专线抗骨干网 QoS 限速深度实测：上海与广州核心双入口网络拓扑解析",
+    "en": "2026 IEPL Dedicated Line QoS Bypass Architecture: Shanghai & Guangzhou Dual Ingress Deep Dive"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "IEPL 双向物理专线评测集群",
+    "en": "IEPL Dedicated Circuit Cluster"
+  },
+  "description": {
+    "zh": "从上海电信与广州移动两大核心骨干 POP 入口拓扑切入，深度拆解 2.5Gbps IEPL 跨国内网专线如何通过二层内网隧道物理绕开公网 GFW 审查与晚高峰 QoS 队列丢包。",
+    "en": "A deep-dive technical analysis of 2.5Gbps IEPL point-to-point dedicated circuits, examining Shanghai and Guangzhou POP topology, Layer-2 encapsulation, and peak-hour QoS bypass mechanisms."
+  },
+  "body": true
+}

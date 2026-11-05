@@ -1,27 +1,12 @@
-## 1. What we collect
+## Privacy and Transparency Statement
 
-When you subscribe to the newsletter we store your email address. When you register interest in a workshop we store your name, email address and preferred date. Our hosting provider may record technical data such as your IP address and browser type in its server logs.
+FreeVPN.my is committed to preserving the privacy of our visitors. As a statically generated architectural website, we **do not track, sell, or collect** your personal web traffic, DNS queries, or confidential data.
 
-## 2. Why we collect it
+### 1. Affiliate Disclosure
 
-We use this data to send you the newsletter you asked for, to contact you about workshops you registered interest in, and to keep the site secure and running.
+Some links on FreeVPN.my are affiliate links. If you click through and purchase a subscription, we may earn an affiliate commission at no extra cost to you.
+Using our exclusive coupons (such as code `AMM` for Guangsu Cloud) often provides additional discounts. Our testing methodology remains strictly objective, grounded in real peak-hour metrics.
 
-## 3. Who can access it
+### 2. Third-Party Websites
 
-Your data is accessible to gallery staff and to the service providers that host the site and send our emails. We do not sell your data or share it with anyone else.
-
-## 4. How long we keep it
-
-We keep newsletter subscriptions until you unsubscribe and workshop registrations for twelve months after the workshop takes place.
-
-## 5. Your rights
-
-You can ask us at any time what data we hold about you, ask us to correct or delete it, or withdraw your consent. Contact the gallery using the details in the footer.
-
-## 6. Cookies
-
-This site does not use tracking or advertising cookies. It may use strictly necessary browser storage to remember your preferences within a visit.
-
-## 7. Changes
-
-We may update this policy from time to time. Changes take effect when they are published on this page.
+Our reviews link to external proxy services, client download repositories, and speedtest servers. Once you navigate away from our site, the privacy policies of those respective third parties apply.

@@ -1,0 +1,20 @@
+{
+  "slug": "sing-box-gui-desktop-setup",
+  "title": {
+    "zh": "Sing-box 桌面客户端图形界面实操：从零配置出海代理到 TUN 虚拟网卡全流量托管",
+    "en": "Sing-box Desktop GUI Walkthrough: From Initial Configuration to System-Wide TUN Interface Capture"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "Sing-box 极简实践",
+    "en": "Sing-box Minimalist Setup"
+  },
+  "description": {
+    "zh": "面向普通用户的 Sing-box 桌面图形化客户端保姆级实操教程。覆盖 Windows / macOS 平台主流 Sing-box GUI 工具下载、一键订阅导入、图形化分流模式选择与开启虚拟网卡透明代理。",
+    "en": "User-friendly desktop walkthrough for Sing-box graphical interfaces across Windows and macOS. Step-by-step guidance on downloading GUI variants, importing subscriptions, and enabling full system-level TUN mode."
+  }
+}

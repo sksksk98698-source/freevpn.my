@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "全球云",
+    "en": "Global Cloud"
+  },
+  "artist": "lab-team",
+  "year": 2026,
+  "image": "/images/benchmarks/全球云-节点测速实测.png",
+  "imageAlt": {
+    "zh": "全球云 节点评测与速度图谱",
+    "en": "Global Cloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "跨国企业级专线 / Shadowsocks",
+    "en": "Enterprise Dedicated / Shadowsocks"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "全球云是 2026 年新上线的企业级专线机场，节点分布广泛，且目前整体服务器负载极低，高峰期测速表现抢眼。",
+    "en": "Global Cloud is a high-performance cross-border proxy provider. Featuring Enterprise Dedicated / Shadowsocks, Core Hub Direct, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥18/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://guangs.gcvipaff.com/#/?code=Ov2nvU9C",
+  "promoCode": "qqy7777",
+  "lowestPrice": "¥18/月",
+  "trafficInfo": "100GB/月",
+  "speedtestImage": "/images/benchmarks/全球云-节点测速实测.png",
+  "isTopPick": false,
+  "rank": 21
+}

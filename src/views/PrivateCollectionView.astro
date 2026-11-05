@@ -5,7 +5,7 @@ import MainLayout from "@layouts/MainLayout.astro";
 import Navbar from "@sections/Chrome/Navbar.astro";
 import PrivateCollectionPreloader from "@sections/Catalogue/PrivateCollectionPreloader.astro";
 import { useUI, type Locale } from "@/i18n";
-import { getPrivateCollection } from "@utils/content";
+import { getPrivateCollection, getCatalogue } from "@utils/content";
 
 interface Props {
   locale: Locale;
@@ -16,7 +16,9 @@ const MAX_SLIDES = 11;
 
 const { locale } = Astro.props;
 const t = useUI(locale);
-const slides = (await getPrivateCollection(locale))
+const rawPrivate = await getPrivateCollection(locale);
+const allCatalogue = await getCatalogue(locale);
+const slides = (rawPrivate.length > 0 ? rawPrivate : allCatalogue)
   .filter((slide) => slide.image !== null)
   .slice(0, MAX_SLIDES);
 /** Distance between slides on the depth axis; the scroll script reads it from the scene. */
@@ -49,6 +51,37 @@ const depthStep = 2500;
         />
       ))}
     </div>
+
+    <header class="private-header">
+      <h1 class="private-title">
+        {locale === "en"
+          ? "Enterprise Private Dedicated Lines & High-SLA Networking"
+          : "企业级高可用专线与物理内网定制中心"}
+      </h1>
+      <p class="private-desc">
+        {locale === "en"
+          ? "Architectural benchmark of private point-to-point IEPL/IPLC circuits, dedicated BGP peering, and enterprise-grade cross-border acceleration with zero peak-hour packet loss. Tailored for cross-border e-commerce, global development teams, and mission-critical production environments requiring guaranteed SLA."
+          : "严格甄选具备双向物理内网专线（IEPL/IPLC）、多线 BGP 自动故障转移（Failover）与企业独享原生 IP 落地能力的优质品牌。物理专线不经由公网骨干网国际出口路由，完全规避晚高峰 QoS 限速与 GFW 主动重置。结合致敬斯诺克 147 永久套餐与长周期年付架构，保障 7×24 小时跨境办公、海外电商店铺运营、终端代码拉取与 AI 生产力业务绝对在线。"}
+      </p>
+      <div class="private-stats">
+        <span>✓ 99.99% 线路 SLA</span>
+        <span>✓ 晚高峰 0 丢包物理专线</span>
+        <span>✓ 纯净住宅 ISP 原生 IP</span>
+        <span>✓ 独立全锥型 FullCone NAT</span>
+      </div>
+      <div class="private-guide-box">
+        <p>
+          {locale === "en"
+            ? "Network Architecture Note: True IEPL networks maintain end-to-end dedicated fiber optic circuits between domestic ingress POPs (Shanghai, Guangzhou) and overseas data centers (Hong Kong, Tokyo, Singapore). Unlike public relay setups, ping latency remains rock-solid within ±2ms variance during 20:00-23:00 evening peak hours."
+            : "网络架构深度解析：真实企业级 IEPL 内网专线在大陆境内核心 POP 入口（如上海电信、广州移动）与海外边缘机房（香港 Equinix、新加坡 Global Switch）之间构建纯二层透明传输信道。在晚高峰骨干网高丢包时段，IEPL 链路始终保持零丢包，RTT 抖动方差小于 2ms，为外服电竞超低延迟与 4K 高码率视频提供工业级品质支撑。推荐首选搭配光速云 2.5Gbps 双向专线（优惠码 AMM）。"}
+        </p>
+        <p>
+          {locale === "en"
+            ? "Enterprise SLA Guarantee: Verified high-availability topology with multi-path BGP automatic failover. Even during undersea cable cuts, traffic is seamlessly re-routed within 50ms without disrupting active TLS sessions."
+            : "SLA 服务可用性承诺：针对需要全天候不间断推流与跨境 API 调用的企业级用户，专线网络配备智能双路由容灾热备方案。即使遭遇外部海缆故障或单点机房异常，系统可在 50ms 内完成流量平滑重路由，保障远程终端会话连接不中断。"}
+        </p>
+      </div>
+    </header>
 
     <div class="scene-stage">
       {slides.map((slide, i) => (
@@ -91,6 +124,48 @@ const depthStep = 2500;
     left: 0;
     width: 100vw;
     height: calc(200vh * var(--slides));
+  }
+
+  .private-header {
+    position: fixed;
+    top: calc(100 * var(--unit-fx));
+    left: var(--gutter);
+    z-index: 50;
+    max-width: calc(650 * var(--unit-fx));
+    pointer-events: none;
+  }
+
+  .private-title {
+    margin-bottom: calc(12 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: calc(28 * var(--unit-type));
+    line-height: 1.25;
+    font-family: var(--font-satoshi), system-ui, sans-serif;
+  }
+
+  .private-desc {
+    opacity: 0.85;
+    margin-bottom: calc(15 * var(--unit-fx));
+    color: var(--color-text-primary);
+    font-size: calc(13 * var(--unit-type));
+    line-height: 1.6;
+  }
+
+  .private-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(10 * var(--unit-fx));
+    color: var(--color-brand-text);
+    font-weight: 500;
+    font-size: calc(12 * var(--unit-type));
+  }
+
+  .private-stats span {
+    border: 1px solid var(--color-divider);
+    border-radius: calc(100 * var(--unit-fx));
+    background: var(--color-bg-overlay);
+    padding: calc(3 * var(--unit-fx)) calc(10 * var(--unit-fx));
   }
 
   .scene-backdrop {

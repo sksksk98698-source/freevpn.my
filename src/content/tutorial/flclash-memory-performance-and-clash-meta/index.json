@@ -1,0 +1,20 @@
+{
+  "slug": "flclash-memory-performance-and-clash-meta",
+  "title": {
+    "zh": "FlClash 内核机制与资源占用实测：相比传统 Clash 客户端在低内存设备上的优化表现",
+    "en": "FlClash Architecture & Memory Benchmarks: Resource Optimization on Low-RAM Devices vs Legacy Clients"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "移动端出海实践",
+    "en": "Mobile Proxy Practices"
+  },
+  "cluster": {
+    "zh": "FlClash 跨平台实践",
+    "en": "FlClash Multi-Platform"
+  },
+  "description": {
+    "zh": "深度性能压测报告：FlClash 在低配 Android 手机、老旧平板及超轻薄笔记本上的真实资源占用实测。比对 Electron 客户端的内存泄漏顽疾，解析 Flutter 渲染树与 Mihomo 内核在弱算力设备下的卓越表现。",
+    "en": "Hardcore performance telemetry comparing FlClash against legacy Electron-based clients on low-spec hardware. Analyzes Flutter UI render loops and Mihomo kernel optimizations under constrained CPU/RAM budgets."
+  }
+}

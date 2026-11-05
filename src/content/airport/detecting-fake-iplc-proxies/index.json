@@ -1,0 +1,21 @@
+{
+  "slug": "detecting-fake-iplc-proxies",
+  "title": {
+    "zh": "唯品会同款与金融级 IPLC 专线真相：如何鉴别假专线与公网直连套壳虚标？",
+    "en": "Detecting Fake IPLC Proxies: How to Identify Public Relays Masquerading as Financial Circuits"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "专线与中转架构评测",
+    "en": "Dedicated & Relay Architecture"
+  },
+  "cluster": {
+    "zh": "IPLC 纯专线与全球节点集群",
+    "en": "IPLC Point-to-Point Cluster"
+  },
+  "description": {
+    "zh": "揭秘市面上滥用“金融级专线”、“唯品会同款专线”标签的虚假营销黑幕，提供 4 种通过 traceroute 探针路由跃点、连续 ping 抖动方差与晚高峰丢包突变鉴别真伪专线的硬核实测法。",
+    "en": "Exposing widespread fake marketing around \"financial-grade IPLC\" circuits, providing 4 technical verification methods including traceroute hop inspection, ping jitter variance, and peak-hour packet drop audits."
+  },
+  "body": true
+}

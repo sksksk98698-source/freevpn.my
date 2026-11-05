@@ -1,0 +1,20 @@
+{
+  "slug": "flclash-per-app-proxy-and-split-tunneling",
+  "title": {
+    "zh": "FlClash 路由分流与应用代理精细控制：Android 分应用代理与国内域名分流实战",
+    "en": "FlClash Smart Routing & Per-App Proxying: Android Split-Tunneling & Domestic Domain Optimization"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "移动端出海实践",
+    "en": "Mobile Proxy Practices"
+  },
+  "cluster": {
+    "zh": "FlClash 跨平台实践",
+    "en": "FlClash Multi-Platform"
+  },
+  "description": {
+    "zh": "详解 Android 手机中 FlClash 的高级分应用代理（Per-App Proxy）与路由规则控制。教你如何仅让指定 App（如 Telegram、YouTube、Twitter）走代理出海，同时让国内银行与即时通讯软件强制直连。",
+    "en": "Comprehensive guide to FlClash Per-App Proxying and split-tunneling on Android. Learn how to route target applications through proxy tunnels while exempting sensitive domestic banking and messaging apps entirely."
+  }
+}

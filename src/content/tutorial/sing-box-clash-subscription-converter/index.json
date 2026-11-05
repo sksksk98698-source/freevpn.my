@@ -1,0 +1,20 @@
+{
+  "slug": "sing-box-clash-subscription-converter",
+  "title": {
+    "zh": "Sing-box 与 Clash 订阅格式无损互转实战：解析 JSON 配置与 YAML 规则的映射机制",
+    "en": "Lossless Sing-box & Clash Subscription Conversion: Mapping JSON Schemas to YAML Profiles"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "桌面客户端调优",
+    "en": "Desktop Client Tuning"
+  },
+  "cluster": {
+    "zh": "Sing-box 极简实践",
+    "en": "Sing-box Minimalist Setup"
+  },
+  "description": {
+    "zh": "深入讲解如何将传统的 Clash YAML 订阅无损转换为 Sing-box JSON 格式。解析 Subconverter 在线与本地转换原理、节点加密参数映射、分流规则继承与自建转换后端防隐私泄露实践。",
+    "en": "Master seamless conversion between Clash YAML and Sing-box JSON subscription profiles. Learn how Subconverter maps protocol parameters, transforms routing rules, and deploy a self-hosted conversion backend for maximum privacy."
+  }
+}

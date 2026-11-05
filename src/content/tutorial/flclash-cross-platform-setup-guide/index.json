@@ -1,0 +1,20 @@
+{
+  "slug": "flclash-cross-platform-setup-guide",
+  "title": {
+    "zh": "FlClash 极简跨平台代理客户端实战：Android / iOS / Windows 多端统一交互指南",
+    "en": "FlClash Cross-Platform Proxy Practical Guide: Unified Multi-OS Experience for Android, iOS & Windows"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "移动端出海实践",
+    "en": "Mobile Proxy Practices"
+  },
+  "cluster": {
+    "zh": "FlClash 跨平台实践",
+    "en": "FlClash Multi-Platform"
+  },
+  "description": {
+    "zh": "体验基于 Flutter 打造的新一代高颜值跨平台代理客户端 FlClash。详解 Android、Windows、macOS 与 Linux 四端统一的交互界面、Clash Meta 内核集成、订阅导入与轻量级内存调优。",
+    "en": "Hands-on walkthrough of FlClash, the modern cross-platform proxy client built with Flutter. Covers unified UX across Android, Windows, macOS, and Linux, Mihomo core integration, profile parsing, and low-RAM optimization."
+  }
+}

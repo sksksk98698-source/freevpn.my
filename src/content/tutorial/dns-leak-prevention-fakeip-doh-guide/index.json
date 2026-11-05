@@ -1,0 +1,20 @@
+{
+  "slug": "dns-leak-prevention-fakeip-doh-guide",
+  "title": {
+    "zh": "DNS 污染与 DNS 泄漏深度防护教程：Fake-IP 原理、DoH / DoT 加密与防泄漏全流程",
+    "en": "DNS Pollution & DNS Leak Prevention: Fake-IP Mechanisms, Encrypted DoH/DoT & Full Protection"
+  },
+  "pubDate": "2026-11-04",
+  "category": {
+    "zh": "网络底层与分流",
+    "en": "Network Architecture & Routing"
+  },
+  "cluster": {
+    "zh": "TUN 虚拟网卡深度分流",
+    "en": "TUN Virtual Interface & Routing"
+  },
+  "description": {
+    "zh": "深度解析出海过程中的两大核心安全隐患：DNS 污染与 DNS 泄漏。详解 Fake-IP 模式工作原理、DoH/DoT 加密查询配置、防 ISP 域名窥探及使用 dnsleaktest 验证真实防护效果实战。",
+    "en": "In-depth guide to combating DNS pollution and DNS leaks during international browsing. Master Fake-IP architecture, encrypted DNS-over-HTTPS (DoH), preventing ISP traffic surveillance, and verifying protection with dnsleaktest."
+  }
+}

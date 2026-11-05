@@ -1,0 +1,34 @@
+{
+  "title": {
+    "zh": "WgetCloud",
+    "en": "WgetCloud"
+  },
+  "artist": "lab-team",
+  "year": 2021,
+  "image": "/images/artworks/spectrum-of-thought/image.jpg",
+  "imageAlt": {
+    "zh": "WgetCloud 节点评测与速度图谱",
+    "en": "WgetCloud speed benchmark and server metrics"
+  },
+  "medium": {
+    "zh": "企业级IPLC专线 / Trojan协议",
+    "en": "Enterprise IPLC / Trojan"
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 1000,
+    "unit": "cm"
+  },
+  "description": {
+    "zh": "WgetCloud 是面向外贸企业、涉外投资机构及高端商务用户的行业标杆，全线采用优质企业级专线与 Trojan 协议，测速数据显示其各节点性能均处第一梯队。",
+    "en": "WgetCloud is a high-performance cross-border proxy provider. Featuring Enterprise IPLC / Trojan, High Redundancy / 59 Active Nodes, and full support for Netflix, 4K YouTube streaming, and AI tools like ChatGPT and Claude. Starting at ¥99/月."
+  },
+  "availability": "available",
+  "affiliateUrl": "https://invite.wgetcloud.ltd/auth/register?code=VLG2xb",
+  "promoCode": "WGET2026",
+  "lowestPrice": "¥99/月",
+  "trafficInfo": "230GB/月",
+  "speedtestImage": "",
+  "isTopPick": false,
+  "rank": 29
+}
