@@ -259,16 +259,24 @@ const guangsuHref = localizePath(locale, "/artworks/guangsu-cloud");
 
   .client-card-name {
     margin: 0;
-    font-weight: 500;
-    font-size: calc(26 * var(--unit-type));
-    line-height: 1.2;
-    font-family: var(--font-baskervville);
+    font-weight: 600;
+    font-size: calc(24 * var(--unit-type));
+    line-height: 1.3;
+    font-family:
+      var(--font-satoshi),
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
   .client-card-name a {
     transition: color var(--transition-fast);
     color: var(--color-text-primary);
     text-decoration: none;
+  }
+
+  .client-card-name a:visited {
+    color: var(--color-text-primary);
   }
 
   .client-card-name a:hover {
